@@ -718,6 +718,8 @@ rebuild_index() {
         else
             get_html_file_content 'entry' 'entry' <$i >> "$contentfile"
         fi
+        # Add a horizontal break between entries in the index
+        echo "<hr/>" >> "$contentfile"
         echo -n "."
         n=$(( $n + 1 ))
     done
