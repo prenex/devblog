@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Ballmerpeak devblog &mdash; Posts tagged "jpa"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="anti-patterns-1-transient-fields-vs-extender-classes.html">
+Anti-patterns 1: @Transient fields vs. extender classes 
+</a></h3>
+<div class="subtitle">September 06, 2015  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+The well-known JPA object-relational mapping API enables you to think of database entities like (java) objects. When you search up your entities or query results, basically you get objects whose fields are in correspondance with the columns of the database table. That is very good so far, but sometimes one might use a returned object like this in a GUI application to bind a visible table for the elements or such and you can easily get into situations when you want to extend your entity with some fields that are not represented directly in the database, but you want to appear in the visible representation - or you have similar problems. For those cases one can just create a new class, that embed the JPA entity in itself and provide the new fields - or does not even embed the entity just copy the data from it - but seemingly there is an other possibility that might seem faster: Just adding new fields for the JPA entity and marking them with the @Transient annotation as that means the JPA framework will not take care of that field and its value will never be in the database. Seems right? I hope that I can make you sure to never design code like that unless you really need to use this functionality - it is EVIL! ;-)</p>
+
+<p>In short: I will present with an example why one should try to ensure the entity classes are containing only data that will be stored in the database without added business fields that are never presented in the database. If you need such extra information, create a class that has your entity and the extra information or use DTO objects, but do not use @Transient in new designs when not necessary.</p>
+
+<p class="readmore"><a href="./anti-patterns-1-transient-fields-vs-extender-classes.html">Read more...</a></p>
+<p>Tags: <a href='tag_software-technology.html'>software-technology</a>, <a href='tag_anti-pattern.html'>anti-pattern</a>, <a href='tag_jpa.html'>jpa</a>, <a href='tag_java.html'>java</a>, <a href='tag_transient.html'>transient</a>, <a href='tag_drawit.html'>drawit</a>, <a href='tag_vim.html'>vim</a></p>
+</div>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>

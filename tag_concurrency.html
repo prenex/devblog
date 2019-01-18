@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Ballmerpeak devblog &mdash; Posts tagged "concurrency"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="threads-why-you-should-hate-and-love-them-2-lazyhashlock.html">
+Threads: Why you should hate and love them 2: LazyHashLock
+</a></h3>
+<div class="subtitle">July 26, 2015  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>Java has many interesting built-in and library tools for locking, synchronization and parallel/concurrent programming in general, but you can always find situations when the built in toolset is not enough or more often: not convenient enough. In most situations, the problem can be solved in some usual way, but you feel it is not the best way to do that and I think some of us create a generic solution in those times. This is how design patterns, practices and libraries appear and because I have found an interesting kind of lock that can be handy in many situations I have decided to share some of my code: enjoy my little solution that I call "LazyHashLock".</p>
+
+<p class="readmore"><a href="./threads-why-you-should-hate-and-love-them-2-lazyhashlock.html">Read more...</a></p>
+<p>Tags: <a href='tag_java.html'>java</a>, <a href='tag_lazy.html'>lazy</a>, <a href='tag_hash.html'>hash</a>, <a href='tag_lock.html'>lock</a>, <a href='tag_concurrency.html'>concurrency</a>, <a href='tag_LazyHashLock.html'>LazyHashLock</a>, <a href='tag_parallel.html'>parallel</a>, <a href='tag_thread.html'>thread</a>, <a href='tag_synchronization.html'>synchronization</a>, <a href='tag_case study.html'>case study</a>, <a href='tag_striping.html'>striping</a>, <a href='tag_splitting.html'>splitting</a>, <a href='tag_pool.html'>pool</a>, <a href='tag_shared.html'>shared</a></p>
+<h3><a class="ablack" href="threads-why-you-should-hate-and-love-them-1.html">
+Threads: Why you should hate and love them 1
+</a></h3>
+<div class="subtitle">July 12, 2015  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>I think most software developers already (think that they) know much about threads. People know the problem of the dining philosophers, they heard how hard is to ensure correctness and know about tales of various threading related catastrophes. Despite this, however I still feel that there are many (not even poor) practical-only developers out there who still underestimate the various problems threading issues can introduce:
+The kind of people who always argue (sometimes with understandable arguments) that "patterns and rules are good, but in practice you can break them 'for the real life'" or "in theory there are these or those problems, but 'reality is different' and you can live without this or that rule if the software is written according to the business demands (and you should focus that)" also tend to think about threading issues with the same mindset... This however just doesn't work in the case of concurrency - if you break it, it is utterly broken in many ways you are not aware of, and what is worse is that these problems cannot be found out by testing!</p>
+
+<p>Because I want to spread some of the wisdom on this hard topic, I've choosen to write down some of my suggestions and some examples that I have found in real-life. I hope it makes sense and helps the readers.</p>
+
+<p>As an addendum, I have chosen to use a nice little diagramming tool that I have found while lurking around the internet to make my illustrations readable from a console. I think this is something that I will try to do for the future too, as I want this blog to be enjoyable from elinks too (of course there will be exceptions I think, but it is better to minimize them in my opinion)</p>
+
+<p class="readmore"><a href="./threads-why-you-should-hate-and-love-them-1.html">Read more...</a></p>
+<p>Tags: <a href='tag_threads.html'>threads</a>, <a href='tag_concurrency.html'>concurrency</a>, <a href='tag_java.html'>java</a>, <a href='tag_OSGi.html'>OSGi</a>, <a href='tag_development.html'>development</a>, <a href='tag_lock ordering.html'>lock ordering</a>, <a href='tag_deadlock.html'>deadlock</a>, <a href='tag_dump analysis.html'>dump analysis</a>, <a href='tag_asciiflow.html'>asciiflow</a>, <a href='tag_bug.html'>bug</a>, <a href='tag_analysis.html'>analysis</a></p>
+</div>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>

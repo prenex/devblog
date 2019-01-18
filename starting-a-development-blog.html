@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Starting a development blog...</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="starting-a-development-blog.html">
+Starting a development blog...
+</a></h3>
+<div class="subtitle">June 24, 2015  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<h1>First entry, big ideas and small words</h1>
+
+<p>Hello everybody,</p>
+
+<p>I don't know how it is the best to start a blog, but I guess it is the best if the first entry is short enough. I think I will just introduce myself a little, talk about what I plan to publish here, and add at least some meaningful content.</p>
+
+<h2>Who am I?</h2>
+
+<p>I'm a software developer from Hungary, currently working on a train traffic system in java. When I was a small child I always liked math, philosophy, little creative and invetion-related games/stuff. I started out with Klick&amp;Play and Comenius Logo back in elementary school and stepped right into the deep waters with (mostly x86 and mostly dos) assembly programming through my high school years. Assembly was considered obsolete even back then (I'm still only 26) but it was much better and more easily grasped by my mind than the high level languages like pascal but anyways I liked those too.</p>
+
+<p>After the high school years where I wrote many various games, hacks, tricks I went to Eötvös Lóránd University for learning computer sciences. I liked it and among every thing I enjoyed classes ranging from discrete maths, compiler technology, software technology, functional programming trough project management to even software ergonomy. I like to have a broad view on development and I'm really into creating not only working, but beautiful and 1337 software.</p>
+
+<p>In the everyday life, I'm a nice and friendly guy who has an opinion on everything. I play guitar, ukuele, mandolin, a little bass and like running, playing table tennis and many-many other things especially working on my wine-fields ;-)</p>
+
+<p>I also like linux, suckless.org, and vim - anyways I'm writing this post in vim.</p>
+
+<h2>What will be here?</h2>
+
+<ul>
+<li>I plan to add "interesting and useful" contents. If they are not interesting or they are noob, just tell me and I will rant about it maybe.</li>
+<li>I might talk about OSGi and threads or maybe multi-threading. I've learned that for most people (including me) it is hard to write working concurrent code with our current toolings so I might sometimes speculate about where we should go from this sad point.</li>
+<li>I might add anecdotes about how projects should work, how the whole development should work.</li>
+<li>I might add some things related to more soft sides of the IT: like project management or team and work management, interesting pitfalls in the development lifecycle and various agile (or not agile) methodoligies. I'm a big fan of agile and I also like management a bit so I try to walk with my eyes open so that I can learn from my surroundings.</li>
+<li>Sometimes I might write about various gems and tricks around bash, vim, linux and whatever.</li>
+<li>Maybe some assembly or compiler/language technology ideas could appear.</li>
+<li>Maybe game-development related things</li>
+<li>And others. Fun-facts, philosophy, everything.</li>
+</ul>
+
+<h2>What drives this blog-log?</h2>
+
+<p>I promised that something meaningful will be here too, not only the above random text... At least this is a tech blog, isn't it? I think the most easy post to start with is to talk a little about the blog engine behind the current text.</p>
+
+<p>At work, we have a linux development machine and that was a great achievment in a company that was Microsoft gold certified partner before they have bought an other one with java things... Anyways I always wrote little tools in bash, used minimalistic software such as those from suckless.org and so on and even did that at our company. I've found that if you can surround yourself with minimal, but very smart things that are doing only what they are supposed to do and you "lego them together" - that's the best! Maybe you already know about static blog or static site generators, but if you didn't you should check out them!</p>
+
+<p>The idea is very simple: You write the blog posts by ssh-ing to the machine of your blog (or even on your own one), write some plain text and transform that into static html. No blog engines, no databases, no php or javaee... just a web-page that can be published literally everywhere you want. There are plenty of tools for doing this and in the last few months I've already decided that I will take this path and I've finally found the one that seems promising enough. It is called <a href="https://github.com/cfenollosa/bashblog">BashBlog</a>!</p>
+
+<p>A simple shell script, can use disqus for comments and for default it uses Markdown, which looks like intelligent plain text files so it can be written easily which is great! I've just checked out the git repo (oh, I also like git btw) put it into the devblog directory, downloaded Markdown.pl and wired everything together... And... It.. just... <em>works</em> ;-)</p>
+
+<p>Until now all the problems I had was that I had to set the markdown.pl path in the .config file to an absolute path and I'm not sure if that could change on my university server or not, but I like how markdown works well with html (you just add tags where you want). I hope that the disqus "integration" will also work, but if you can comment on my message I've succeeded and I really hope that I will ;-)</p>
+
+<p>I don't have fetishes that make my hearth warm when many people follow my blog so I don't really care if you are here in big numbers or not, but to properly end the first post, I think I should just shout: <em>Welcome everyone!</em></p>
+
+<p>prenex
+^^that's my nickname</p>
+
+<p>PS: disqus doesn't worked for the first time the post appeared, but I've found out that where the config file says "global<em>disqus</em>username" I should put in disqus.shortname - I thought that this would happen but I tried the username anyways first ;-)</p>
+
+<p>Tags: <a href='tag_first-entry.html'>first-entry</a>, <a href='tag_devblog.html'>devblog</a>, <a href='tag_BashBlog.html'>BashBlog</a>, <a href='tag_introduction.html'>introduction</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+    }());
+    </script>
+</body></html>
