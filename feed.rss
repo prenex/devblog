@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Wed, 16 Jan 2019 02:08:14 +0100</lastBuildDate>
-<pubDate>Wed, 16 Jan 2019 02:08:14 +0100</pubDate>
+<lastBuildDate>Fri, 18 Jan 2019 16:24:50 +0100</lastBuildDate>
+<pubDate>Fri, 18 Jan 2019 16:24:50 +0100</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Make it work: GT97 Racing
@@ -70,6 +70,10 @@ My last day will be 15th of October, 2018. literally one day after I started in 
 
 <p>Tags: <a href='tag_cheaplens.html'>cheaplens</a>, <a href='tag_intrapeneur.html'>intrapeneur</a>, <a href='tag_ending.html'>ending</a>, <a href='tag_finish.html'>finish</a>, <a href='tag_company.html'>company</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_vr.html'>vr</a>, <a href='tag_innovation.html'>innovation</a>, <a href='tag_tender.html'>tender</a>, <a href='tag_corruption.html'>corruption</a>, <a href='tag_water.html'>water</a>, <a href='tag_pouring.html'>pouring</a>, <a href='tag_into.html'>into</a>, <a href='tag_manager.html'>manager</a>, <a href='tag_face.html'>face</a>, <a href='tag_ceo.html'>ceo</a>, <a href='tag_me.html'>me</a></p>
 
+
+
+
+
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/decision-point.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./decision-point.html</guid>
@@ -86,6 +90,10 @@ Why this is called a ballmerpeak devblog?
 <p>Oh: of course after I have that username on my university's server machine I'd better choose the same for the title of the devblog too, because it is in the URL anyways so it should make some sense. This is one of those cases when the result is there because of tides of the world randomly flowing and refactoring the meaning into the stuff only as an afterthought.</p>
 
 <p>Tags: <a href='tag_random.html'>random</a>, <a href='tag_ballmerpeak.html'>ballmerpeak</a>, <a href='tag_blog.html'>blog</a>, <a href='tag_background.html'>background</a>, <a href='tag_info.html'>info</a></p>
+
+
+
+
 
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/why-this-is-called-a-ballmerpeak-devblog.html</link>
@@ -106,6 +114,10 @@ The "Successful" software development leadership method: Essence-oriented develo
 
 <p>Tags: <a href='tag_leadership.html'>leadership</a>, <a href='tag_methods.html'>methods</a>, <a href='tag_management.html'>management</a>, <a href='tag_minimal.html'>minimal</a>, <a href='tag_feature.html'>feature</a>, <a href='tag_maximal.html'>maximal</a>, <a href='tag_essence.html'>essence</a>, <a href='tag_oriented.html'>oriented</a>, <a href='tag_development.html'>development</a>, <a href='tag_software.html'>software</a>, <a href='tag_agile.html'>agile</a>, <a href='tag_unorthodox.html'>unorthodox</a></p>
 
+
+
+
+
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/the-successful-software-development-leadership-method-essence-oriented-development.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./the-successful-software-development-leadership-method-essence-oriented-development.html</guid>
@@ -119,6 +131,10 @@ Title on this line
 as soon as you exit your editor.</p>
 
 <p>Tags: <a href='tag_keep-this-tag-format.html'>keep-this-tag-format</a>, <a href='tag_tags-are-optional.html'>tags-are-optional</a>, <a href='tag_beware-with-underscores-in-markdown.html'>beware-with-underscores-in-markdown</a>, <a href='tag_example.html'>example</a></p>
+
+
+
+
 
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/title-on-this-line.html</link>
@@ -159,6 +175,10 @@ Low on resources
 
 <p>Tags: <a href='tag_interesting.html'>interesting</a>, <a href='tag_management.html'>management</a>, <a href='tag_pattern.html'>pattern</a>, <a href='tag_anti-pattern.html'>anti-pattern</a></p>
 
+
+
+
+
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/low-on-resources.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./low-on-resources.html</guid>
@@ -175,6 +195,10 @@ Technical lead
 <p>I wish once I can lead a company where we do make magic and there is no one who keeps us back. I hope I would not make mistakes like this.</p>
 
 <p>Tags: <a href='tag_tech-lead.html'>tech-lead</a>, <a href='tag_mistake.html'>mistake</a></p>
+
+
+
+
 
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/technical-lead.html</link>
@@ -276,6 +300,10 @@ Being an intraprenour
 <p>The funny thing is that even despite all these, we can even get media attention, despite things are so far from optimal. Just I hope those who make these obstacles all through our journey will not think their fears helped in any way or shape haha... I wish what we do can help my nation and Hungary - I do not want to go for personal success and do not want to "lead" people, but it seems I have to be dominant in many situations otherwise things just go into the wrong direction and nothing happens... I want innovation everywhere and people who think alike and are great in their skills - greater than me! ;-)</p>
 
 <p>Tags: <a href='tag_self-esteem.html'>self-esteem</a>, <a href='tag_intraprenour.html'>intraprenour</a>, <a href='tag_hard.html'>hard</a>, <a href='tag_human resource.html'>human resource</a>, <a href='tag_hr.html'>hr</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_vr.html'>vr</a>, <a href='tag_hololens.html'>hololens</a>, <a href='tag_media.html'>media</a>, <a href='tag_multi-functional.html'>multi-functional</a>, <a href='tag_people.html'>people</a>, <a href='tag_bosses.html'>bosses</a>, <a href='tag_leadership.html'>leadership</a>, <a href='tag_agile.html'>agile</a>, <a href='tag_fragile.html'>fragile</a>, <a href='tag_big.html'>big</a>, <a href='tag_mistakes.html'>mistakes</a></p>
+
+
+
+
 
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/being-an-intraprenour.html</link>

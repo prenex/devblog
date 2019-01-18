@@ -876,7 +876,11 @@ create_includes() {
     echo '<h1 class="nomargin"><a class="ablack" href="'$global_url'">'$global_title'</a></h1>' > ".title.html"
     echo '<div id="description">'$global_description'</div>' >> ".title.html"
 
-    if [[ -f "$header_file" ]]; then cp "$header_file" .header.html
+    if [[ -f "$header_file" ]]; then
+        cp "$header_file" .header.html
+        for css_file in ${css_include[*]}; do
+            echo '<link rel="stylesheet" href="'$css_file'" type="text/css" />' >> ".header.html"
+        done
     else
         echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' > ".header.html"
         echo '<html xmlns="http://www.w3.org/1999/xhtml"><head>' >> ".header.html"
