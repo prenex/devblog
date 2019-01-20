@@ -2,9 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Fri, 18 Jan 2019 17:14:04 +0100</lastBuildDate>
-<pubDate>Fri, 18 Jan 2019 17:14:04 +0100</pubDate>
+<lastBuildDate>Mon, 21 Jan 2019 00:27:37 +0100</lastBuildDate>
+<pubDate>Mon, 21 Jan 2019 00:27:37 +0100</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Awsome linux tools I: Screen capture and stuff
+</title><description><![CDATA[
+
+<p>When the idea of screen capture comes to our mind many usually think about 
+the youtube-streaming stars and heavy-weight professional applications 
+running on some then-hyped apple device or high-end PC computers.</p>
+
+<p>If you are recording CGI or gaming videos maybe these are necessary anyways, 
+but there are more hacker-friendly, lightweight ways - and on linux. :-)</p>
+
+<h1>Terminal recordings</h1>
+<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_tools.html'>tools</a>, <a href='tag_scripts.html'>scripts</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_snipping.html'>snipping</a>, <a href='tag_tool.html'>tool</a>, <a href='tag_screen record.html'>screen record</a>, <a href='tag_mpv.html'>mpv</a>, <a href='tag_mp4.html'>mp4</a>, <a href='tag_gif.html'>gif</a>, <a href='tag_screenshot.html'>screenshot</a>, <a href='tag_video.html'>video</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_following.html'>following</a>, <a href='tag_cult.html'>cult</a>, <a href='tag_hacker.html'>hacker</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/awsome-linux-tools-i-screen-capture-and-stuff.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./awsome-linux-tools-i-screen-capture-and-stuff.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Mon, 21 Jan 2019 00:00:00 +0100</pubDate></item>
+<item><title>
+Make it work 2: GT 97 Racing - "playing" the game
+</title><description><![CDATA[
+
+<p>After creating the NO-CD version of the game it was time to play some is not 
+it? It started out really hard and after perfecting the game while making it 
+run without any lag... I have found that it is unbeatable on the first level 
+even with a perfect drive!</p>
+
+<p>It seems the internet is also complaining on this: People write on various 
+places that there are versions which are unbeatable and versiouns which are 
+beatable. Instead of finding a right versioun I thought it is best to go and 
+'play' a bit differently - 'play' with some debuggers and reverse 
+engineering tools.</p>
+
+<p>After all this became a much longer and harder journey than removing the 
+no-cd code. The results are presented in this post, but if you are only 
+interested in downloading the final binaries, scroll down to the posts end!</p>
+
+<p>Also if you just want to see how I removed the CD-checks, look for the 
+earlier post on this very same blog.</p>
+
+<h1>Making the game run smooth</h1>
+<p>Tags: <a href='tag_retro.html'>retro</a>, <a href='tag_gaming.html'>gaming</a>, <a href='tag_dosbox.html'>dosbox</a>, <a href='tag_crack.html'>crack</a>, <a href='tag_gtracing.html'>gtracing</a>, <a href='tag_hacking.html'>hacking</a>, <a href='tag_assembly.html'>assembly</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_cdemu.html'>cdemu</a>, <a href='tag_make-it-work.html'>make-it-work</a>, <a href='tag_gt.html'>gt</a>, <a href='tag_97.html'>97</a>, <a href='tag_racing.html'>racing</a>, <a href='tag_trainer.html'>trainer</a>, <a href='tag_fix.html'>fix</a>, <a href='tag_patch.html'>patch</a>, <a href='tag_bugfix.html'>bugfix</a>, <a href='tag_checkpoint.html'>checkpoint</a>, <a href='tag_time.html'>time</a>, <a href='tag_issues.html'>issues</a>, <a href='tag_too.html'>too</a>, <a href='tag_little.html'>little</a>, <a href='tag_bonus.html'>bonus</a>, <a href='tag_no.html'>no</a>, <a href='tag_cd.html'>cd</a>, <a href='tag_no-cd.html'>no-cd</a>, <a href='tag_problem.html'>problem</a>, <a href='tag_cannot.html'>cannot</a>, <a href='tag_beat.html'>beat</a>, <a href='tag_pwn.html'>pwn</a>, <a href='tag_h4x00r.html'>h4x00r</a>, <a href='tag_hackerman.html'>hackerman</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/make-it-work-2-gt-97-racing---playing-the-game.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./make-it-work-2-gt-97-racing---playing-the-game.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Sat, 19 Jan 2019 16:22:00 +0100</pubDate></item>
 <item><title>
 Setting up my own ascii-casting on my blog
 </title><description><![CDATA[
@@ -231,28 +276,4 @@ Technical lead
 <guid>http://ballmerpeak.web.elte.hu/devblog/./technical-lead.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Mon, 04 Dec 2017 22:44:00 +0100</pubDate></item>
-<item><title>
-REST in piece
-</title><description><![CDATA[
-
-<p>Along with trying to get things going - where we actually start to get interests in the Historical use cases of the Hololens finally as I have always dreamt of - I do some more usual development in a small team. I did fear it will be some kind of enterprisity with bloated technologies, but actually it is not that bad.</p>
-
-<h1>JAVA-REST-JS-HTML</h1>
-<p>Tags: <a href='tag_javascript.html'>javascript</a>, <a href='tag_rest.html'>rest</a>, <a href='tag_js.html'>js</a>, <a href='tag_java.html'>java</a>, <a href='tag_html.html'>html</a>, <a href='tag_frontend.html'>frontend</a>, <a href='tag_architect.html'>architect</a>, <a href='tag_enterprise.html'>enterprise</a>, <a href='tag_lightweight.html'>lightweight</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/rest-in-piece.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./rest-in-piece.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Thu, 18 May 2017 22:39:00 +0200</pubDate></item>
-<item><title>
-Killing in the name of...
-</title><description><![CDATA[
-
-<p>Killing meaningful work in the name of "guarding" developers from doing "too much" for a customer in a project where both sides of the stakeholders are sharing "free" research money and the project have not even started yet... does it sound any good?</p>
-
-<h1>Enter sadman</h1>
-<p>Tags: <a href='tag_management.html'>management</a>, <a href='tag_dilbert.html'>dilbert</a>, <a href='tag_research.html'>research</a>, <a href='tag_tender.html'>tender</a>, <a href='tag_high-hopes.html'>high-hopes</a>, <a href='tag_sadness.html'>sadness</a>, <a href='tag_bullshit.html'>bullshit</a>, <a href='tag_morale.html'>morale</a>, <a href='tag_work-ethics.html'>work-ethics</a>, <a href='tag_de-moralized.html'>de-moralized</a>, <a href='tag_apathy.html'>apathy</a>, <a href='tag_work.html'>work</a>, <a href='tag_intraprenour.html'>intraprenour</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/killing-in-the-name-of.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./killing-in-the-name-of.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Wed, 17 May 2017 10:20:00 +0200</pubDate></item>
 </channel></rss>
