@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Light asciicast viewer</title>
+<link rel="stylesheet" href="asciinema-player.css" type="text/css" />
+
+
+<!-- Load CSS file from JS (for the javascript player). This is 50k and takes 0.6s for those who do not need it!
+     REM: NOT NEEDED TO BE ASYNCH ANYMORE !!!
+<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/loadcss.js"></script>
+<script type="text/javascript">
+	loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
+</script>
+-->
+
+<!-- This script is necessary to do once for asciinema playback -->
+<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast'> because javascript player is not working!</noscript>
+
+<script type="text/javascript">
+var script = document.createElement('script');
+script.onload = function () {
+    //do stuff with the script - maybe autostart playback??? (should be done by the script itself)
+};
+script.src = "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js";
+
+document.head.appendChild(script);
+</script>
+</head>
+
+<body>
+<asciinema-player speed="2" src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast"></asciinema-player />
+</body>
