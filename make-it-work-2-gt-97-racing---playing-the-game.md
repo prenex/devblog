@@ -778,8 +778,7 @@ is still running in the dosbox window and check the result.
 
 I made a terminal recording about the hacking process:
 
-<asciinema-player speed="2" src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast"></asciinema-player />
-
+<a href="http://ballmerpeak.web.elte.hu/devblog/toolz/asciicast.html?dir=making-it-run-gt97-racing-2&file=hack.cast&speed=2"><img src="14.png"></a>
 
 4th day and finalization
 ========================
@@ -866,16 +865,6 @@ hackerman picture earlier. Now I can hopefully deserve it more even though
 it must be God that helped me not get stuck in the bunch of machine code...
 
 <img src="http://ballmerpeak.web.elte.hu/devblog/attachments/smo_hackerman.jpg" alt="Hackerman">
-
-<!-- Load CSS file from JS (for the javascript player). This is 50k and takes 0.6s for those who do not need it! -->
-<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/loadcss.js"></script>
-<script type="text/javascript">
-	loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
-</script>
-
-<!-- This is necessary to do once for asciinema playback -->
-<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast'> because javascript player is not working!</noscript>
-
 
 [0]: https://www.youtube.com/watch?v=nENasN36Bbo
 [1]: https://blog.torh.net/2015/10/30/disassemble-dos4gw
