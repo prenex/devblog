@@ -1,0 +1,48 @@
+commands                         make                             tbreak
+compare-sections                 mem                              tcatch
+compile                          monitor                          tdump
+complete                         next                             teval
+condition                        nexti                            tfind
+continue                         ni                               thbreak
+core-file                        nosharedlibrary                  thread
+define                           output                           tp
+delete                           overlay                          trace
+demangle                         passcount                        tsave
+detach                           path                             tstart
+directory                        print                            tstatus
+disable                          printf                           tstop
+disassemble                      print-object                     tui
+disconnect                       ptype                            tvariable
+display                          pwd                              tty
+document                         python                           undisplay
+dont-repeat                      python-interactive               unset
+down                             queue-signal                     until
+down-silently                    quit                             up
+dprintf                          rbreak                           update
+dump                             rc                               up-silently
+echo                             record                           watch
+edit                             refresh                          wh
+enable                           remote                           whatis
+end                              remove-inferiors                 where
+eval                             remove-symbol-file               while
+exec-file                        restart                          while-stepping
+explore                          restore                          winheight
+expression                       return                           ws
+file                             reverse-continue                 x
+find                             reverse-finish
+finish                           reverse-next
+(gdb) bt
+#0  main (argc=2, argv=0xbffff654) at termshot.c:104
+(gdb) n
+105                             vcspath[lastindex-1] = vty_target_num;
+(gdb) n
+108                             lastindex = strlen(vcsapath);
+(gdb) n
+109                             vcsapath[lastindex-1] = vty_target_num;
+(gdb) n
+133             d = opendir(".");
+(gdb) n
+135             if(d) {
+(gdb) print d
+$3 = (DIR *) 0x804c028
+(gdb) disassemble main

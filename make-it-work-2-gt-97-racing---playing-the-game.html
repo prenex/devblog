@@ -1,9 +1,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+</script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
-<link rel="stylesheet" href="asciinema-player.css" type="text/css" />
 <title>Make it work 2: GT 97 Racing - "playing" the game</title>
 </head><body>
 <div id="divbodyholder">
@@ -183,7 +192,7 @@ methods that are called 18 (0x12) times per frame in this map and made note
 of this inner function exiting from which I got to a place that is called 
 only once.</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/frame_bplist.png" alt="Somewhere in the frame-loop"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_frame_bplist.png" alt="Somewhere in the frame-loop"></p>
 
 <p>The above screenshot is taken from the "frame" loop or call. From a place 
 that seems to be somewhere in the main function very closely to it.</p>
@@ -236,7 +245,7 @@ the LE format and repack with DOS32A instead.</p>
 <p>This sounds extremely nice so far, I tried it, but this is not a famous DOS 
 extender and the tools did not work at all this way:</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/extender.png" alt="game binary with extender version strings"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_extender.png" alt="game binary with extender version strings"></p>
 
 <p>As it seems it is actually a very homebrew, rare kind that is made 
 completely by the developer of the game (Blue Sphere made the game too).</p>
@@ -301,7 +310,7 @@ check:  cmp [comparison]
 among the loops and the 4FAA3 call. The first loop was interesting as it 
 seemed that everything updates on the screen after that is completed.</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/retrace_trick.png" alt="Retrace trick"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_retrace_trick.png" alt="Retrace trick"></p>
 
 <p>The first loop turned out to not do anything else than what a modern world 
 engines 'swapbuffers' call would do. It just gets the stuff really on the 
@@ -330,7 +339,7 @@ started to call 'many-branch-function' or 'many-if-function' because it had
 a whole bunch of conditional cases and deep structure, while the other was 
 ending in a pretty interesting data-copy that moves around 6kb data in RAM.</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/fld_fstp.png" alt="fld and fstp"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_fld_fstp.png" alt="fld and fstp"></p>
 
 <p>To be honest I really got interested in knowing why this method is made the 
 way it is programmed. In most cases programmers just tell a source and a 
@@ -418,7 +427,7 @@ jmp next</strong> in the code which usually resulted in overwriting only one byt
 
 <p>This is how the beginning looked in the debugger at runtime:</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/orig_carcollision_loopentry.png" alt="The carphysics loop"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_orig_carcollision_loopentry.png" alt="The carphysics loop"></p>
 
 <p>EB is the opcode for a short jump, with the following byte telling the CPU 
 where to jump RELATIVELY from this location. This is a signed value so it 
@@ -426,7 +435,7 @@ can be a -127..+128 range from current code location. By adding a little
 we can practically always jump a bit further to miss the comparison and the 
 whole loop for the first time - so it never runs :-).</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hacked_carcollision_loopentry.png" alt="Hacked carphysics loop"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_hacked_carcollision_loopentry.png" alt="Hacked carphysics loop"></p>
 
 <p>After hacking out this loop I have found that all cars go through each other 
 and their physics are basically not working. The physics that make them run 
@@ -465,7 +474,7 @@ active with the driver hand turning the wheel. Also when giving gas to the
 car it elevates a bit so forces are acting to it. The AI did the same and 
 <strong>something funny happened: all cars blew up hahaha</strong></p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/carmove_loop_engine_destroy.png" alt="All cars blew up"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_carmove_loop_engine_destroy.png" alt="All cars blew up"></p>
 
 <p>This have happened because the 'engine' blew up according to the simulation 
 thinking it must be overused if we fully push the pedal and the car cannot 
@@ -498,7 +507,7 @@ suspect going on at that part of the program.</p>
 
 <p>The most relevant and detailed parts are on the back of a big receipt paper:</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/bigpaper.jpg" alt="Big disasm analysis on paper"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_bigpaper.jpg" alt="Big disasm analysis on paper"></p>
 
 <p>On the top-left corner is the detailed disassembly of the 'move-time-loop'. 
 As you can see it basically iterates over ([12A99] + [12A9f]) number of 
@@ -546,11 +555,11 @@ smaller and smaller letters and got out of space on paper even that way haha.</p
 
 <p>I had to use the other side of the paper:</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/bigpaper_back.jpg" alt="Big disasm analysis on paper 2"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_bigpaper_back.jpg" alt="Big disasm analysis on paper 2"></p>
 
 <p>After all this work, I started to look like a mad scientist or 'pr0 H4Xx0R':</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/allpaper.jpg" alt="A lot of paperwork"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_allpaper.jpg" alt="A lot of paperwork"></p>
 
 <p>and it became 03:00 once again with flashlight of my mobile phone running 
 out of battery power completely so it was time to sleep...</p>
@@ -584,11 +593,15 @@ started to replace them with the good old NOP (0x90) operations.</p>
 <p>When I removed the <strong>substraction at the (HERE) marker</strong> I have found the 
 main <strong>timer</strong> in the middle of the screen <strong>not ticking</strong> down anymore!!!</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/timehackz.png" alt="Removing the timer ticks"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_timehackz.png" alt="Removing the timer ticks"></p>
 
 <p>This is how it looks after making the above changes (nopping-out the sub):</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.gif" alt="Timer stay still (animated gif)"></p>
+<p><video autoplay width="640" height="480" loop muted playsinline>
+    <source src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.mp4" type="video/mp4"/>
+    <source src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.webm" type="video/webm"/>
+    <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.gif">See gif animation</a>
+</video></p>
 
 <p>Actually many people complained below the youtube video that they would have 
 been much more happy with the game if it would not have the checkpoint 
@@ -764,7 +777,7 @@ let the game loose.</p>
 
 <p>I have found what I was searching for and checked it back:</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/my_timer_validated.png" alt="My timer variable"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_my_timer_validated.png" alt="My timer variable"></p>
 
 <p>As you can see I have found it is <strong>0x2C75</strong> after the change, which equals 
 to <strong>11381</strong> in decimal. Divided it by 200 (to get seconds) <strong>we got 56.9</strong> 
@@ -776,7 +789,7 @@ and we see we are having <strong>57 shown</strong> on the timer. Our theory is g
 found a code that calculates how much bonus time we will get. This code is 
 also applying to all other cars of course (maybe even non-race cars).</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/relevant_point_1.png" alt="Relevant code to hack"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_relevant_point_1.png" alt="Relevant code to hack"></p>
 
 <p>As you can see this is basically a really similar code to what we have seen
 earlier when te game loads in. It might be this is actually the very same 
@@ -788,10 +801,9 @@ is still running in the dosbox window and check the result.</p>
 
 <p>I made a terminal recording about the hacking process:</p>
 
-<p><!-- This is how we do playback -->
-<asciinema-player speed="2" src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast"></asciinema-player></p>
+<p><asciinema-player speed="2" src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast"></asciinema-player /></p>
 
-<h1>Fourth day and finalization</h1>
+<h1>4th day and finalization</h1>
 
 <p>I went to sleep late once again, but even more happy than any other day. The 
 problem seems to be solved and only minor stuff remained to do.</p>
@@ -807,7 +819,7 @@ problem seems to be solved and only minor stuff remained to do.</p>
 
 <p>Creating the binary was fast:</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt_hiew.png" alt="HIEW32 (hackers view)"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/smo_gt_hiew.png" alt="HIEW32 (hackers view)"></p>
 
 <h2>Adjustments and testing</h2>
 
@@ -873,12 +885,22 @@ originally meant the game to be played like.</p>
 hackerman picture earlier. Now I can hopefully deserve it more even though 
 it must be God that helped me not get stuck in the bunch of machine code...</p>
 
-<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/hackerman.jpg" alt="Hackerman"></p>
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/smo_hackerman.jpg" alt="Hackerman"></p>
+
+<!-- Load CSS file from JS (for the javascript player). This is 50k and takes 0.6s for those who do not need it! -->
+
+<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/loadcss.js"></script>
+<script type="text/javascript">
+    loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
+</script>
 
 <p><!-- This is necessary to do once for asciinema playback -->
 <script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast'> because javascript player is not working!</noscript></p>
 
 <p>Tags: <a href='tag_retro.html'>retro</a>, <a href='tag_gaming.html'>gaming</a>, <a href='tag_dosbox.html'>dosbox</a>, <a href='tag_crack.html'>crack</a>, <a href='tag_gtracing.html'>gtracing</a>, <a href='tag_hacking.html'>hacking</a>, <a href='tag_assembly.html'>assembly</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_cdemu.html'>cdemu</a>, <a href='tag_make-it-work.html'>make-it-work</a>, <a href='tag_gt.html'>gt</a>, <a href='tag_97.html'>97</a>, <a href='tag_racing.html'>racing</a>, <a href='tag_trainer.html'>trainer</a>, <a href='tag_fix.html'>fix</a>, <a href='tag_patch.html'>patch</a>, <a href='tag_bugfix.html'>bugfix</a>, <a href='tag_checkpoint.html'>checkpoint</a>, <a href='tag_time.html'>time</a>, <a href='tag_issues.html'>issues</a>, <a href='tag_too.html'>too</a>, <a href='tag_little.html'>little</a>, <a href='tag_bonus.html'>bonus</a>, <a href='tag_no.html'>no</a>, <a href='tag_cd.html'>cd</a>, <a href='tag_no-cd.html'>no-cd</a>, <a href='tag_problem.html'>problem</a>, <a href='tag_cannot.html'>cannot</a>, <a href='tag_beat.html'>beat</a>, <a href='tag_pwn.html'>pwn</a>, <a href='tag_h4x00r.html'>h4x00r</a>, <a href='tag_hackerman.html'>hackerman</a></p>
+
+
+
 <!-- text end -->
 <!-- entry end -->
 </div>

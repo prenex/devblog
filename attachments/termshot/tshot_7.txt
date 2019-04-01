@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+prenex@ubuntu:~/munka/termshot$ vim
+vim        vimalias   vim.basic  vimdiff    vimdot     vim.gnome  vim.tiny   vimtutor
+prenex@ubuntu:~/munka/termshot$ vim
+prenex@ubuntu:~/munka/termshot$ cat snake.txt
+|
+|
+|      +-----
+|      |
+|      |
+|      |        +--------+
+|      |        |        |
+|      |        |        |
+|      |        |        |
+|      |        +----+   |
+|      |             |   |
+|      +-------------+   |
++------------------------+
+prenex@ubuntu:~/munka/termshot$
+[1] 0:bash*                                                                                            "ubuntu" 20:13 06-febr-19

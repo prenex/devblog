@@ -1,0 +1,48 @@
+                                                                                                  Ballmerpeak devblog (p1 of 4)
+                                                      Ballmerpeak devblog
+
+   Software development, related stuff and others
+
+  Awsome linux tools I: Screen capture and stuff
+
+   January 21, 2019  Richrd Thier
+
+   When the idea of screen capture comes to our mind many usually think about the youtube-streaming stars and heavy-weight
+   professional applications running on some then-hyped apple device or high-end PC computers.
+
+   If you are recording CGI or gaming videos maybe these are necessary anyways, but there are more hacker-friendly,
+   lightweight ways - and on linux. :-)
+
+   Read more...
+
+   Tags: linux, tools, scripts, tricks, snipping, tool, screen record, mpv, mp4, gif, screenshot, video, youtube, asciinema,
+   pro, following, cult, hacker
+
+     ----------------------------------------------------------------------------------------------------------------------
+
+  Make it work 2: GT 97 Racing - "playing" the game
+
+   January 19, 2019  Richrd Thier
+
+   After creating the NO-CD version of the game it was time to play some is not it? It started out really hard and after
+   perfecting the game while making it run without any lag... I have found that it is unbeatable on the first level even with
+   a perfect drive!
+
+   It seems the internet is also complaining on this: People write on various places that there are versions which are
+   unbeatable and versiouns which are beatable. Instead of finding a right versioun I thought it is best to go and 'play' a
+   bit differently - 'play' with some debuggers and reverse engineering tools.
+
+   After all this became a much longer and harder journey than removing the no-cd code. The results are presented in this
+   post, but if you are only interested in downloading the final binaries, scroll down to the posts end!
+
+   Also if you just want to see how I removed the CD-checks, look for the earlier post on this very same blog.
+
+   Read more...
+
+   Tags: retro, gaming, dosbox, crack, gtracing, hacking, assembly, debug, hack, linux, cdemu, make-it-work, gt, 97, racing,
+   trainer, fix, patch, bugfix, checkpoint, time, issues, too, little, bonus, no, cd, no-cd, problem, cannot, beat, pwn,
+   h4x00r, hackerman
+
+     ----------------------------------------------------------------------------------------------------------------------
+http://ballmerpeak.web.elte.hu/devblog/tag_hackerman.html
+[1] 0:links2*                                                                                          "ubuntu" 20:11 06-febr-19

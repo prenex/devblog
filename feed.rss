@@ -2,9 +2,83 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Mon, 21 Jan 2019 00:27:37 +0100</lastBuildDate>
-<pubDate>Mon, 21 Jan 2019 00:27:37 +0100</pubDate>
+<lastBuildDate>Fri, 29 Mar 2019 15:17:01 +0100</lastBuildDate>
+<pubDate>Fri, 29 Mar 2019 15:17:01 +0100</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Ideas, idea-sources, solution-ideas and problem-ideas
+</title><description><![CDATA[
+
+<p>Many people say they "have a great idea". If you are a programmer it is 
+likely that you have met people who neither have money, neither tech or 
+domain skills, but some "killer idea" they think worths a billion.</p>
+
+<p>I have figured we should define and seperate ideas from each other much
+better than now to understand the problem. Read on to find out how!</p>
+
+<h1>Various Ideas based on the approach</h1>
+<p>Tags: <a href='tag_idea.html'>idea</a>, <a href='tag_startup.html'>startup</a>, <a href='tag_creativity.html'>creativity</a>, <a href='tag_definition.html'>definition</a>, <a href='tag_business.html'>business</a>, <a href='tag_notech.html'>notech</a>, <a href='tag_software.html'>software</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_hololens.html'>hololens</a>, <a href='tag_mr.html'>mr</a>, <a href='tag_idea-source.html'>idea-source</a>, <a href='tag_excercise.html'>excercise</a>, <a href='tag_innovation.html'>innovation</a>, <a href='tag_management.html'>management</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/ideas-idea-sources-solution-ideas-and-problem-ideas.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./ideas-idea-sources-solution-ideas-and-problem-ideas.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Fri, 29 Mar 2019 15:12:00 +0100</pubDate></item>
+<item><title>
+What are your secrets to feel less overwhelmed as a computer programmer?
+</title><description><![CDATA[
+
+<p>I have been asked the above question on Quora and a lot of people seem to like my answer so I repeat it here.</p>
+
+<h1>I can tell you a really simple pack of “secrets”</h1>
+<p>Tags: <a href='tag_less.html'>less</a>, <a href='tag_overwhelmed.html'>overwhelmed</a>, <a href='tag_secrets.html'>secrets</a>, <a href='tag_productivity.html'>productivity</a>, <a href='tag_tips.html'>tips</a>, <a href='tag_quora.html'>quora</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/what-are-your-secrets-to-feel-less-overwhelmed-as-a-computer-programmer4224.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./what-are-your-secrets-to-feel-less-overwhelmed-as-a-computer-programmer4224.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Tue, 05 Mar 2019 10:17:00 +0100</pubDate></item>
+<item><title>
+The one-and-true productivity recipe
+</title><description><![CDATA[
+
+<p>There are a lot of books, blogs, courses on productivity and procrastination, 
+but most of them are complete bullshit that never helps. Take this advice from 
+me and I am quite sure if you can only follow this it will surely help!</p>
+
+<p>Th3 pr0 R3C1P3 F0R G3TT1N Th1ngs D0n3:</p>
+
+<ol>
+<li><p>Go and do work instead of reading stuff on productivity. Whenever you feel you wanna read, do work immediately!</p></li>
+<li><p>You do not need planning when you already have at least 5 things planned out. You need doing then much more!</p></li>
+<li><p>It is simple: Real direct work is best, meaningful activities are second best, wasting time with bullshit is least favorable. Develop HABITS for the former, not plans, not magical stuff but HABITS. </p></li>
+<li><p>and finally: go and work or do something meaningful right now! I am out for running now. ;-)</p></li>
+</ol>
+
+<p>These are the four golden rules rules of productivity. Everything else is
+mostly bullshit. Trust me if you need to read hudred pages on the topic you 
+are doomed and that will not help but make it worse!</p>
+
+<p>Tags: <a href='tag_productivity.html'>productivity</a>, <a href='tag_self-management.html'>self-management</a>, <a href='tag_procrastination.html'>procrastination</a>, <a href='tag_lifehack.html'>lifehack</a>, <a href='tag_simle.html'>simle</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_l33t.html'>l33t</a>, <a href='tag_haxor.html'>haxor</a></p>
+
+<!-- text end -->
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/the-one-and-true-productivity-recipe.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./the-one-and-true-productivity-recipe.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Wed, 27 Feb 2019 11:49:00 +0100</pubDate></item>
+<item><title>
+Termshot
+</title><description><![CDATA[
+
+<p>Have you ever wanted to create a "screenshot" of a linux terminal? 
+Have you wanted to save the current screen as text-only file?</p>
+
+<p>Enter termshot! A small app written by me for this purpose. :-)</p>
+
+<p><a href="http://github.com/prenex/termshot">See: http://github.com/prenex/termshot</a></p>
+
+<h1>Ways to "termshot" the terminal</h1>
+<p>Tags: <a href='tag_termshot.html'>termshot</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_ascii.html'>ascii</a>, <a href='tag_vty.html'>vty</a>, <a href='tag_screenshot.html'>screenshot</a>, <a href='tag_text.html'>text</a>, <a href='tag_txt.html'>txt</a>, <a href='tag_c.html'>c</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_links2.html'>links2</a>, <a href='tag_git.html'>git</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hackz.html'>hackz</a>, <a href='tag_sysinternals.html'>sysinternals</a>, <a href='tag_friend.html'>friend</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/termshot.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./termshot.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Wed, 06 Feb 2019 21:58:00 +0100</pubDate></item>
 <item><title>
 Awsome linux tools I: Screen capture and stuff
 </title><description><![CDATA[
@@ -91,51 +165,10 @@ Decision point
 
 <p>I am leaving the company where I have spent the 5 last years doing numerous projects in numerous technologies, writing tenders, innovate and even do some amount of leadership (without any official title for the latter). I have poured water over one of my managers who actually was my supporter in the management - literally I did so in one meeting. I did so because he was following the strategy of our CEO and maybe our owner about the R&amp;D projects.</p>
 
-<p>When I did not go away from this company for a nice-sounding game development job I was happy to hear there is a plan to have an innovative group within the company and that I can be there to fuel innovation. For the first meeting I gathered a lot of ideas how we can think out ideas, innovate both technically and in our processes but I quickly found out after my staying that the whole topic was different in my mind and in theirs. I thought I can help the whole company to become a better innovator - at some projects in the processes and at some projects in the technology - but it was more that the top leadership knew about R&amp;D tendering possibilities and they wanted to earn money on directly the tendering process.</p>
+<p>This is a long and personal story, with some of my feelings a bit exagerated. It was my first ever job I have left by the result of this.</p>
 
-<p>I believe technical and work-process innovation can lead to increased growth of mid-size companies, but this was a different setup. I saw it clearly that we have a misunderstanding and in their mind I am once again a tool: one who can make it seem like we really innovate and win tender money for it and they can ensure that we spend less than we get so it will be beneficial to the company.</p>
-
-<p>I must say that seeing this up-front rationally is a must. But I also saw that they will of course hope a bit that some of the products will end up being good stuff that sells itself. Also I saw tremendous ways to improve the speed of development - mostly via my imagined team who were reachable the time back then. I kind of made up my own agreement in my mind that I will take what the circumstances give to us and do not care how they cut the development costs and do things in a grey-zone (or even black) when it comes to lawfulness of their errands - but only if the stuff we do will be awsome. For that we would need to use different approach than what is usual - any from the beginning: an awsome team. When I say awsome I mean it. I dreamt of doing things the ID software way when it comes to talent and there were people who we interviewed and did not hire but had these traits. It would only be 3 people for a 100-sized company with not even unpayable salaries. No the company played safe and even though we interviewed people they plan to only hire them if the projects officially start. Then they started in big numbers and those who we interviewed and not even told them about results went to other awsome places where they belong...</p>
-
-<p>But the projects finally started to be won. Tenders flourished and became going parallel in more quantity than expected. It took however nearly 2 years while I had a really though job to keep up the little R&amp;D department thingy with me and just an other guy who was not dumb at all, but seemingly others could not use because he was rookie. I tried to take the most out of him and he also did as much as he can. Sometimes my anger that my original comrades were not here (who were already 3D graphics pros) have become visible to the guy I was working with who was more of a business coder and he felt even more worse even though he should not. I know he works now somewhere else as a programmer and I can imagine that for business coding he is kind of awsome. At least he had two really valuable connections that made our R&amp;D group survive: one smaller-level employee at a big online newspaper and a worker at Audi. Back then the whole R&amp;D group for AR/VR development was in everyday danger that it will be disbanded if we do not generate revenue immediately even though we never had real resources on this topic. The sword of damocles were hanging so much above our heads that when I decided we should inform the press and use them as a force behind changing the world with our ideas and step up front, I had to try asking the mediums for money if they want to write about our things. The things were cool at the time and no one was really acknowledging how much change a Holographic AR technology can bring so there was a slight chance but it was playing the wrong game and I knew it! I knew we should just let people come for free and write their sensations on their pages or papers and the advertisement will result in much bigger gain than any money. Also I have considered that this company has enough reserves to do things properly and come up with quality work that makes us stand unique in a new market. The goal was to do a startup inside a company - while keeping in mind to not destroy it anyhow it happens.</p>
-
-<p>I think there is no one who can blame me for beign too rigid: I have accepted the owners strategy that they only see as far as the money is coming from the tenders; I have accepted I got only one collegue to work on the things and tried to train him for the job (I think he will be an awsome business programmer and will likely use this or that even if he does not know); I have not complained that they use grey-to-black economy with the tenders and not as it should happen, but with reasonable amount of dark things; I felt utterly sad but not complained that we did not pick right people from the start; I even accepted that a random guy got the big project and started it in a waterfall way that I knew in advance will cost more they feel it will; I have accepted that we are not having a 3D modeller and made up the projects in the way we need minimum 3D modelling and later when we got one I accepted (sadly) that they do not know how to use him and give him documentation works instead of creating tenders or pilot projects in fields where there is more artwork and minimal programming.</p>
-
-<p>But after a while, when the third time the same meeting have happened and literally the CEO had ideas about what technology to use for embedded development instead of what was already planned and already in the progress and not far after there was even an idea about buying something completed by others and kind of repainting it as if we made it (but will never sell it as it is too pricy anyways for its outdated hardware) I was a bit stressed enough to pour water in face of the guy who once again tried to push through the technical decision of the CEO. Actually to cut costs on a project that started late because the other I already told will take longer and be more expensive and because they let most of the money flow randomly between friends and grey-zone lawless things between companies. I knew the latter, but I hoped we can do a WIN-WIN situation by doing the most awsome stuff and no one ever will care if they steal or fund day-to-day work from tender money or not. Just for it to happen, things should have gone smooth and better organized - and with right people from the start.</p>
-
-<p>At least later I got a somewhat good team. Not as perfect we could get if they hire the people who know work for top firms, but literally we had a not bad, but small team in the end with around 5 people. Just it seems if there is rotting pieces here-and-there, after a while everything starts to rot a bit. Now I am not talking about people, but about corruption. Sometimes people think they win with it and it will not cause harm, but one need to be much more strict in the approach to keep it that way.</p>
-
-<p>There was also changes that I made through the journey and find them to be good changes:</p>
-
-<ul>
-<li>First I wanted to build actual hardware for augmented reality. When we got our first Hololens I was amazed how far they went so I am happy we did not do the original plan using big screens and cameras on other side (a window on which you see through and see the other reality). There could be cheap version of the own hardware idea though and someone actually did very similar for VR in Hungary where they look into prepositioned glasses that turn around and show how the buildings or castles were in the past. I have found out about this later - but I wanted its AR-counterpart.</li>
-<li>Then I wanted to still do low-level development or Systems-develoment for AR: That is in the current phase it seems that those who can create toolboxes for AR are more profitable than end-solution providers. I changed to just use Unity fast as otherwise we would need my top-coders. I still think creating system-tools for AR (frameworks, engines, hardware, technologies) are more profitable now than end-solutions, but this was a reasonable thing to do for us given how we operate.</li>
-</ul>
-
-<p>Only one thing strike me as bad: When I integrated Blender with Hololens and shown a bad developer video on it over youtube, people kept asking me in email how can they try this and buy this. One guy literally flied here from the USA and wanted to buy one as a person and we agreed on a quite big price then we poisoned the agreement with discussing who will pay the tax fees when he left and we hear nothing from him. Also there was a guy who do TED-talk presentations in the USA and instead of telling him: "we develop for you this for free, but you need to mention us" we asked for money. Then all the other interested people find the price to be too high because we say prices in the range companies used to pay and not end-users. What I would do if I own the company? I would have released this little app way-way long ago as completely free application just to make myself some name and to let others in the AR business find us from abroad. The app stores for Hololens is completely empty for these kind of apps...</p>
-
-<p>I will try to fight for this to be available at least as freemium - before I walk away completely.
-My last day will be 15th of October, 2018. literally one day after I started in the same month 5 years ago. Did I change a company as an intrapeneour? Surely and visibly. Is there more to change? Maybe I have gotten to the limits of this company and top-leadership. More changes would be only forced and I better go.</p>
-
-<p>Also after the CEO told me that I can choose to work from home always, or work in an empty office in Székesfehérvár that we only keep to write down we do the tender projects not in the capital city (and get more support), or work as self-employed from home on assignments from them. I think he just have no power to decide himself that he do nothing about the case and I understand why. Interestingly the guy I poured water on and I am not in a fight and I literally feel he would not care if he had to work with me - neither I. It is the CEO who realized there are no bounds for me if I see we use money from tenders and start not caring about quality at all. Yes I am hurt by that and it collects up and I am from a village where we solve these things the easy way: doing as much as we can to talk with others and when we see unethical stuff is still there and not changing because people have already made their minds and think they can get away with it we think: okay we show you that you indeed can lose on your tricky approach.</p>
-
-<p>I could maybe even destroy the company because I knew about literally everything, but I only leave: There are workers there who might have otherwise harmed. I just know there are people who would destroy their company in my place just to make them learn the consequences.</p>
-
-<p>I will either just go somewhere where I can grow and my ideas are more heard - or just start my own business. I always had the idea of making the AR/Holographic technology accessible to the masses and have some ideas. At least then I can do what I think is best and if I fail it will be just my lazyness. When I entered this company I felt super-productive and overworked any day 12 hours to finish the MÁV project properly. I am happy for that as there were times when I was more lazy than that. I just hope I am not falling back to that because of what I saw and went through here: when you are managed by morons you will try to hack the system after a while and if you are asked to not care about your job you will literally also not care about working to the full. It is already hard to work for them as properly as I once did until I leave as there is the added anger against the leadership. At least things go forward for them even from home office - not counting these kind of rants :-)</p>
-
-<p>I tend forward creating my own business. There are circumstances that make that infeasible (like my girlfriends fater having serious health issues or me wanting to renovate a house), but I plan not to use a lot of money. I think results can be achieved even if I spare everywhere - except on key things - when we have real focus. Cheaplens-project! Up-Up!</p>
-
-<p>PS.: I am actually sad to hear that the things behind me seem to get destroyed a bit as I hoped they can at least keep what we made together. One key guy is also leaving and he said so right after I am going. I am not sure how much the things around me affected him in his decision, but I thought of him as the best one who can take my role. Also I am not sure how much our modeller will stay as the company really has no visible efforst and creativity to use him well, but I hope at least partially he stays (even if only as someone who works from home when needed or anything). When my first anger went away I actually do hoped things will end up properly for the company and I am trying my best to help other people around. I think they have a chance that all the tenders I wrote will be beneficial to them because if they end up doing all of them overpriced then they do something utterly badly at management. I hope they measure this up, because some tenders are literally empty ones that sell the same thing so there will be not other way to say about bad performance than inefficient management then. I am also not always efficient at coding, but I hate seeing inefficiencies at organizing things because that is like my favourite area. I think it is that by my nature, but I only started having more leadership goals to pursue because I constantly get annoyed about what others do and how inefficient it is. I literally cannot stand it - but only do these kind of physical atrocities of pouring water over someone when inefficient leadership comes together with non-properly used tender money in not ethical ways. Guys: if you steal at least be efficient otherwise and do give back to community much more than you take! You cannot? Not my problem...</p>
-
+<h1>The long story</h1>
 <p>Tags: <a href='tag_cheaplens.html'>cheaplens</a>, <a href='tag_intrapeneur.html'>intrapeneur</a>, <a href='tag_ending.html'>ending</a>, <a href='tag_finish.html'>finish</a>, <a href='tag_company.html'>company</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_vr.html'>vr</a>, <a href='tag_innovation.html'>innovation</a>, <a href='tag_tender.html'>tender</a>, <a href='tag_corruption.html'>corruption</a>, <a href='tag_water.html'>water</a>, <a href='tag_pouring.html'>pouring</a>, <a href='tag_into.html'>into</a>, <a href='tag_manager.html'>manager</a>, <a href='tag_face.html'>face</a>, <a href='tag_ceo.html'>ceo</a>, <a href='tag_me.html'>me</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/decision-point.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./decision-point.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
@@ -158,122 +191,14 @@ Why this is called a ballmerpeak devblog?
 
 
 
+
+
+
+
+
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/why-this-is-called-a-ballmerpeak-devblog.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./why-this-is-called-a-ballmerpeak-devblog.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Sat, 17 Feb 2018 13:21:00 +0100</pubDate></item>
-<item><title>
-The "Successful" software development leadership method: Essence-oriented development?
-</title><description><![CDATA[
-
-<p>Agile answers a lot, but what we need to keep is focus on doing what is to be done. Whenever we do not do what is the necessary or lose focus on the key aspects, we lose focus on success of a project.</p>
-
-<p>After being in many projects, I kind of feel Agile, Scrum and such are bad words and altough having mostly good in their approach there is something that should be having an ever greater impact: the essence.</p>
-
-<p>The leadership style I am talking about should be better called "minimal feature - maximal essence development". In through that process, the maximum focus is on the relevant work to be done, the "essence" to add - and of course the ability to not only add this essence but to ship a product (let it be open or closed source) that this essence is incorporated into.</p>
-
-<p>Most of the scary stuff are automatically handled with such a mindset: overdesign, underdesign, agility, team-spirit, susteinability, MWP, measure vs. estimate, business value increments, iterations, proper - but not unnecessary - documentation, etc. etc.</p>
-
-<p>Tags: <a href='tag_leadership.html'>leadership</a>, <a href='tag_methods.html'>methods</a>, <a href='tag_management.html'>management</a>, <a href='tag_minimal.html'>minimal</a>, <a href='tag_feature.html'>feature</a>, <a href='tag_maximal.html'>maximal</a>, <a href='tag_essence.html'>essence</a>, <a href='tag_oriented.html'>oriented</a>, <a href='tag_development.html'>development</a>, <a href='tag_software.html'>software</a>, <a href='tag_agile.html'>agile</a>, <a href='tag_unorthodox.html'>unorthodox</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/the-successful-software-development-leadership-method-essence-oriented-development.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./the-successful-software-development-leadership-method-essence-oriented-development.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Wed, 24 Jan 2018 08:33:00 +0100</pubDate></item>
-<item><title>
-Title on this line
-</title><description><![CDATA[
-
-<p>The rest of the text file is a <strong>Markdown</strong> blog post. The process will continue
-as soon as you exit your editor.</p>
-
-<p>Tags: <a href='tag_keep-this-tag-format.html'>keep-this-tag-format</a>, <a href='tag_tags-are-optional.html'>tags-are-optional</a>, <a href='tag_beware-with-underscores-in-markdown.html'>beware-with-underscores-in-markdown</a>, <a href='tag_example.html'>example</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/title-on-this-line.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./title-on-this-line.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Wed, 24 Jan 2018 08:20:00 +0100</pubDate></item>
-<item><title>
-Low on resources
-</title><description><![CDATA[
-
-<p>The project will get less resources than it is projected it needs. This is the Hololens-only project and aside the long awaited historical side this is what would need the most effort actually as it might give us some real market. Other R&amp;D projects only have the lenses like a secondary thing. I am technically the project lead, but there is a formal project manager in her title too. She insist on cutting down budgets, but what she does not understand is that the original one was calculating with high-performing friends of mine who once had red topcoder ratings or are so awsome at maths and programming that they can learn anything new and do real innovation. They are not available to us now and despite we seem to have a real team now, with them the projections are that it will take longer and will be more expensive because there is always a critical path that some people are just not able to work on properly.</p>
-
-<p>Given this I have though about something: we might actually save money if we apply fewer people and only the better ones like the new collegues of mine! The project can span two years so in order to cut down man-months we need to carefully cherry-pick the bests only and let all others work on the other projects.</p>
-
-<p>I will try to find out the followings to ensure that I am right:</p>
-
-<ul>
-<li>How many man-days they want us to take (I knew this last week, but I want to be sure and I do not have this at home)</li>
-<li>See some patterns about how long the decided man-days would lasts with 1-member team, 2-member team, 3-4-5 member team.</li>
-<li>According to the last two stuff I can tell them that they can keep their wishes with this or that dedicated people.</li>
-<li>If they insist on having them at other places they will have an understanding why it is above price.</li>
-</ul>
-
-<p>I will also need to consider what I need more:</p>
-
-<ol>
-<li>More people being introduced to the AR creative workshop (so workshop grows possibilities)</li>
-<li>More correctly going with the planned funds</li>
-</ol>
-
-<p>I surely do not want to create lower on the quality side, but still it might be a long-time win if more people are introduced to my team. I however quitly tend towards small but effective team.</p>
-
-<p>Actually however the best would be to apply what I call: "zero-overhead-development". For that I would need complete control over a small group of GrepInvent. When high leaders would gather for allocation, they cannot allocate people anymore directly, but they can allocate my team as a whole - and everything in my team should be decided on the team level! Not for micromanagement, but exactly the opposite of that: by teaching self-management (the only way to micromanage is when each one of us micromanage only him/herself or very small neighborhood of theirs).</p>
-
-<p>If someone is really-really needed on an other project, they can maybe allocate him 70% to there and 30% to "GrepInvent" and this should work well together with their already existing allocation schemes. For R&amp;D I would like it much better if we can allocate ourselves instead of following their decisions with the worst overhead ever.</p>
-
-<p>Assign a team to the problem and do not micromanage persons towards problems by thinking you are an overly clever manager!!!</p>
-
-<p>Tags: <a href='tag_interesting.html'>interesting</a>, <a href='tag_management.html'>management</a>, <a href='tag_pattern.html'>pattern</a>, <a href='tag_anti-pattern.html'>anti-pattern</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/low-on-resources.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./low-on-resources.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Mon, 04 Dec 2017 23:03:00 +0100</pubDate></item>
-<item><title>
-Technical lead
-</title><description><![CDATA[
-
-<p>I think I have found myself in a position that I thought will not long exist in todays world. I think I am not happy for this, because I always felt and know that my best skills are not technical. Strategy and chief key decisions are and abilities to talk with those that are extremely skilled. I am just skilled enough to understand what they need, how they will get a right environment to function properly and optimally. When however I am put in the roles of doing the most deep technical things and when they think I am the deep-tech guy, that means that those who have me right now have never-ever have seen any REAL talent at computer sciences. They do not know what they have lost with some of my friends that they did not hire when the projects were only 90% certain...</p>
-
-<p>I never really wanted to completely retire from coding, but I would love if others would see me different than the "he can do everything we imagine" guy. It kind of insults me if people cannot ever imagine how things should work. Actually there are key cases when technical people are needed in lead - those who are nearly great, but actually only great up to be able to know how awsome the truly l33th4ckers are!</p>
-
-<p>I wish once I can lead a company where we do make magic and there is no one who keeps us back. I hope I would not make mistakes like this.</p>
-
-<p>Tags: <a href='tag_tech-lead.html'>tech-lead</a>, <a href='tag_mistake.html'>mistake</a></p>
-
-
-
-
-
-
-
-<!-- text end -->
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/technical-lead.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./technical-lead.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Mon, 04 Dec 2017 22:44:00 +0100</pubDate></item>
 </channel></rss>

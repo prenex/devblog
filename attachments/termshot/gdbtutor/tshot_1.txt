@@ -1,0 +1,48 @@
+prenex@ubuntu:~$ cd munka/termshot/
+prenex@ubuntu:~/munka/termshot$ ls
+devenv.sh  makefile   snake.txt   termshot.cast  tshot_1.txt  tshot_3.txt  tshot_5.txt  tshot_7.txt
+LICENSE    README.md  termshot.c  termshot.out   tshot_2.txt  tshot_4.txt  tshot_6.txt  tshot_8.txt
+prenex@ubuntu:~/munka/termshot$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

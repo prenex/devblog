@@ -2,6 +2,11 @@ Decision point
 
 I am leaving the company where I have spent the 5 last years doing numerous projects in numerous technologies, writing tenders, innovate and even do some amount of leadership (without any official title for the latter). I have poured water over one of my managers who actually was my supporter in the management - literally I did so in one meeting. I did so because he was following the strategy of our CEO and maybe our owner about the R&D projects.
 
+This is a long and personal story, with some of my feelings a bit exagerated. It was my first ever job I have left by the result of this.
+
+The long story
+==============
+
 When I did not go away from this company for a nice-sounding game development job I was happy to hear there is a plan to have an innovative group within the company and that I can be there to fuel innovation. For the first meeting I gathered a lot of ideas how we can think out ideas, innovate both technically and in our processes but I quickly found out after my staying that the whole topic was different in my mind and in theirs. I thought I can help the whole company to become a better innovator - at some projects in the processes and at some projects in the technology - but it was more that the top leadership knew about R&D tendering possibilities and they wanted to earn money on directly the tendering process.
 
 I believe technical and work-process innovation can lead to increased growth of mid-size companies, but this was a different setup. I saw it clearly that we have a misunderstanding and in their mind I am once again a tool: one who can make it seem like we really innovate and win tender money for it and they can ensure that we spend less than we get so it will be beneficial to the company.

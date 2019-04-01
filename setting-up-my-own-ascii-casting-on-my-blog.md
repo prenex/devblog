@@ -14,6 +14,12 @@ This is really "meta" fun I think! :-)
 <!-- This is how we do playback -->
 <asciinema-player src="http://ballmerpeak.web.elte.hu/devblog/attachments/setup.cast"></asciinema-player>
 
+<!-- Load CSS file from JS (for the javascript player). This is 50k and takes 0.6s for those who do not need it! -->
+<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/loadcss.js"></script>
+<script type="text/javascript">
+	loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
+</script>
+
 <!-- This is how we do playback -->
 <script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/setup.cast'> because javascript player is not working!</noscript>
 

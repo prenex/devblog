@@ -2,6 +2,9 @@ Low on resources
 
 The project will get less resources than it is projected it needs. This is the Hololens-only project and aside the long awaited historical side this is what would need the most effort actually as it might give us some real market. Other R&D projects only have the lenses like a secondary thing. I am technically the project lead, but there is a formal project manager in her title too. She insist on cutting down budgets, but what she does not understand is that the original one was calculating with high-performing friends of mine who once had red topcoder ratings or are so awsome at maths and programming that they can learn anything new and do real innovation. They are not available to us now and despite we seem to have a real team now, with them the projections are that it will take longer and will be more expensive because there is always a critical path that some people are just not able to work on properly.
 
+Details
+=======
+
 Given this I have though about something: we might actually save money if we apply fewer people and only the better ones like the new collegues of mine! The project can span two years so in order to cut down man-months we need to carefully cherry-pick the bests only and let all others work on the other projects.
 
 I will try to find out the followings to ensure that I am right:

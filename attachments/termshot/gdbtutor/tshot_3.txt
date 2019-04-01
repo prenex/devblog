@@ -1,0 +1,48 @@
+prenex@ubuntu:~$ cd munka/termshot/
+prenex@ubuntu:~/munka/termshot$ ls
+devenv.sh  LICENSE   README.md  termshot.c     termshot.out  tshot_2.txt  tshot_4.txt  tshot_6.txt  tshot_8.txt
+gdbtutor   makefile  snake.txt  termshot.cast  tshot_1.txt   tshot_3.txt  tshot_5.txt  tshot_7.txt
+prenex@ubuntu:~/munka/termshot$ make debug
+gcc termshot.c -g -o termshot.out
+prenex@ubuntu:~/munka/termshot$ gdb --args ./termshot.out 1
+GNU gdb (Ubuntu 7.11-0ubuntu1) 7.11
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./termshot.out...done.
+(gdb) list
+78      BOOLE needfree;
+79
+80      /* Output file string handling vars */
+81      char outfilename[MAX_OFILE_LEN];
+82
+83      /* For reading a line in from the screen memory */
+84      char *linebuffer;
+85
+86      /* **** */
+87      /* Code */
+(gdb) break main
+Breakpoint 1 at 0x80487de: file termshot.c, line 92.
+(gdb)
+
+
+
+
+
+
+
+
+
+
+
+

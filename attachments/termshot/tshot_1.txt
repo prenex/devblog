@@ -1,0 +1,48 @@
+prenex@ubuntu:~/munka/termshot$ This is written from vty1 now! (I used CTRL+F1 to start it!)^C
+prenex@ubuntu:~/munka/termshot$ ls
+devenv.sh  makefile   termshot.c     termshot.out  tshot_2.txt  tshot_4.txt
+LICENSE    README.md  termshot.cast  tshot_1.txt   tshot_3.txt
+prenex@ubuntu:~/munka/termshot$ rm tshot_*
+rm: remove write-protected regular file 'tshot_1.txt'? y
+rm: remove write-protected regular file 'tshot_2.txt'? y
+rm: remove write-protected regular file 'tshot_3.txt'? y
+rm: remove write-protected regular file 'tshot_4.txt'? y
+prenex@ubuntu:~/munka/termshot$ termshot --hlp
+Usage:
+------
+
+        termshot        - shoot current vty
+        termshot [0..9] - shoot vty0..vty9
+                         (usually there is only vty1..vty6)
+
+Remark: Doesn't work for graphics term (xterm, st, gnome-terminal, etc.)
+
+prenex@ubuntu:~/munka/termshot$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1] 0:bash*                                                                                            "ubuntu" 20:10 06-febr-19

@@ -1,0 +1,48 @@
+                                                                                                  Ballmerpeak devblog (p2 of 4)
+
+  Setting up my own ascii-casting on my blog
+
+   January 18, 2019  Richrd Thier
+
+   Uploading live-code like recordings is handy for a blog in many ways. My machine is not the fastest to handle easy MP4
+   content creation software and I like lightweight solutions anyways.
+
+   Asciinema is a nice app for recording the terminal. It closely resembles termrec and earlier alternatives but is much more
+   stable when it comes to handling editors and other things. In this post I show how have I set up a javascript player for
+   asciinema recordings to work with my minimalist blog using bb.sh (bashblog)
+
+   Read more...
+
+   Tags: meta, asciinema, bashblog, asciicast, termrec, blog, terminal, lightweight, fun, tutorial, software-development,
+   linux
+
+     ----------------------------------------------------------------------------------------------------------------------
+
+  Make it work: GT97 Racing
+
+   January 16, 2019  Richrd Thier
+
+   Once I had this game (GT97 Racing) and now found it in nrg image format so I thought it is time to retroplay a bit with
+   it, to find out sadly that the game does not work because of copy protection complains when trying with the NRG, cdemu,
+   linux, dosbox environment.
+
+   The game uses CD checking in a way that does not work when the .nrg image is mounted with cdemu on linux and its drive
+   directory is mounted with dosbox!
+
+   This is because the CD is a mixed-mode CD with audio tracks and allegedly the length of the tracks are used as copy
+   protection.
+
+   Read more...
+
+   Tags: retro, gaming, dosbox, crack, gtracing, hacking, assembly, debug, hack, linux, cdemu, make-it-work, gt, 97, racing
+
+     ----------------------------------------------------------------------------------------------------------------------
+
+  Decision point
+
+   September 25, 2018  Richrd Thier
+
+   I am leaving the company where I have spent the 5 last years doing numerous projects in numerous technologies, writing
+   tenders, innovate and even do some amount of leadership (without any official title for the latter). I have poured water
+http://ballmerpeak.web.elte.hu/devblog/decision-point.html
+[1] 0:links2*                                                                                          "ubuntu" 20:12 06-febr-19

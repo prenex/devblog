@@ -1,0 +1,48 @@
+backtrace                        init-if-undefined                skip
+bookmark                         interpreter-exec                 source
+break                            interrupt                        start
+break-range                      jit-reader-load                  step
+bt                               jit-reader-unload                stepi
+call                             jump                             stepping
+catch                            kill                             stop
+cd                               layout                           strace
+checkpoint                       list                             symbol-file
+clear                            load                             tabset
+clone-inferior                   macro                            target
+collect                          maintenance                      task
+commands                         make                             tbreak
+compare-sections                 mem                              tcatch
+compile                          monitor                          tdump
+complete                         next                             teval
+condition                        nexti                            tfind
+continue                         ni                               thbreak
+core-file                        nosharedlibrary                  thread
+define                           output                           tp
+delete                           overlay                          trace
+demangle                         passcount                        tsave
+detach                           path                             tstart
+directory                        print                            tstatus
+disable                          printf                           tstop
+disassemble                      print-object                     tui
+disconnect                       ptype                            tvariable
+display                          pwd                              tty
+document                         python                           undisplay
+dont-repeat                      python-interactive               unset
+down                             queue-signal                     until
+down-silently                    quit                             up
+dprintf                          rbreak                           update
+dump                             rc                               up-silently
+echo                             record                           watch
+edit                             refresh                          wh
+enable                           remote                           whatis
+end                              remove-inferiors                 where
+eval                             remove-symbol-file               while
+exec-file                        restart                          while-stepping
+explore                          restore                          winheight
+expression                       return                           ws
+file                             reverse-continue                 x
+find                             reverse-finish
+finish                           reverse-next
+(gdb) bt
+#0  main (argc=2, argv=0xbffff654) at termshot.c:104
+(gdb)

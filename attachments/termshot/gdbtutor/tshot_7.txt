@@ -1,0 +1,48 @@
+Ambiguous command "g": gcore, generate-core-file, goto-bookmark, gr, gu, guile, guile-repl.
+(gdb) r
+Starting program: /home/prenex/munka/termshot/termshot.out 1
+
+Breakpoint 1, main (argc=2, argv=0xbffff654) at termshot.c:92
+92              if(argc == 2) {
+(gdb) list
+87      /* Code */
+88      /* **** */
+89
+90      int main(int argc, char **argv) {
+91              /* Handle parameters */
+92              if(argc == 2) {
+93                      /* Check if we got a vty number */
+94                      vty_target_num = argv[1][0];
+95                      if(isdigit(vty_target_num)) {
+96                              /* Use the given vty number */
+(gdb) n
+94                      vty_target_num = argv[1][0];
+(gdb) n
+95                      if(isdigit(vty_target_num)) {
+(gdb) list
+90      int main(int argc, char **argv) {
+91              /* Handle parameters */
+92              if(argc == 2) {
+93                      /* Check if we got a vty number */
+94                      vty_target_num = argv[1][0];
+95                      if(isdigit(vty_target_num)) {
+96                              /* Use the given vty number */
+97
+98                              /* Copy strings so we can modify them (they are const char* in code)*/
+99                              vcspath = strdup(n_vcspath);
+(gdb) n
+99                              vcspath = strdup(n_vcspath);
+(gdb) n
+100                             vcsapath = strdup(n_vcsapath);
+(gdb) list
+95                      if(isdigit(vty_target_num)) {
+96                              /* Use the given vty number */
+97
+98                              /* Copy strings so we can modify them (they are const char* in code)*/
+99                              vcspath = strdup(n_vcspath);
+100                             vcsapath = strdup(n_vcsapath);
+101                             needfree = 1; /* will need to call free! */
+102
+103                             /* vcs change */
+104                             lastindex = strlen(vcspath);
+(gdb)

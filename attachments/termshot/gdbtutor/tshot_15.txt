@@ -1,0 +1,48 @@
+   0x080487dc <+17>:    mov    %ecx,%eax
+   0x080487de <+19>:    cmpl   $0x2,(%eax)
+   0x080487e1 <+22>:    jne    0x8048949 <main+382>
+   0x080487e7 <+28>:    mov    0x4(%eax),%eax
+   0x080487ea <+31>:    add    $0x4,%eax
+   0x080487ed <+34>:    mov    (%eax),%eax
+   0x080487ef <+36>:    movzbl (%eax),%eax
+   0x080487f2 <+39>:    mov    %al,0x804b0a8
+   0x080487f7 <+44>:    call   0x80486b0 <__ctype_b_loc@plt>
+   0x080487fc <+49>:    mov    (%eax),%eax
+   0x080487fe <+51>:    movzbl 0x804b0a8,%edx
+   0x08048805 <+58>:    movsbl %dl,%edx
+   0x08048808 <+61>:    add    %edx,%edx
+   0x0804880a <+63>:    add    %edx,%eax
+   0x0804880c <+65>:    movzwl (%eax),%eax
+   0x0804880f <+68>:    movzwl %ax,%eax
+   0x08048812 <+71>:    and    $0x800,%eax
+   0x08048817 <+76>:    test   %eax,%eax
+   0x08048819 <+78>:    je     0x80488b8 <main+237>
+   0x0804881f <+84>:    mov    0x804b068,%eax
+   0x08048824 <+89>:    sub    $0xc,%esp
+   0x08048827 <+92>:    push   %eax
+   0x08048828 <+93>:    call   0x80485b0 <strdup@plt>
+   0x0804882d <+98>:    add    $0x10,%esp
+   0x08048830 <+101>:   mov    %eax,0x804b0d8
+   0x08048835 <+106>:   mov    0x804b06c,%eax
+   0x0804883a <+111>:   sub    $0xc,%esp
+   0x0804883d <+114>:   push   %eax
+   0x0804883e <+115>:   call   0x80485b0 <strdup@plt>
+   0x08048843 <+120>:   add    $0x10,%esp
+   0x08048846 <+123>:   mov    %eax,0x804b0c0
+   0x0804884b <+128>:   movl   $0x1,0x804b0a4
+   0x08048855 <+138>:   mov    0x804b0d8,%eax
+   0x0804885a <+143>:   sub    $0xc,%esp
+   0x0804885d <+146>:   push   %eax
+   0x0804885e <+147>:   call   0x8048610 <strlen@plt>
+   0x08048863 <+152>:   add    $0x10,%esp
+   0x08048866 <+155>:   mov    %eax,0x804b0c4
+   0x0804886b <+160>:   mov    0x804b0d8,%eax
+---Type <return> to continue, or q <return> to quit---q
+Quit
+(gdb) q
+A debugging session is active.
+
+        Inferior 1 [process 23573] will be killed.
+
+Quit anyway? (y or n) y
+prenex@ubuntu:~/munka/termshot$

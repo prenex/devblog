@@ -1,9 +1,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+</script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
-<link rel="stylesheet" href="asciinema-player.css" type="text/css" />
 <title>Setting up my own ascii-casting on my blog</title>
 </head><body>
 <div id="divbodyholder">
@@ -31,13 +40,21 @@ Richárd Thier</div>
 
 <p>This is really "meta" fun I think! :-)</p>
 
-<p><!-- This is how we do playback -->
-<asciinema-player src="http://ballmerpeak.web.elte.hu/devblog/attachments/setup.cast"></asciinema-player></p>
+<!-- This is how we do playback -->
+<asciinema-player src="http://ballmerpeak.web.elte.hu/devblog/attachments/setup.cast"></asciinema-player>
+
+<!-- Load CSS file from JS (for the javascript player). This is 50k and takes 0.6s for those who do not need it! -->
+
+<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/loadcss.js"></script>
+<script type="text/javascript">
+    loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
+</script>
 
 <p><!-- This is how we do playback -->
 <script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/setup.cast'> because javascript player is not working!</noscript></p>
 
 <p>Tags: <a href='tag_meta.html'>meta</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_bashblog.html'>bashblog</a>, <a href='tag_asciicast.html'>asciicast</a>, <a href='tag_termrec.html'>termrec</a>, <a href='tag_blog.html'>blog</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_lightweight.html'>lightweight</a>, <a href='tag_fun.html'>fun</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_software-development.html'>software-development</a>, <a href='tag_linux.html'>linux</a></p>
+
 
 
 <!-- text end -->
