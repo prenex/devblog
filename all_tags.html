@@ -245,11 +245,28 @@ Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a 
         var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
 
         /* * * DONT EDIT BELOW THIS LINE * * */
-        (function () {
+        var countfun_disqus = (function () {
         var s = document.createElement("script"); s.async = true;
         s.type = "text/javascript";
         s.src = "//" + disqus_shortname + ".disqus.com/count.js";
         (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
-    }());
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
     </script>
 </body></html>

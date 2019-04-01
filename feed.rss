@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Mon, 01 Apr 2019 19:00:43 +0200</lastBuildDate>
-<pubDate>Mon, 01 Apr 2019 19:00:43 +0200</pubDate>
+<lastBuildDate>Mon, 01 Apr 2019 19:43:33 +0200</lastBuildDate>
+<pubDate>Mon, 01 Apr 2019 19:43:33 +0200</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Ideas, idea-sources, solution-ideas and problem-ideas
@@ -56,6 +56,9 @@ mostly bullshit. Trust me if you need to read hudred pages on the topic you
 are doomed and that will not help but make it worse!</p>
 
 <p>Tags: <a href='tag_productivity.html'>productivity</a>, <a href='tag_self-management.html'>self-management</a>, <a href='tag_procrastination.html'>procrastination</a>, <a href='tag_lifehack.html'>lifehack</a>, <a href='tag_simle.html'>simle</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_l33t.html'>l33t</a>, <a href='tag_haxor.html'>haxor</a></p>
+
+
+
 
 <!-- text end -->
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/the-one-and-true-productivity-recipe.html</link>
@@ -184,6 +187,9 @@ Why this is called a ballmerpeak devblog?
 <p>Oh: of course after I have that username on my university's server machine I'd better choose the same for the title of the devblog too, because it is in the URL anyways so it should make some sense. This is one of those cases when the result is there because of tides of the world randomly flowing and refactoring the meaning into the stuff only as an afterthought.</p>
 
 <p>Tags: <a href='tag_random.html'>random</a>, <a href='tag_ballmerpeak.html'>ballmerpeak</a>, <a href='tag_blog.html'>blog</a>, <a href='tag_background.html'>background</a>, <a href='tag_info.html'>info</a></p>
+
+
+
 
 
 

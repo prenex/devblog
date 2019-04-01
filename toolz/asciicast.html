@@ -29,7 +29,12 @@ var urlParams;
 		urlParams[decode(match[1])] = decode(match[2]);
 })();
 // Main javascript code on page load
-window.onload = function(e){ 
+var prev_handler = window.onload;
+window.onload = function(){
+	// Handle possible earlier onload
+	if (prev_handler) {
+		prev_handler();
+	}
 	// We get speed, directory and filename for the asciinema-player tag from the query parameters
 	const speed = urlParams['speed'];
 	const dir = urlParams['dir'];

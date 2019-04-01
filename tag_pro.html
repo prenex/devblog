@@ -48,6 +48,9 @@ are doomed and that will not help but make it worse!</p>
 
 <p>Tags: <a href='tag_productivity.html'>productivity</a>, <a href='tag_self-management.html'>self-management</a>, <a href='tag_procrastination.html'>procrastination</a>, <a href='tag_lifehack.html'>lifehack</a>, <a href='tag_simle.html'>simle</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_l33t.html'>l33t</a>, <a href='tag_haxor.html'>haxor</a></p>
 
+
+
+
 <!-- text end -->
 <h3><a class="ablack" href="termshot.html">
 Termshot
@@ -90,11 +93,28 @@ Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a 
         var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
 
         /* * * DONT EDIT BELOW THIS LINE * * */
-        (function () {
+        var countfun_disqus = (function () {
         var s = document.createElement("script"); s.async = true;
         s.type = "text/javascript";
         s.src = "//" + disqus_shortname + ".disqus.com/count.js";
         (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
-    }());
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
     </script>
 </body></html>

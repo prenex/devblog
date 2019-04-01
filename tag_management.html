@@ -36,7 +36,7 @@ domain skills, but some "killer idea" they think worths a billion.</p>
 <p>I have figured we should define and seperate ideas from each other much
 better than now to understand the problem. Read on to find out how!</p>
 
-<p class="readmore"><a href="ideas-idea-sources-solution-ideas-and-problem-ideas.html">Read more...</a></p>
+<p class="readmore"><a href="./ideas-idea-sources-solution-ideas-and-problem-ideas.html">Read more...</a></p>
 <p>Tags: <a href='tag_idea.html'>idea</a>, <a href='tag_startup.html'>startup</a>, <a href='tag_creativity.html'>creativity</a>, <a href='tag_definition.html'>definition</a>, <a href='tag_business.html'>business</a>, <a href='tag_notech.html'>notech</a>, <a href='tag_software.html'>software</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_hololens.html'>hololens</a>, <a href='tag_mr.html'>mr</a>, <a href='tag_idea-source.html'>idea-source</a>, <a href='tag_excercise.html'>excercise</a>, <a href='tag_innovation.html'>innovation</a>, <a href='tag_management.html'>management</a></p>
 <h3><a class="ablack" href="the-successful-software-development-leadership-method-essence-oriented-development.html">
 The "Successful" software development leadership method: Essence-oriented development?
@@ -66,6 +66,9 @@ Richárd Thier</div>
 
 
 
+
+
+
 <!-- text end -->
 <h3><a class="ablack" href="low-on-resources.html">
 Low on resources
@@ -76,7 +79,7 @@ Richárd Thier</div>
 
 <p>The project will get less resources than it is projected it needs. This is the Hololens-only project and aside the long awaited historical side this is what would need the most effort actually as it might give us some real market. Other R&amp;D projects only have the lenses like a secondary thing. I am technically the project lead, but there is a formal project manager in her title too. She insist on cutting down budgets, but what she does not understand is that the original one was calculating with high-performing friends of mine who once had red topcoder ratings or are so awsome at maths and programming that they can learn anything new and do real innovation. They are not available to us now and despite we seem to have a real team now, with them the projections are that it will take longer and will be more expensive because there is always a critical path that some people are just not able to work on properly.</p>
 
-<p class="readmore"><a href="low-on-resources.html">Read more...</a></p>
+<p class="readmore"><a href="./low-on-resources.html">Read more...</a></p>
 <p>Tags: <a href='tag_interesting.html'>interesting</a>, <a href='tag_management.html'>management</a>, <a href='tag_pattern.html'>pattern</a>, <a href='tag_anti-pattern.html'>anti-pattern</a></p>
 <h3><a class="ablack" href="killing-in-the-name-of.html">
 Killing in the name of...
@@ -87,7 +90,7 @@ Richárd Thier</div>
 
 <p>Killing meaningful work in the name of "guarding" developers from doing "too much" for a customer in a project where both sides of the stakeholders are sharing "free" research money and the project have not even started yet... does it sound any good?</p>
 
-<p class="readmore"><a href="killing-in-the-name-of.html">Read more...</a></p>
+<p class="readmore"><a href="./killing-in-the-name-of.html">Read more...</a></p>
 <p>Tags: <a href='tag_management.html'>management</a>, <a href='tag_dilbert.html'>dilbert</a>, <a href='tag_research.html'>research</a>, <a href='tag_tender.html'>tender</a>, <a href='tag_high-hopes.html'>high-hopes</a>, <a href='tag_sadness.html'>sadness</a>, <a href='tag_bullshit.html'>bullshit</a>, <a href='tag_morale.html'>morale</a>, <a href='tag_work-ethics.html'>work-ethics</a>, <a href='tag_de-moralized.html'>de-moralized</a>, <a href='tag_apathy.html'>apathy</a>, <a href='tag_work.html'>work</a>, <a href='tag_intraprenour.html'>intraprenour</a></p>
 </div>
 <div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
@@ -98,11 +101,28 @@ Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a 
         var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
 
         /* * * DONT EDIT BELOW THIS LINE * * */
-        (function () {
+        var countfun_disqus = (function () {
         var s = document.createElement("script"); s.async = true;
         s.type = "text/javascript";
         s.src = "//" + disqus_shortname + ".disqus.com/count.js";
         (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
-    }());
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
     </script>
 </body></html>
