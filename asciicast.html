@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Light asciicast viewer</title>
+<title>ASCII-cast viewer</title>
 <link rel="stylesheet" href="asciinema-player.css" type="text/css" />
 
 
@@ -13,20 +13,53 @@
 </script>
 -->
 
-<!-- This script is necessary to do once for asciinema playback -->
-<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast'> because javascript player is not working!</noscript>
-
+<noscript>Please download the *.cast file because the javascript player is not working (see the query parameter or source of the page you came from). You are likely a 'pr0' who is using a really special web browser like links2 or such...</noscript>
 <script type="text/javascript">
-var script = document.createElement('script');
-script.onload = function () {
-    //do stuff with the script - maybe autostart playback??? (should be done by the script itself)
-};
-script.src = "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js";
+// Handling of URL-parameters
+var urlParams;
+(window.onpopstate = function () {
+	var match,
+		pl     = /\+/g,  // Regex for replacing addition symbol with a space
+		search = /([^&=]+)=?([^&]*)/g,
+		decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+		query  = window.location.search.substring(1);
 
-document.head.appendChild(script);
+	urlParams = {};
+	while (match = search.exec(query))
+		urlParams[decode(match[1])] = decode(match[2]);
+})();
+// Main javascript code on page load
+window.onload = function(e){ 
+	// We get speed, directory and filename for the asciinema-player tag from the query parameters
+	const speed = urlParams['speed'];
+	const dir = urlParams['dir'];
+	const file = urlParams['file'];
+	var asciisrc="http://ballmerpeak.web.elte.hu/devblog/attachments/";
+	if(dir) {
+		asciisrc=asciisrc+dir+'/';
+	}
+	if(file) {
+		asciisrc=asciisrc+file;
+		// Set attributes as they are - this is tricky as it is a custom html element...
+		var ply = document.getElementById("my_ascii_player");
+		ply.setAttribute("speed", speed);
+		ply.setAttribute("src", asciisrc);
+
+		// Load the script to transform the asciinema-player tag into a real player
+		var script = document.createElement('script');
+		script.onload = function () {
+			// NO-OP: We could do stuff after the script has been loaded here
+			//loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
+
+		};
+		// This script is necessary to do once for asciinema playback
+		script.src = "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js";
+		document.head.appendChild(script);
+	}
+}
 </script>
 </head>
 
-<body>
-<asciinema-player speed="2" src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast"></asciinema-player />
+<body style="background-color:black;">
+<asciinema-player id="my_ascii_player" autoplay="1" speed="2" src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/hack.cast"></asciinema-player />
 </body>
