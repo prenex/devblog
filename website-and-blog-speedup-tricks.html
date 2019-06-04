@@ -1,0 +1,494 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+</script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<title>Website and blog speedup tricks</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="website-and-blog-speedup-tricks.html">
+Website and blog speedup tricks
+</a></h3>
+<div class="subtitle">April 01, 2019  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>Performant websites and blogs lead to a much better user experience and not
+only that, but even google will rank your creations better when optimized.</p>
+
+<p>This blog was always lightweight - until lately when a lot of clutter have 
+finally piled up in form of various scripts, third party components along 
+with badly optimized pictures. Through this blog post I am documenting the 
+"cleanup process", so read on.</p>
+
+<h1>How my blog was performing originally</h1>
+
+<p>It is worth noting that originally this blog was among the most lightweight 
+ones out there in the wild. It is not only not using any really heavy tools 
+like wordpress or such, but literally there is no backend at all!</p>
+
+<p>As it was written already before long time ago, I have been always using a 
+small script called bb.sh (it stands for bashblog) which is a very little
+cute static site generator. This means that I just write the blog post in 
+that way that I ssh onto a simple web provider I have from past university 
+times and write a new post in markdown (.md) format quite similar to what 
+github is also using. Images and extra things like video are added like 
+plain html tags in the text and the bb.sh script generates a completely 
+static web page.</p>
+
+<p>The result is:</p>
+
+<ul>
+<li>Very simple HTML and CSS</li>
+<li>Directly served and cached by the web server</li>
+<li>Without any "rendering delay"</li>
+<li>While comments and non-trivial functionality is completely client-side or third party components</li>
+<li>and in the end the blog is readable on any device - let it be a mobile phone or a terminal browser like links2</li>
+</ul>
+
+<p>So originally everything was very fast - especially because I did not really 
+published more than simple textual information in various forms.</p>
+
+<h1>State before cleanup</h1>
+
+<p>Before I started to clean up my blog some late additions to my blogging 
+habits started to slow things down considerably...</p>
+
+<p>I have found these to be the causes of the slowdown:</p>
+
+<ul>
+<li>I have added "Disqus" as a simple and powerful commenting possibility.</li>
+<li>I have started using pictures - a lot of them - with some videos and gifs.</li>
+<li>I made an ascii-cast setup on my blog by embedding the asciinema-player.</li>
+<li>I have added simple google scripts to anonymously count website-load stats.</li>
+</ul>
+
+<p>Even I could feel that these have slowed down my blog performance, so what 
+should a sensible developer do in that case? Measure and profile things to 
+see what is going wrong, what to optimize and what does not count much!</p>
+
+<p>A good tool to profile your website is "Pagespeed insights" from Google:</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/speedup/before_all.png" alt="Pagespeed insight - before"></p>
+
+<p>As you can see, the overall score is not the best and in fact the site was 
+considered to be "slow" by the google tool. This makes sense because the 
+post I was measuring this on was actually the biggest imaginable up to 
+the time I was measuring the perfomance. This was the post I used:</p>
+
+<p><a href="http://ballmerpeak.web.elte.hu/devblog/make-it-work-2-gt-97-racing---playing-the-game.html">Make it work 2: GT 97 Racing - "playing" the game</a></p>
+
+<p>To be honest the measurement is already after changing the gifs to video 
+tags (see below) so the really-original measures were likely even worse!</p>
+
+<h1>State after cleanup</h1>
+
+<p>I will present you the steps I took while optimizing this very post and 
+my future posts on my blog and it is lightning-fast once again.</p>
+
+<p>Pagespeed insights after the optimization:</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/speedup/after_all.png" alt="Pagespeed insight - after"></p>
+
+<h1>Defer large CSS for 3rd party stuff</h1>
+
+<p>I have found that there were really weird and under-optimized things on 
+my blog. For example just the CSS for the asciinema player is 50kb and 
+it was originally added together as an extra CSS file for bashblog. This 
+was a really bad idea as the bashblog static site generator always added 
+this CSS to ever page - even where it was not used at all, actually even 
+it got added to the big listing page for all the posts! This literally 
+slows pages and posts that are completely unrelated for having any kind 
+of ascii-casting!</p>
+
+<p>My first plan was to load CSS only on-demand. For this you can use some 
+simple javascript solutions similar to this one:</p>
+
+<p><a href="http://ballmerpeak.web.elte.hu/devblog/loadcss.js">loadcss.js</a></p>
+
+<p>After including this script on your site, you can use it simply in JS:</p>
+
+<pre><code>    loadCSS("http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css");
+</code></pre>
+
+<p>This is a client-side, javascript only solution to defer CSS loading to 
+pages that really need them. Of course there are other tools where you 
+better configure your blog engine or backend to not include this file 
+when not necessary, but as you can see, my setup is really simple and 
+there is no real chance to stop things at the server side (because there 
+is no such thing as server-side to my blog - it is just static html).
+Anyways: This is a little neat trick you might be interested in too.</p>
+
+<p><strong>Conclusion:</strong> Some third party components have so big CSS file that it 
+can count as an image! You should just add things when you really need them!</p>
+
+<p><strong>Remark:</strong> You should actually try to also seperate your critical path in 
+your CSS file(s) and literally inline them into the html header. This way 
+you can save some more milliseconds by eliminating round-trips. I might do 
+this in the future too.</p>
+
+<h1>Use video tags instead of real gifs</h1>
+
+<p>Did you know that in case you upload that funny cat-related gif animation 
+to social media or image sharing sites they will actually <strong>not</strong> put them 
+into <strong>img tags</strong>?</p>
+
+<p>They literally used to convert the gif into some video formats and use 
+the html5 video tags when applicable! This is literally much-much more 
+faster, especially for the CPU usage. Also gifs grow really big as the 
+lenght of them grow longer while video codecs might compress long 
+animations much better.</p>
+
+<p>I was just using ffmpeg and converted bigger gifs to video tags:</p>
+
+<pre><code>    ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4
+</code></pre>
+
+<p>What if the browser is not supporting the video tag? There is a 
+documented and clean fallback for that, because the body of the 
+tag is not processed if the video tag is supported, but it is 
+basically always processed otherwise. For better compatibility 
+I have created both .mp4 and .webm with a simple old gif as the 
+fallback in case there is no support.</p>
+
+<p>This is achieved with this simple code:</p>
+
+<pre><code>    &lt;video autoplay width="640" height="480" loop muted playsinline&gt;
+        &lt;source src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.mp4" type="video/mp4"/&gt;
+        &lt;source src="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.webm" type="video/webm"/&gt;
+        &lt;a href="http://ballmerpeak.web.elte.hu/devblog/attachments/making-it-run-gt97-racing-2/gt97_notime.gif"&gt;See gif animation&lt;/a&gt;
+    &lt;/video&gt;
+</code></pre>
+
+<p>To make the page fast even for old browsers (and maybe some robots) I 
+choose to just use a simple link instead of an img tag with the gif.</p>
+
+<p>Alongside this, I have changed the resolution and quality where applicable.</p>
+
+<p>The video tag is not only faster because most browsers have really fine 
+tuned and optimized support for them, while the gif playback is usually 
+bitrot-affected legacy or fallback code - but using gifs usually rank 
+your page to be slower and have a longer response time in layout too!</p>
+
+<p><strong>Conclusion:</strong> Beware of using gifs directly and feel free to use the 
+new video tag as it has really awsome browser support already!</p>
+
+<p><strong>Remark:</strong> The webm format is more open source, but on my machine it 
+felt slower so I choose mp4 as the default. You better provide both!</p>
+
+<h1>Size your images properly</h1>
+
+<p>Not only you should avoid gifs and heavy scripts, but of course you can 
+mess your website load speed just because you are using too big images.</p>
+
+<p>These are the rules I follow:</p>
+
+<ul>
+<li>I am not using images on main pages and where I can live without it.</li>
+<li>When using images, I have resized them with imagemagick</li>
+<li>If you really want a bigger image, let the user click on it to zoom.</li>
+</ul>
+
+<p>Or something similar. It can be really beneficial to use some client 
+side, but really lightweight javascript "image gallery" libraries to 
+load big images only when needed and present the small ones when this
+is applicable for your use cases, but this is just a blog and I just 
+got away with resizing to proper image sizes with imagemagick.</p>
+
+<p>After resizing the images using a generated script that resized all 
+png and jpg files and create "smo_" prefixed versions I just used 
+vim to quickly fix all pages to use them if they were slow.</p>
+
+<p><strong>Conclusion:</strong> No one can save your bandwidth and rendering speed if 
+you show oversized images everywhere on your web page...</p>
+
+<h1>Put away un-optimized components (asciinema player)</h1>
+
+<p>After all the above you will realize that the score you get from the
+google page speed insights tool is getting better, but is still far 
+from what I (and hopefully you) wish for. According to the insights 
+tool I could see that <strong>parsing of asciinema-player.js</strong> took the 
+web browser <strong>985ms</strong>. First I started to just manually include this 
+script only on the pages that really need it (as a quick fix), but 
+wanted to have a real solution.</p>
+
+<p>Also I have found one more weird problem: despite this is a javascript
+player for ascii casts - thus it should be lightweight in theory - in
+reality it uses some already existing javascript terminal libraries
+and they had some problems integrating it with the functionality of
+the player. It works quite normal - until you click into the quick 
+navigation timeline bar. If you navigate too far in a long asciicast 
+the memory usage skyrockets with 500-800 megabytes! It seems that 
+this is a known bug and we cannot do anything with that. :-(</p>
+
+<p>In any ways we do not want this component to hog down our pages!
+First my plan was to basically create a simple img tag as a nice 
+placeholder, with all the relevant information in it. If as user 
+clicks on it, a small javascript handler would exchange this 
+clickable placeholder with what is expected by the original 
+player and load both the javascript and CSS files on-demand.</p>
+
+<p>This seemed like a complex idea and I have found a much more 
+simple, much easier one! Why do not I am putting away the player 
+into its own very small html file, having the CSS as-is and 
+setting the player to autoplay - right after first parameterizing
+the attributes as they should be parameterized?</p>
+
+<p>Then <a href="http://ballmerpeak.web.elte.hu/devblog/toolz/asciicast.html.txt">asciicast.html</a> was born!</p>
+
+<p>At the first sight this might seem ugly, but it is a very small 
+thing so I have decided to make it self-contained and mix the 
+html, CSS and javascript all together. Basically it is an empty
+black page with the player in the middle that starts automatically.
+To know what to play, we provide url query-parameters and it will 
+download the given .cast file from the given directory if given.</p>
+
+<p>This also serves as a minimal example about how you can "send" 
+some really simple data between two client-side-only pages.
+Of course there are other and more refined ways, but for our 
+purposes this was fast and cheap - while working well.</p>
+
+<p><strong>Conclusion:</strong> If something is slow but you want or need it, 
+consider putting it away so it does not bog down the whole page!</p>
+
+<h1>Put away un-optimized components (disqus)</h1>
+
+<p>Do you think after all the above we are having the awsome clean and 
+fast blog that I was originally presenting to the world? No. There 
+is one more third party component that slows it down: Disqus!</p>
+
+<p>To be honest at this point even the most heavy blog post was already 
+very much usable without any real lagging on most devices (even my 
+old laptop from 2007 that I use!) and disqus docs tell you that the 
+bad scores you get after using them is "just fake" I did not trust 
+them and felt that even though the case is "not that bad" there must 
+be some gain if I would be able overcome the time spent in this 3rd 
+party component on my blog.</p>
+
+<p>After all, just parsing the script took 1.471ms for the discus comment 
+section in the end and even though it happens asynchronously, so in the 
+case you have a powerful enough machine it is not so bad because you 
+basically are not feeling this time being passed with waiting, still 
+it can slow your page on lower end systems and generally use the CPU.</p>
+
+<p>Actually discus was an "integrated" part of bashblog - the static site 
+generator I use. All I had to do is to give the creds and start to see 
+it on my pages. As it turns out the html and script fragments from 
+disqus were literally hard-coded into the source code in bb.sh. :-)</p>
+
+<p>I was not sure why exactly I see two (a count.js and a main) script 
+being accessed from the disqus web, but thank God it was already 
+an async loading so it was really easy to let it load only after 
+the user literally click on something first!</p>
+
+<p>So what I employed here was the originl plan of mine from above, 
+that I present the user with a placeholder image and if (s)he 
+click on it, the hidden functionality shows up on-demand.
+You can likely see this working for this post too on this page.</p>
+
+<p>The bash script of the static site generator was modified here:</p>
+
+<pre><code>    # Prints the required code for disqus comments
+    disqus_body() {
+        [[ -z "$global_disqus_username" ]] &amp;&amp; return
+
+        echo '&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+            &lt;img id="disqus-opener" src="discus-logo.jpg"&gt;
+            &lt;script type="text/javascript"&gt;
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = '\'$global_disqus_username\''; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            var embedfun_disqus = (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            });
+            &lt;/script&gt;
+            &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+            &lt;a href="http://disqus.com" class="dsq-brlink"&gt;comments powered by &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;'
+    }
+
+    # Prints the required code for disqus in the footer
+    disqus_footer() {
+        [[ -z "$global_disqus_username" ]] &amp;&amp; return
+        echo '&lt;script type="text/javascript"&gt;
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '\'$global_disqus_username\''; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        var countfun_disqus = (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
+        &lt;/script&gt;'
+    }
+</code></pre>
+
+<p>As it turns out bashblog already supported google analytics too, but I sadly 
+re-implemented it in my own custom header before I saw that. At least I see 
+this google stuff is not slow at all however.</p>
+
+<p><strong>Conclusion:</strong> If you have time, you can try to "put away" 3rd party stuff
+even if they lie to you that you do not need to and measurements show "fake" 
+slowness. I felt my whole pages being loading extra-fast after this and I 
+guess maybe they could not use their advertisement tracking stuff if they 
+have anything like that neither!</p>
+
+<h1>Caching</h1>
+
+<p>Advanced or enterprise-grown-up web optimizers will however start with 
+something else usually: caching, caching and even more caching for ya'!</p>
+
+<p>Caching is a really useful tool and it can be anything ranging from a 
+simple but properly configured .htaccess file up until a varnish cache!</p>
+
+<p>For my small blog I already use a "no backend tactic" because of the 
+static site generator so I rarely ever need anything that is not given 
+to me freely from the infrastructure of the university servers.</p>
+
+<p>I just choose to use a .htaccess cache setup as follows:</p>
+
+<pre><code>    # One month for most static assets
+    #&lt;filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$"&gt;
+    &lt;filesMatch ".(jpg|jpeg|png|gif|ico)$"&gt;
+    Header set Cache-Control "max-age=2628000, public"
+    &lt;/filesMatch&gt;
+
+    # These are quite heavy too!
+    &lt;filesMatch "asciinema-player.js"&gt;
+    Header set Cache-Control "max-age=2628000, public"
+    &lt;/filesMatch&gt;
+    &lt;filesMatch "asciinema-player.css"&gt;
+    Header set Cache-Control "max-age=2628000, public"
+    &lt;/filesMatch&gt;
+
+    &lt;filesMatch ".(rss)$"&gt;
+    Header set Cache-Control "max-age=0, no-cache"
+    &lt;/filesMatch&gt;
+</code></pre>
+
+<p>As you can see I was not caching CSS files - except the rarely changing 
+third party CSS and JS - and disabled caching for the RSS feed while all 
+images became cached for one month. With this setup even pages with a lot 
+of large images will be quite fast for a second visit from someone and 
+this helps when they click around a lot among the posts. Also this way 
+the common images will be cached - like the placeholder image for disqus.</p>
+
+<h1>Final words</h1>
+
+<p>When I was a kid we had an Elon Enterprise 128 home computer first. Why is 
+that interesting? When you have plugged it in, it basically immediately 
+shown you a nice colorful enterprise advertisement screen and the system 
+was completely up and running with the BASIC interpreter up for action.</p>
+
+<p>No loading, waiting for the operating system, nothing. It was... usable...
+Of course you would complain when loading from casettes later, but hey
+the system was usable right at the start and was waiting for you!</p>
+
+<p>When we got our Cyrix 486SX with DOS the case was still similar, a very 
+short load time - mostly spent in the BIOS checks - lead to a prompt.</p>
+
+<p>Then things broke... they broke with Microsoft Windows! This OS was put 
+together in that way that things were not on-demand anymore and you had 
+to wait.. quite.. a.. lot.</p>
+
+<p>Try to make things that do stuff only on-demand when possible! Really!
+Of course there are optimizations that just make things faster like 
+resizing images to fit better for their purposes on the page, but 
+on-demand computation is more of a design philosopy to follow from 
+the first moment if you want something really lightweight and speedy!</p>
+
+<p>Shouldn't you wait less on a multicore i7 laptop than on an 8 bit micro
+with a 4Mhz Z80 CPU?</p>
+
+<p>I liked that machine - it might be the best ever 8bit machine actually!</p>
+
+<p>Tags: <a href='tag_website.html'>website</a>, <a href='tag_speedup.html'>speedup</a>, <a href='tag_web-development.html'>web-development</a>, <a href='tag_optimization.html'>optimization</a>, <a href='tag_trickz.html'>trickz</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_blog.html'>blog</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <img id="disqus-opener" src="discus-logo.jpg">
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            var embedfun_disqus = (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            });
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        var countfun_disqus = (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
+    </script>
+</body></html>

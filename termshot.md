@@ -133,16 +133,7 @@ cast file and play it with asciinema itself.
 The recording below contains a quickfix and some funstuff:
 
 <!-- This is how we do playback -->
-<asciinema-player src="http://ballmerpeak.web.elte.hu/devblog/attachments/termshot/termshot.cast"></asciinema-player>
-
-<!-- Load CSS file from JS (for the javascript player). This is 50k and takes 0.6s for those who do not need it! -->
-<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/loadcss.js"></script>
-<script type="text/javascript">
-	loadCSS( "http://ballmerpeak.web.elte.hu/devblog/asciinema-player.css" );
-</script>
-
-<!-- This is how we do playback -->
-<script type="text/javascript" src="http://ballmerpeak.web.elte.hu/devblog/asciinema-player.js"></script><noscript>Please download <a href='http://ballmerpeak.web.elte.hu/devblog/attachments/termshot/termshot.cast'> because javascript player is not working!</noscript>
+<a href="http://ballmerpeak.web.elte.hu/devblog/toolz/asciicast.html?dir=termshot&file=termshot.cast"><img src="14.png"></a>
 
 You can also see some of the results here:
 
