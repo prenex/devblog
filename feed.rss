@@ -2,9 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Mon, 01 Apr 2019 23:20:49 +0200</lastBuildDate>
-<pubDate>Mon, 01 Apr 2019 23:20:49 +0200</pubDate>
+<lastBuildDate>Tue, 11 Jun 2019 00:25:23 +0200</lastBuildDate>
+<pubDate>Tue, 11 Jun 2019 00:25:23 +0200</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Debugging mesa and the linux 3D graphics stack
+</title><description><![CDATA[
+
+<p>Have you ever wanted to troubleshoot or even contribute to the linux graphics 
+stack? Were you ever interested in doing a deep dive? Read on if you dare, but 
+do not fear - I was rookie on the topic myself before I went for my hunt on a 
+50-1000% slowdown after some updates and a distro change.</p>
+
+<p>The power of open source: We can fix a more than decade old hardware getting 
+a slowdown as easily as a new one! Fuck you planned obsolesence haha!</p>
+
+<h1>Introduction</h1>
+<p>Tags: <a href='tag_mesa.html'>mesa</a>, <a href='tag_arch.html'>arch</a>, <a href='tag_32bit.html'>32bit</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_slowdown.html'>slowdown</a>, <a href='tag_contribute.html'>contribute</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_graphics.html'>graphics</a>, <a href='tag_stack.html'>stack</a>, <a href='tag_analysis.html'>analysis</a>, <a href='tag_3D.html'>3D</a>, <a href='tag_optimization.html'>optimization</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_system.html'>system</a>, <a href='tag_internals.html'>internals</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/debugging-mesa-and-the-linux-3d-graphics-stack.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./debugging-mesa-and-the-linux-3d-graphics-stack.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Tue, 11 Jun 2019 00:25:19 +0200</pubDate></item>
+<item><title>
+Building your own mesa
+</title><description><![CDATA[
+
+<p>These days I was doing a debugging session on a slowdown somewhere in the 
+linux graphics pipeline of mine after I have changed to arch linux. It have 
+turned out to be a bug in mesa, but in order to corner the problem I had to 
+compile mesa myself both in latest and earlier versions.</p>
+
+<p>I have found that it is really easy to do so - nearly as "simple" as 
+compiling and using your own kernel and it is well documented, but I had to 
+use different information from different sites so I thought it is good to 
+collect the relevant links in one place.</p>
+
+<h1>Getting sources</h1>
+<p>Tags: <a href='tag_mesa.html'>mesa</a>, <a href='tag_build.html'>build</a>, <a href='tag_compile.html'>compile</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_linux.html'>linux</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/building-your-own-mesa.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./building-your-own-mesa.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Tue, 04 Jun 2019 14:34:00 +0200</pubDate></item>
 <item><title>
 Website and blog speedup tricks
 </title><description><![CDATA[
@@ -159,39 +197,4 @@ Setting up my own ascii-casting on my blog
 <guid>http://ballmerpeak.web.elte.hu/devblog/./setting-up-my-own-ascii-casting-on-my-blog.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Fri, 18 Jan 2019 17:08:00 +0100</pubDate></item>
-<item><title>
-Make it work: GT97 Racing
-</title><description><![CDATA[
-
-<p>Once I had this game (GT97 Racing) and now found it in nrg image format so 
-I thought it is time to retroplay a bit with it, to find out sadly that 
-the game does not work because of copy protection complains when trying 
-with the NRG, cdemu, linux, dosbox environment.</p>
-
-<p>The game uses CD checking in a way that does not work when the .nrg image is 
-mounted with cdemu on linux and its drive directory is mounted with dosbox!</p>
-
-<p>This is because the CD is a mixed-mode CD with audio tracks and allegedly 
-the length of the tracks are used as copy protection.</p>
-
-<h1>The copy protection</h1>
-<p>Tags: <a href='tag_retro.html'>retro</a>, <a href='tag_gaming.html'>gaming</a>, <a href='tag_dosbox.html'>dosbox</a>, <a href='tag_crack.html'>crack</a>, <a href='tag_gtracing.html'>gtracing</a>, <a href='tag_hacking.html'>hacking</a>, <a href='tag_assembly.html'>assembly</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_cdemu.html'>cdemu</a>, <a href='tag_make-it-work.html'>make-it-work</a>, <a href='tag_gt.html'>gt</a>, <a href='tag_97.html'>97</a>, <a href='tag_racing.html'>racing</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/making-it-run-gt97-racing.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./making-it-run-gt97-racing.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Wed, 16 Jan 2019 00:15:00 +0100</pubDate></item>
-<item><title>
-Decision point
-</title><description><![CDATA[
-
-<p>I am leaving the company where I have spent the 5 last years doing numerous projects in numerous technologies, writing tenders, innovate and even do some amount of leadership (without any official title for the latter). I have poured water over one of my managers who actually was my supporter in the management - literally I did so in one meeting. I did so because he was following the strategy of our CEO and maybe our owner about the R&amp;D projects.</p>
-
-<p>This is a long and personal story, with some of my feelings a bit exagerated. It was my first ever job I have left by the result of this.</p>
-
-<h1>The long story</h1>
-<p>Tags: <a href='tag_cheaplens.html'>cheaplens</a>, <a href='tag_intrapeneur.html'>intrapeneur</a>, <a href='tag_ending.html'>ending</a>, <a href='tag_finish.html'>finish</a>, <a href='tag_company.html'>company</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_vr.html'>vr</a>, <a href='tag_innovation.html'>innovation</a>, <a href='tag_tender.html'>tender</a>, <a href='tag_corruption.html'>corruption</a>, <a href='tag_water.html'>water</a>, <a href='tag_pouring.html'>pouring</a>, <a href='tag_into.html'>into</a>, <a href='tag_manager.html'>manager</a>, <a href='tag_face.html'>face</a>, <a href='tag_ceo.html'>ceo</a>, <a href='tag_me.html'>me</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/decision-point.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./decision-point.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Tue, 25 Sep 2018 13:19:00 +0200</pubDate></item>
 </channel></rss>

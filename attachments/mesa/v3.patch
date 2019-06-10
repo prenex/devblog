@@ -1,0 +1,115 @@
+From 61d5f2fb35f7c4c83a7510393335ae44e9f21d42 Mon Sep 17 00:00:00 2001
+From: Richard Thier <u9vata@gmail.com>
+Date: Sat, 8 Jun 2019 08:35:36 +0200
+Subject: [PATCH] [PATCH] r300g: restore performance after 
+ RADEON_FLAG_NO_INTERPROCESS_SHARING was added
+
+v1: Fix skipped slab allocators and the buffer cache.
+
+v2: Use only 1 domain for texture allocation
+
+v3: Added flag for the create_fence call too
+
+Based on Marek v1 and v2 proposed fixes.
+
+Bugzilla: https://bugs.freedesktop.org/show_bug.cgi?id=1107812.patch
+---
+ src/gallium/drivers/r300/r300_query.c         |  3 ++-
+ src/gallium/drivers/r300/r300_render.c        |  3 ++-
+ src/gallium/drivers/r300/r300_screen_buffer.c |  6 ++++--
+ src/gallium/drivers/r300/r300_texture.c       | 10 +++++++++-
+ src/gallium/winsys/radeon/drm/radeon_drm_cs.c |  4 +++-
+ 5 files changed, 20 insertions(+), 6 deletions(-)
+
+diff --git a/src/gallium/drivers/r300/r300_query.c b/src/gallium/drivers/r300/r300_query.c
+index 014055b221e..0ccc753147b 100644
+--- a/src/gallium/drivers/r300/r300_query.c
++++ b/src/gallium/drivers/r300/r300_query.c
+@@ -62,7 +62,8 @@ static struct pipe_query *r300_create_query(struct pipe_context *pipe,
+     q->buf = r300->rws->buffer_create(r300->rws,
+                                       r300screen->info.gart_page_size,
+                                       r300screen->info.gart_page_size,
+-                                      RADEON_DOMAIN_GTT, 0);
++                                      RADEON_DOMAIN_GTT,
++                                      RADEON_FLAG_NO_INTERPROCESS_SHARING);
+     if (!q->buf) {
+         FREE(q);
+         return NULL;
+diff --git a/src/gallium/drivers/r300/r300_render.c b/src/gallium/drivers/r300/r300_render.c
+index ed129e1a306..c0d7e7ee0f8 100644
+--- a/src/gallium/drivers/r300/r300_render.c
++++ b/src/gallium/drivers/r300/r300_render.c
+@@ -915,7 +915,8 @@ static boolean r300_render_allocate_vertices(struct vbuf_render* render,
+         r300->vbo = rws->buffer_create(rws,
+                                        MAX2(R300_MAX_DRAW_VBO_SIZE, size),
+                                        R300_BUFFER_ALIGNMENT,
+-                                       RADEON_DOMAIN_GTT, 0);
++                                       RADEON_DOMAIN_GTT,
++                                       RADEON_FLAG_NO_INTERPROCESS_SHARING);
+         if (!r300->vbo) {
+             return FALSE;
+         }
+diff --git a/src/gallium/drivers/r300/r300_screen_buffer.c b/src/gallium/drivers/r300/r300_screen_buffer.c
+index 4af1c46856e..c946cfc8d03 100644
+--- a/src/gallium/drivers/r300/r300_screen_buffer.c
++++ b/src/gallium/drivers/r300/r300_screen_buffer.c
+@@ -103,7 +103,8 @@ r300_buffer_transfer_map( struct pipe_context *context,
+             /* Create a new one in the same pipe_resource. */
+             new_buf = r300->rws->buffer_create(r300->rws, rbuf->b.b.width0,
+                                                R300_BUFFER_ALIGNMENT,
+-                                               rbuf->domain, 0);
++                                               rbuf->domain,
++                                               RADEON_FLAG_NO_INTERPROCESS_SHARING);
+             if (new_buf) {
+                 /* Discard the old buffer. */
+                 pb_reference(&rbuf->buf, NULL);
+@@ -183,7 +184,8 @@ struct pipe_resource *r300_buffer_create(struct pipe_screen *screen,
+     rbuf->buf =
+         r300screen->rws->buffer_create(r300screen->rws, rbuf->b.b.width0,
+                                        R300_BUFFER_ALIGNMENT,
+-                                       rbuf->domain, 0);
++                                       rbuf->domain,
++                                       RADEON_FLAG_NO_INTERPROCESS_SHARING);
+     if (!rbuf->buf) {
+         FREE(rbuf);
+         return NULL;
+diff --git a/src/gallium/drivers/r300/r300_texture.c b/src/gallium/drivers/r300/r300_texture.c
+index 46d88b34638..21ade4022c5 100644
+--- a/src/gallium/drivers/r300/r300_texture.c
++++ b/src/gallium/drivers/r300/r300_texture.c
+@@ -1113,8 +1113,16 @@ r300_texture_create_object(struct r300_screen *rscreen,
+ 
+     /* Create the backing buffer if needed. */
+     if (!tex->buf) {
++        /* Only use the first domain for allocation. Multiple domains are not allowed. */
++        unsigned alloc_domain =
++            tex->domain & RADEON_DOMAIN_VRAM ? RADEON_DOMAIN_VRAM :
++                                               RADEON_DOMAIN_GTT;
++
+         tex->buf = rws->buffer_create(rws, tex->tex.size_in_bytes, 2048,
+-                                      tex->domain, RADEON_FLAG_NO_SUBALLOC);
++                                      alloc_domain,
++                                      RADEON_FLAG_NO_SUBALLOC |
++                                      /* Use the reusable pool: */
++                                      RADEON_FLAG_NO_INTERPROCESS_SHARING);
+ 
+         if (!tex->buf) {
+             goto fail;
+diff --git a/src/gallium/winsys/radeon/drm/radeon_drm_cs.c b/src/gallium/winsys/radeon/drm/radeon_drm_cs.c
+index 566f132bdd5..ccdaed64e02 100644
+--- a/src/gallium/winsys/radeon/drm/radeon_drm_cs.c
++++ b/src/gallium/winsys/radeon/drm/radeon_drm_cs.c
+@@ -771,7 +771,9 @@ radeon_cs_create_fence(struct radeon_cmdbuf *rcs)
+ 
+     /* Create a fence, which is a dummy BO. */
+     fence = cs->ws->base.buffer_create(&cs->ws->base, 1, 1,
+-                                       RADEON_DOMAIN_GTT, RADEON_FLAG_NO_SUBALLOC);
++                                       RADEON_DOMAIN_GTT,
++                                       RADEON_FLAG_NO_SUBALLOC
++                                       | RADEON_FLAG_NO_INTERPROCESS_SHARING);
+     if (!fence)
+        return NULL;
+ 
+-- 
+2.21.0
+
