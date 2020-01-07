@@ -1,0 +1,17 @@
+# One month for most static assets
+#<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+<filesMatch ".(jpg|jpeg|png|gif|ico)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
+# These are quite heavy too!
+<filesMatch "asciinema-player.js">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+<filesMatch "asciinema-player.css">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
+<filesMatch ".(rss)$">
+Header set Cache-Control "max-age=0, no-cache"
+</filesMatch>
