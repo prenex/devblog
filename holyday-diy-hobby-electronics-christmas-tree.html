@@ -1,0 +1,552 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
+</script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<title>Holiday DIY hobby electronics Christmas tree</title>
+</head><body onload='myOnLoad()'>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="holyday-diy-hobby-electronics-christmas-tree.html">
+Holiday DIY hobby electronics Christmas tree
+</a></h3>
+<div class="subtitle">December 24, 2019  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>When I was a kid my dad made me a little blinking "Christmas tree" out of a 
+"cone" from a pine and some little electronics and leds. When last year I saw 
+the nice blinky presents I got together for free when odering from local hobby 
+electric shop I though the next Christmas will be the perfect time for making 
+from that circuit what my dad once did for me as a present for my girlfriend.</p>
+
+<p>Then I thought why not write a tutorial about it so others can build - maybe 
+even foreign people who did not see the Hungarian tutorial for it of course?</p>
+
+<h1>The end result</h1>
+
+<p>There is an old saying that if one sees a software developer with a soldering 
+iron, one should expect a run of amok and chaos soon. I hope the end result is 
+a bit better than that, and advise the present as easy DIY project for anyone! </p>
+
+<p>I tried to craft it well and tried to pay attention to detail.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-fa.jpg" alt="Final result (photo)"></p>
+
+<p>To see it in function, just watch the following short youtube video.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8lnAwgHL04A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>But if you are a Hungarian you might watch the longer educational video!</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qKNg6GTl9kQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1>Influence and motivation</h1>
+
+<p>As I already wrote about it, my motivation was coming from two directions. The 
+first motivation was remembering how happy I felt when I was a kid and father 
+gave me his little similar tree he created. I thought my girlfriend who works 
+with small children and studies in fields related to them might as much like 
+the present - and also I thought maybe one day my own kids can see this if I 
+make this well enough so they can also stay amazed at its simple magic.</p>
+
+<p>The second part of my motivation was more like a trigger: When I was thinking 
+about what to give as present last christmas I got <a href="https://www.hobbielektronika.hu/cikkek/meglepetes_karacsonyfa_a_hestoreban.html">this nice free blinky</a> 
+from a well know Hungarian hobby electronics forums store (hestore.hu).</p>
+
+<p>I thought to myself: I see that I can just copy this circuit and put it into 
+a small box that has a cone and leds on it with decorations to remake some 
+similar thing just like my dad made and surely I hope it will be happy present.</p>
+
+<p>As you can see their page already has schematics so one can just build using 
+those and skip reading my blog here, just I made minor adjustments only but 
+here I will present my version with schematics and explanation that might 
+help you if you also have stuff at home but not exactly the same as in the 
+original description (or mine).</p>
+
+<h1>What do you need for this project?</h1>
+
+<h2>Prerequisites</h2>
+
+<p>Spend less than 10 euro on the following stuff:</p>
+
+<ul>
+<li>Soldering iron</li>
+<li>Some kind of probe panel you can solder on</li>
+<li>Cables</li>
+<li>10 piece leds with different colors</li>
+<li>2 pieces of 104 nF capacitors</li>
+<li>2 pieces of 220 ohm resistors</li>
+<li>2 pieces of 2k ohm resistors</li>
+<li>A 270 ohm resistor</li>
+<li>3 pieces of 1k ohm resistors</li>
+<li>Some kind of switch</li>
+<li>An LM7805 variant (+5V creation)</li>
+<li>A 74HC4060E oscillator and binary counter IC</li>
+<li>9V battery</li>
+<li>Connector for the battery</li>
+<li>Glue</li>
+<li>Solder</li>
+<li>Small drill or something to make holes</li>
+<li>A little box</li>
+<li>A pine cone</li>
+<li>Time on your hand</li>
+</ul>
+
+<p>If you have some resistors and capacitors likely you can build it if you read 
+this post carefully as there are multiple ways to do it a bit differently just 
+like how I also do it differently than how hestore people are doing it.</p>
+
+<h2>Good to have</h2>
+
+<p>These things that are not necessary but good to have anyways:</p>
+
+<ul>
+<li>A multimeter for testing</li>
+<li>Other decorations as you wish</li>
+<li>Good lights, helpful cutter tools, etc.</li>
+<li>Understanding binary or electronics or anything helpful</li>
+<li>Patience</li>
+</ul>
+
+<p>Light conditions were bad for me, but my cone has pearl decorations and my 
+multimer was helpful when it did not want to turn on. A scope is maybe even 
+more helpful to see if the IC is counting or not, but one should be well 
+without that in these really simple circuits come on (I do not have it).</p>
+
+<h1>Basic idea</h1>
+
+<p>So the idea is to buy a cheap but nice box (you can make it if you want) and 
+put all electronics inside and to drill holes for cables and make it hole the 
+battery and everything. Then leds are controlled through cables only from the 
+inside of the box while they are on a cone that is glued on top.</p>
+
+<p>What is the basic principles of digital electric operation?</p>
+
+<ul>
+<li>We create 5V using the 7805 from the 9V battery</li>
+<li>The switch is there so we can turn it off to not drain battery</li>
+<li>The IC counts and we use 3 bits of that for 8 "states"</li>
+<li>The frequency of the IC counting is controlled by an RC circuit</li>
+<li>We use tricks to light various leds for each of the 8 states</li>
+</ul>
+
+<p>Okay. Maybe I go too fast if this is a tutorial and I want literally anyone to 
+get able to recreate it so let us break this down...</p>
+
+<h1>Description of the inside parts</h1>
+
+<p>In order to follow the text, you better keep looking at this below schematic.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-Inside.png" alt="Circuit inside the box (schematic)"></p>
+
+<p>This schematic I tried to completely correspond to the photo about the inside.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-Inside-photo.jpg" alt="Circuit inside the box (photo)"></p>
+
+<p>Looking at these now we break down the basic ideas a bit.</p>
+
+<h2>Creating 5V</h2>
+
+<p>So first of all most simple small electronic ICs work with either 3V or 5V but 
+there is usually no battery with 5V. The original hestore cicuit works from 
+getting this 5V from an USB port, but I wanted a mobile solution. This is 
+routinely solved by just employing a 9V battery and use an LM7805 IC which has 
+three legs: The left here is where we put 9V in, The middle is a common 0V 
+which is connected to the circuit 0V and the "minus" of the battery and its 
+third leg of this IC magically creates 5V (and some heat dissipatation). This 
+one is really just that simple.</p>
+
+<h2>Adding a simple switch</h2>
+
+<p>The switch is just mechanically connects or disconnects the power line of the 
+9V. Oh and please always disconnect the plus instead of just disconnecting the 
+ground even though that "might work". Bad habit. My case with the switch was 
+that I had no "on-off" switch at home, just one that switch one line into one 
+or the other direction, but leaving out one side of that you get an old boing 
+kind of usual switch out of this. The one I was using would be able to make 
+us choose between two different ways of blinking for example if we would make 
+two different blinky circuit (like an 555 timer based and this one). I did not 
+go that fancy as I like it as it is.</p>
+
+<h2>Understanding the binary counter IC</h2>
+
+<p>So what is this binary counter IC? It practically counts for us when powered. 
+Not surprising is not it? Still it is good to talk about it a bit more. It 
+has a 14 bit counter in it, so it can count until 2^14-1 for us counting from 
+zero and then starts again circularly until the end of times (or the power).</p>
+
+<p>As with all ICs, one better looks up its <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/74HC4060.pdf">datasheet for how it works</a>.</p>
+
+<p>As one can conclude using the datasheet, this is how the digits of the counter 
+appears on the pins of the IC as in the next table.</p>
+
+<pre><code>    | Digit | 13 | 12 | 11 | 10 | 9  | 8  | 7  | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+    |-------|----|----|----|----|----|----|----|---|---|---|---|---|---|---|
+    | Pin   | 3  | 2  | 1  | -  | 15 | 13 | 14 | 6 | 4 | 5 | 7 | - | - | - |
+</code></pre>
+
+<p>To explain this a bit more, we can say that when counting is at zero all the 
+3,2,1,15,13,14,6,5,4,7 pins are 0V and when counting is at 100 (dec), which is 
+1100100 in binary we get voltages as in the below table.</p>
+
+<pre><code>    | Volts | 0V | 0V | 0V | 0V | 0V | 0V | 0V | 5V| 5V| 0V| 0V| 5V| 0V| 0V|
+    |-------|----|----|----|----|----|----|----|---|---|---|---|---|---|---|
+    | Pin   | 3  | 2  | 1  | -  | 15 | 13 | 14 | 6 | 4 | 5 | 7 | - | - | - |
+</code></pre>
+
+<p>As you can see some binary digits are just not having pins to go outside of 
+the IC we have but part of the counting still. This is fine. Also it is clear 
+here that as it is usual in digital circuits +5V acts as logical one. Usually 
+in most cases the logical one is the voltage of the circuit.</p>
+
+<p>We can also understand now that pin 1,2,3 digits change much more slowly than 
+pin 7,5,4 digits (because they being higher digits). Namely 2^8 so 256x more 
+slowly but following the same patterns while counting because we always count 
+one-by-one all the time. You can think about this or write down it on paper.</p>
+
+<p>The basic idea is that we use 3 consecutive bits of this counter using the pin 
+layout and that way we get a smaller counter that counts from 000 to 111 in 
+binary. That way we end up having 8 separate "states" and this is why we drill 
+three holes on our box with 3 "data" wires to go though and 2 "plus &amp; minus" 
+wires. On the top we connect these to leds.</p>
+
+<h2>Understanding the RC oscillator setting</h2>
+
+<p>So what we did not tell about our IC? That it is nost just a counter, but also 
+an oscillator too! This just means that it can actually can count on its own, 
+by setting a oscillator frequency - practically the frequency of the counting. 
+By defining this, we can make the counter count faster or slower as we want it.</p>
+
+<p>There are many ways this can work and even the IC supports more (like using 
+cristals), but the simplest is just use RC oscillation. This is called RC 
+because one can use <strong>R</strong>esistors and <strong>C</strong>apacitors for defining frequency.</p>
+
+<p>We will not delve into RC details, but <strong>page 15</strong> of the data sheet explains 
+how to set the oscillator frequency. We need to put R1 R2 and C1 so two 
+resistors and a capacitor/condensator on the 10, 11 and 9 pins respectively.</p>
+
+<p>Then frequency will be around 1(2.5 * R1 * C1) given that we apply some minima.</p>
+
+<p>If you look at the circuit the hestore guys made, you will find that they use 
+470k ohm resistors both for R1 and R2. I did not have those at hand and could 
+not go into shops in my area that sell them. You of couse can put other kind 
+of resistors serial or parallel until desired results but my problem was that 
+not only I did not have 470k, but nothing even close! All I had (after making 
+other resistors as close as they can be) were 1k resistors from which I had 
+a lot but not 470 of them to make it a serial 470k one haha.</p>
+
+<p>There are multiple ways to circumwent this! My first temporal solution was to 
+actually use a big electrolytic condensator/capacitor that was getting me the 
+same frequency. As you can see this is doable, but it is not the best thing to 
+put electrolytic capacitors in this small present as they will surely wear out 
+after enough time passes for them and blow into small pieces.</p>
+
+<p>I have found a better solution: Just added two 1k resistos (forming 2k added) 
+as my R1 variant and kept R2 as a single 1k resistor and used the 104 nF C1. 
+But as this would lead to a much faster counting circuit - actually so fast 
+that one cannot even see, just dimmed leds if lucky at all - I decided to 
+use pin 1,2,3 instead of the lower digits that hestore guys used as these 
+change in the same pattern as theirs, but 256x slower. The original R1 was 
+470k and mine is 2k, so we count 235x faster, but I use digits which are 
+changing 256x slower thus negate this effect completely.</p>
+
+<p>At least now we do not need to think about if we accidentally put in the 
+electrolytic capacitor reversed as the small ceramic ones can be put in any 
+ways we want to without them blowing into useless pieces...</p>
+
+<h2>Connections to the outside parts</h2>
+
+<p>On the schematic above I tried to mark it clear where cables go out of my box. 
+These are <strong>Out1, Out2, Out3</strong> and <strong>VDD¤OUT, GND¤OUT</strong>. The latter two are 
+marked because they are not really just ground and 5V but through resistors.
+Also after the outputs of pin 1-3 of the counter IC there are resistors too.</p>
+
+<p>Explanation for those follow later.</p>
+
+<h1>Description of the outside parts</h1>
+
+<p>One of my goals were that outside the wooden box I want to minimize circuits 
+except leds and of course the cables that connect them. For this I ended up 
+having this part on the outside - I marked where we connect with the inside.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-Outside.png" alt="Circuit outside the box (schematic)"></p>
+
+<h1>Hestoreplexing</h1>
+
+<p>If you read about the original hobbi elektronika page they write that they use 
+"charlieplexing" to drive leds with only a few pins. Charlieplexing however 
+works by using that not only 0 and 1 can be a pin but one can sometimes set it 
+as an input pin in case of microcontrollers and that is like as if we would 
+cut its wire (high impedance state).</p>
+
+<p>This makes a difference and not the same as it being 0V! Just think that we 
+have pin1 as 0V, pin2 as 5V and pin3 in "high impedance" in the above outside 
+schematic part. The leds get power differently in those cases!</p>
+
+<p>Charliplexing is using this up so one can drive many leds (or do other stuff). 
+What we have here <strong>is not charlieplexing, but similar</strong>. It might be better 
+to even forget what charlieplexing is as looking it up might confuse you!</p>
+
+<p>What we do here is that we just have a counter whose pins are eiher 0 or 5V. 
+A led is a diode (Light Emitting Diode = LED) so lets through current only in 
+one direction which is marked as the arrow direction in the schematic. This 
+already defines that some leds do not light up when a pin is on as current 
+just cannot flow.</p>
+
+<p>An other thing to know is that current does not flow when there is no potentia 
+difference that enables the flow. So if the middle pin is 5V and you see Vdd 
+coming from the top right of the schematic the the led below VDD¤OUT will not 
+light up because electricity is like water: it will not flow where there is 
+already filled amount in the "pipe" (here cable).</p>
+
+<p>One third thing plays here: It is that leds cannot just driven by 5V and they 
+actually might get damaged and killed by that. We need to put some resistors 
+in series with them to control how much they tolerate. If you can access the 
+datasheet for your leds you can even see tables and graphs about when the LED 
+will start to dimly glow, when it is too much for them (maybe not talking in 
+volts but in small ampers - but you can calculate with equations).</p>
+
+<p>The resistors for making the LEDs save are in the inside of our wooden box for 
+keeping the beauty of the product, but understanding how this "hestoreplexing" 
+works is best if I add them to the picture! The key is that if the resistors 
+in the circuit path the electricity passes through are too low, the current 
+will of course flow through the LED (if in the good direction of diode), but 
+the current will be too small to light up a LED (maybe some lucky animals can 
+see the light, but not us humans).</p>
+
+<p>So this is different from Charlieplexing as we are not tricking with putting a 
+leg of a micocontroller into input to make it look like it is cut from circuit, 
+but use other tricks that leds will not light up, despite current flow through 
+as the amount will be too small for visible resuts. This way we can light up 
+multiple leds in groups without doing what charlieplexing people do: that we 
+do not need to light up a led for really short time, then the other, then the 
+third so fast that human eye thinks all of them light simultenously as they do 
+really light simultanously - just some also "light" without us seeing it.</p>
+
+<p>From this point the planning is about making resistos that make the relevant 
+leds light up exactly when we want them to be lit.</p>
+
+<p>I made a small gif animation for how it works:</p>
+
+<p><video autoplay width="640" height="480" loop muted playsinline>
+    <source src="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-hestoreplexing.mp4" type="video/mp4"/>
+    <source src="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-hestoreplexing.webm" type="video/webm"/>
+    <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/karacsony/karacsony-hestoreplexing.gif">See gif animation</a>
+</video></p>
+
+<p>The part of the circuit that is outside the box are marked with dot-grouping.</p>
+
+<p>If you try to imagine current as if it would be flow of water in pipes it is 
+not that hard to grasp from that point onwards. When all outputs are low (0V) 
+only led9 lights as there is VDD above it and it directly connects to the 
+middle 0V. This is the "path of least resistance" so most flow goes here. When 
+the first output is one (+5V) two leds between that and the midle zero volt 
+is lighting up - alongside with the led 9. So leds 1, 2 and 9. Led 10 will not 
+as the midle line is zeroed fast and with practically no resistance, but in 
+the thirds state (when midle is the +5V) the led9 finally stops as there is 
+a big +5V in the midle so there cannot be flow from that diode as the mid is 
+already filled but there are flows in two-two leds towards top and bottom and 
+also led 10 lights now and so on and so on. Led 9 only lights when the middle 
+output is low and led 10 only lights when it is high as you can see.</p>
+
+<p>With similar basic thinking about path of least resistances, thinking and the 
+potentia-differences or not - are enough to save you calculations actually.</p>
+
+<h1>Mistakes I made</h1>
+
+<p>My first mistake was that I thought I bought everything I need and had to make 
+changes to the original schematic to make it work. At least maybe someone will 
+be able to learn something useful out of them.</p>
+
+<p>My bigger mistake was a cable. I used a cable piece that was already cut and 
+it was the only one I did not cut myself. This was for connecting pin 8 and 12.</p>
+
+<p>It turned out the cable was bad and was not connecting. I have found it out by 
+accident, but when I first turned on my completed making only one led was lit 
+and nothing was bliky or moving. I went with my multimeter and checked if my 
+solder connections are good or not by using the setup on the multimeter that 
+makes a sound on a good connection. I heard it is not making a sound there 
+then I held a wire by hand to connect it and it just started working. Also I 
+have found that if I move the originl cable enough it works too so it is a 
+concact error of the broken cable.</p>
+
+<p>I was thinking about how to solve this. I was doing soldering that way that all 
+soldering is on the back of the panel and the IC legs go through the holes of 
+the panel then the cabls go through a nearby hole and I connect them on the 
+other side which has copper coating. But to make it like that I would need to 
+remove the panel which was already in place... It was not glued, but I would 
+still had to cut 3+2 output wires, then fix it, then join those.</p>
+
+<p>Instead of that I chose to cut the wire where it was too long and was bad and 
+cut a small enough wire and solder it right against the leg of the IC holder 
+on the top side of the panel (the IC still is changable). The other side I 
+have just soldered against the cut wire part which was not bad - it was two 
+pieces earlier anyways. I saw a "solution" like this on pictures about old 
+8 bit controller motherboards where they added an extra address line for RAM.</p>
+
+<h1>Further advise</h1>
+
+<p>It is highly advised to glue in the cables that way to the box so that the lid 
+can both open completely without breaking them, but all cables automatically 
+fit into their place when closing the lid and never gets crushed by the lid.</p>
+
+<p>If you can, you should put the switch outside. I only had a small dip switch 
+that is only stable if I solder it in. I made it even more stabilized by me 
+utilizing its unused and used legs and bending them below the panel to hold 
+the switch in place mechanically.</p>
+
+<p>Try to think in components: I made the RC circuit fit into its place, then I 
+soldered all the stuff around the LM7805 and the switch, then I added the I/O 
+connections and their stuff towards the outside parts. Much better to check 
+back your work if you do not do all the whole at once! Also I created the 
+outside part on the cone completely separately before I soldered the two 
+together and glued the cone. Also first did not glue, just I cut the panel 
+it that way that it was not moving even if I not glue it and is hard to fall 
+out. These were all good ideas.</p>
+
+<p>When adding the leds I did not even glue the leds. I just bent their legs in 
+opposite directions as if a led would "hug" the piece of the pine cone.</p>
+
+<p>Before randomly putting the leds up, try to imagine how the wires will look! 
+This is actually crucial for a good results, but it is fine without it too. 
+I have spent most of my time thinking about the "topology" of wires and leds. 
+I wanted to make the ones light up the same time far fom each just like the 
+hestore guys did, but also wanted to not have a cable mess. I deciced to put 
+the blue led - the one closest to "VDD¤OUT" first on the top, then its GND 
+counterpart green led in my case. These were just an up-down going through 
+the little tree I made. Later leds I was making circles around the tree, with
+going top to bottom on the schematic and putting leds in the same "circling" 
+with little spicing up to move them further when when they were in the same 
+vertical colums on the schematic of the outside parts. Then these circlings 
+were connected in their middle to the middle pin output where I could do.</p>
+
+<h1>Final words</h1>
+
+<p>I think this post will be double-edged: some people will say that "of anyone 
+can blink 10 leds" and that all I did was to make an already existing idea 
+having some sugar-coating and a unique build. But hey! Those things count too! 
+Also some will maybe complain that this is less deep than reversing an old dos 
+game and hacking it or speeding up a blog or doing multithreaded stuff. Yet 
+there will be those of my readers who are strictly software guys and for them 
+some parts of this might be hard to understand. Originally when I was doing 
+tutorials on assembly in the old times I always tried to write for anyone to 
+understand it and many was happy for that. I am not usually aiming for this 
+anymore on my blog unless there is a possibility for that. But when talking 
+about a DIY chrismas gift? This approach of similicity is the best! Also it 
+took actually pretty much time of my life around pre-christmas nights to 
+prepare all of this post and videos. Trying to make some not so clever but 
+normal thing understandable by the highest number of people who might visit 
+the blog can lead to as much time being spent on the content and its quality 
+that it mirrors some of the more hardcore posts.</p>
+
+<p>I think those who have a relevant IT experience will be able to hopefully 
+grasp most of what is written here and hopefully even those who do not - can 
+still be able to at least just copy the circuit with enough time on hands.</p>
+
+<p>Schematics were made with <a href="https://www.draw.io/">draw.io</a> which is free and was usable for this.</p>
+
+<p>Tags: <a href='tag_DIY.html'>DIY</a>, <a href='tag_Christmas.html'>Christmas</a>, <a href='tag_electronics.html'>electronics</a>, <a href='tag_hobby.html'>hobby</a>, <a href='tag_present.html'>present</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_tree.html'>tree</a>, <a href='tag_blinking.html'>blinking</a>, <a href='tag_circuit.html'>circuit</a>, <a href='tag_beginner.html'>beginner</a>, <a href='tag_hestore.html'>hestore</a>, <a href='tag_hestoreplexing.html'>hestoreplexing</a>, <a href='tag_charlieplexing.html'>charlieplexing</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <img id="disqus-opener" src="discus-logo.jpg">
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            var embedfun_disqus = (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            });
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        var countfun_disqus = (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
+    </script>
+</body></html>

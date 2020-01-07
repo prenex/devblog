@@ -5,6 +5,10 @@ stack? Were you ever interested in doing a deep dive? Read on if you dare, but
 do not fear - I was rookie on the topic myself before I went for my hunt on a 
 50-1000% slowdown after some updates and a distro change.
 
+I wanted to document the process of delving deep into open source drivers. I 
+just wanted to put things together as it might be valuable for others wanting 
+to do similar things - I was and still is a rookie for these things after all.
+
 The power of open source: We can fix a more than decade old hardware getting 
 a slowdown as easily as a new one! Fuck you planned obsolesence haha!
 
@@ -12,8 +16,9 @@ Introduction
 ============
 
 Sorry if I was not PC above, but I like the original style of Linus Torvalds
-planned obsolesence is something I fight against through everything possible 
-so I just do not care what others think about a well-placed, rare foul word.
+and planned obsolesence is something I fight against through everything 
+possible so I just do not care what others think about a well-placed, but 
+rare foul word.
 
 Lately I have changed my linux distribution from a not-much updated Ubuntu 
 16.04 to a completely new Arch32 linux. Everything went as smooth as it can 
@@ -24,6 +29,22 @@ This post summarizes my hunt for the problem - from analysing config files all
 through the end of adding my own quickfix in mesa source code! Yes you read it 
 well. This post is a good reading for anyone who wants to start contributing 
 to open source as this was my introduction to the deeper topics as well.
+
+Can you believe you can fix something that causes actully 1000% slowdown in 
+games and applications like Urban Terror?
+
+<img src="http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/urt.png" alt="Urban Terror 4.1">
+
+Not only that, but this post tries to encourage and introduce even more people 
+to try finding quickfixing or even properly fixing similar issues as despite 
+that this took me literally weeks and a lot of other peoples help, in the end 
+there is an effect if you put in the effort - and I was not knowledged in GPU 
+drivers or even at contributing or debugging at bigger open source codebases 
+so if you just do not give up, you can do something similar.
+
+If you got lost from all the details of the journey here, just keep in mind 
+that I went through all of this for weeks and not as fast as you might just 
+read my words. If you take the time, it will come to you too I believe ;-)
 
 Symptoms
 ========
@@ -165,11 +186,11 @@ experience and know-how about the issue the above order seems to be better.
 If you want to see how I have approached the problem (including dumb questions) 
 then most of that is codumented in the following forums:
 
-[https://bbs.archlinux32.org/viewtopic.php?id=2739][4]
+[bbs.archlinux32.org][4]
 
-[https://www.phoronix.com/forums/forums/forum/...][5]
+[www.phoronix.com][5]
 
-[https://bugs.freedesktop.org/show_bug.cgi?id=110781][6]
+[bugs.freedesktop.org][6]
 
 The links are in order of increasing relevance, with most of the information 
 provided in the middle link actually.
@@ -299,7 +320,7 @@ As you can see, in my case I had direct rendering enabled and everything seems
 to be "perfect" for accelerated 3D, but the performance felt as slow as a some 
 software rendering.
 
-I have went and also used GALLIUM_HUD to see how the CPU usage is while doing 
+I have went and also used `GALLIUM_HUD` to see how the CPU usage is while doing 
 3D stuff on the screen and this also hinted me that I indeed have GALLIUM on:
 
 		vblank_mode=0 GALLIUM_HUD="cpu,fps" glxgears
@@ -307,7 +328,7 @@ I have went and also used GALLIUM_HUD to see how the CPU usage is while doing
 Cpu usage seemed high for me but using `top` it is only 25-30% and later it 
 turned out to be normal actually so I am only saying this for reference.
 
-I had around 320-350 FPS here because of vblank_mode=0 and because the option 
+I had around 320-350 FPS here because of `vblank_mode=0` and because the option 
 called SwapBuffersWait was turned off too in my xorg.conf setup.
 
 Just to be sure there is hardware acceleration I tried how it is when forcing 
@@ -424,7 +445,7 @@ Old live cd releases
 
 Thank goodness I could find old releases:
 
-[http://old-releases.ubuntu.com/releases/][0]
+[old-releases.ubuntu.com][0]
 
 Actually most of the distributions *do offer older releases*, but what was the 
 best for me is that the ubuntu live cd came with the radeon driver properly 
@@ -462,11 +483,11 @@ What to do if you do not have your cached packages because you are on a newly
 installed system or just erased the caches earlier? For arch linux and even in 
 case of the 32 bit supported arch32 community version there is an arch archive!
 
-[https://wiki.archlinux.org/index.php/Arch_Linux_Archive][2]
+[Arch-Linux-Archive][2]
 
 The reposity for arch32 is at a different place:
 
-[https://archive.archlinux32.org/][3]
+[archive.archlinux32.org][3]
 
 After doing all the things on the official arch wiki about the archive, there 
 was still some things to do specifically for arch32 and for my case.
@@ -490,7 +511,7 @@ this and there is no way anymore to make it work easily!
 
 For these it is best to ask your distro forums directly if you have problems:
 
-[https://bbs.archlinux32.org/viewtopic.php?id=2739][4]
+[bbs.archlinux32.org][4]
 
 Using the package archives it is possible to isntall old mesa versions and 
 despite the arch forums tell you that "partial upgrades/downgrades" are not 
@@ -698,7 +719,7 @@ really wants the cpu for anything.
 Similarly the `CONFIG_DEBUG_KERNEL` is a kernel configuration to enable some
 extra debugging and is on for a lot of systems just to help finding problems.
 
-See here: [https://cateee.net/lkddb/web-lkddb/DEBUG_KERNEL.html][8]
+See here: [https://cateee.net/lkddb/web-lkddb/DEBUG-KERNEL.html][8]
 
 You can access a nice ncurses based menu to change these when you are building 
 your very own kernel from the kernel sources.
@@ -743,7 +764,7 @@ others seem to not affect me at all as the CPU was just too old.
 
 To know what mitigations you can turn off, the best way is to look here:
 
-[https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html][10]
+[Linux admin-guide/kernel-parameters][10]
 
 and if you want you can just search for the word "mitigation" on the page ;-)
 
@@ -778,7 +799,7 @@ higher performance with eating more energy too.
 
 Before blindly doing what I did, read up what works for your case:
 
-[https://wiki.archlinux.org/index.php/ATI][11]
+[wiki.archlinux.org/index.php/ATI][11]
 
 Actually it this page is a worthy read by itself too!
 
@@ -796,8 +817,8 @@ I have used perf for system-wide profiling for 45 seconds:
 
 The outputs can be found here (both the data and its text form):
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/etr_perf.data][12]
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/etr_perf_report.txt][13]
+[etr-perf.data][12]
+[etr-perf-report.txt][13]
 
 To understand what is written you can ask `man perf-report`:
 
@@ -834,7 +855,7 @@ This is the call trace that happens mostly:
 			    |          __alloc_pages_nodemask
 			    |          get_page_from_freelist
 
-This happens around 30-65% of the CPU time and this tells me radeon_bo_create 
+This happens around 30-65% of the CPU time and this tells me `radeon_bo_create` 
 happens a whole lot of cases. Know that knowing that "bo" means buffer object 
 one can speculate something is getting created here - like a texture or some 
 vertex buffer being sent to the GPU.
@@ -854,7 +875,7 @@ pretty sure this call trace contains the problem in it!
 
 You can see a whole lot of other perf outputs here:
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/][14]
+[devblog/attachments/mesa/][14]
 
 Actually you see there most of the logs and outputs on various test systems I 
 was having tested at the time so feel free to look around in case you want to 
@@ -1103,19 +1124,19 @@ Logs from the working system
 
 All logs can be found here from the old and working system here:
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/glxinfo_16_04_old.txt][16]
+[glxinfo-16-04-old.txt][16]
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/lspci_16_04_old.txt][17]
+[lspci-16-04-old.txt][17]
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/dmesg_16_04_old.txt][18]
+[dmesg-16-04-old.txt][18]
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/config_16_04_old.txt][19]
+[config-16-04-old.txt][19]
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/perf_report_16_04_old.txt][20]
+[perf-report-16-04-old.txt][20]
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/perf_16_04_old.data][21]
+[perf-16-04-old.data][21]
 
-[http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/uname_16_04_old.txt][22]
+[uname-16-04-old.txt][22]
 
 These seem to show that AGP prints the same thing as before and 3D rendering 
 is already much faster so I went in a different direction after this.
@@ -1268,7 +1289,7 @@ while this meant to have a shared GTT (gart) and VRAM domain:
 
 The domain here basically tells where the buffer object can end up. Is it a 
 gart or video memory or maybe someplace else - in other words. But as it turns 
-out the new get_heap_index always returns -1 as the shared heap support got 
+out the new `get_heap_index` always returns -1 as the shared heap support got 
 removed at some point in time and it is not valid anymore.
 
 I added a quickfix once again that basically choose VRAM if that bit was set 
@@ -1283,7 +1304,7 @@ much more proper place than putting a hacky if in a shared code like my quick
 and dirty second fix did.
 
 After looking at the strace output it still seemed that there is around 700 
-GEM_CREATE_BO ioctl calls which is still higher than necessary.
+`GEM_CREATE_BO` ioctl calls which is still higher than necessary.
 
 To fix that I have put an intentional segfault here:
 
@@ -1363,6 +1384,144 @@ Also I have found that I can enable HyperZ with measurable speed gains, but
 bad glitches on my r300 card so there is always a way to bring more speed out 
 of this old hardware in the open source world.
 
+Mount&Blade: Warband still slow?
+================================
+
+After all the changes, pretty much everything got to be fast, but some of the 
+wine games - especially Mount&Blade: Warband - was still borderline unplayable.
+
+In the worst case it had 3 FPS and in the best case had around 19 FPS. The bad 
+part of this is that there were game arenas where pretty much the minimum FPS 
+is what you are constantly getting so playability was hurt.
+
+I went on with perf against this game - this was the command advise you:
+
+		i=0; while [ $i -lt 240 ]; do 
+			sudo echo $i; 
+			sleep 1;
+			let i=$i+1;
+		done; 
+		sudo perf record --call-graph dwarf -F 99 -a -g -- sleep 300
+
+This way I can go through the menu and all the loading so I end up directly 
+where the arena is as it loaded up in 240 seconds. The trick here is to do 
+something with sudo (the echo-ing) so that the sudo for the perf record is 
+still getting to be done using the password I gave before started the game.
+
+I must also tell that `--call-graph dwarf` does help a lot: both for getting 
+gigantic file sized (200+ megs) but also for getting more complete calltrace!
+
+This is what I saw (okay this was still without the dwarf stuff):
+
+		-   48,67%     0,00%  mb_warband.exe   [unknown]                   [k] 000000
+		   -
+		      - 29,70% call_thread_exit_func
+			   0x7bcb0b59
+			 + call_thread_func_wrapper
+		      + 3,87% 0x40caee
+		      + 3,76% 0x40cf88
+		      + 2,25% 0x44bf74
+		      + 0,60% 0x44baa6
+			0,59% 0
+		+   29,70%     0,00%  mb_warband.exe   ntdll.dll.so                [.] call_thread_exit_func
+		+   29,70%     0,00%  mb_warband.exe   ntdll.dll.so                [.] 0x7bcb0b59
+		+   29,70%     0,00%  mb_warband.exe   ntdll.dll.so                [.] call_thread_func_wrapper
+		+   22,29%     6,07%  mb_warband.exe   wined3d.dll.so              [.] wined3d_resource_map
+		+   16,09%     0,00%  mb_warband.exe   wined3d.dll.so              [.] 0x7d587c16
+		+   15,29%     0,00%  mb_warband.exe   wined3d.dll.so              [.] 0x7d585ef2
+		+   15,02%    15,02%  mb_warband.exe   wined3d.dll.so              [.] 0x00057ef2
+		+   13,31%     0,00%  mb_warband.exe   wined3d.dll.so              [.] wined3d_resource_unmap
+		+   13,31%     0,00%  mb_warband.exe   wined3d.dll.so              [.] 0x7d587c9d
+		+   10,86%     0,00%  mb_warband.exe   d3d9.dll.so                 [.] 0x7d69cf32
+		+    8,77%     0,00%  mb_warband.exe   [unknown]                   [.] 0xe98b5502
+		+    8,45%     0,00%  mb_warband.exe   d3d9.dll.so                 [.] 0x7d69d032
+		+    8,18%     0,00%  mb_warband.exe   [JIT] tid 363               [.] 0x004228b0
+		+    7,36%     0,00%  mb_warband.exe   d3d9.dll.so                 [.] 0x7d69cdc3
+		+    6,57%     0,00%  mb_warband.exe   wined3d.dll.so              [.] 0x7d585ef8
+		+    6,47%     6,47%  mb_warband.exe   wined3d.dll.so              [.] 0x00057ef8
+		+    6,37%     0,00%  mb_warband.exe   [JIT] tid 363               [.] 0x0047c76c
+		+    6,37%     0,00%  mb_warband.exe   d3dx9_42.dll.so             [.] D3DXCreateTextureFromFileExA
+		+    6,37%     0,00%  mb_warband.exe   d3dx9_42.dll.so             [.] D3DXCreateTextureFromFileExW
+		+    6,36%     0,00%  mb_warband.exe   d3dx9_42.dll.so             [.] D3DXCreateTextureFromFileInMemoryEx
+		+    5,45%     0,00%  mb_warband.exe   d3dx9_42.dll.so             [.] D3DXLoadSurfaceFromMemo
+
+Basically most of the time is spent in wined3d related things and - pretty 
+interestingly - az `call_thread_exit_func`.
+
+Because of this I went and looked around winecfg and winehacks.
+
+Then I have found that this was enabled in the staging tab:
+
+<img src="http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/csmt.png" alt="csmt-img">
+
+"Enable CSMT for better graphics performance (deprecated)"
+
+[Read here what CSMT is about][24]
+
+After **ticking it off**, even Mount&Blade:WB works as before and frame rate 
+is from the worst case ever 12 to hights like 120 FPS and usually over 30!
+
+Basically all problems are solved, but I think fixing up HyperZ might be still 
+a very good hobby project to do together with anyone who helps. It seems to 
+give you 10-20% increase in FPS in glxgears - alongside the glitches.
+
+Problems are completely solved for 99% of my apps now and we helped everyone 
+else who has an r300 card and had a slowdown! Hurray!
+
+Closing words
+=============
+
+There are still new directions to go forward to, but things got solved. Also a 
+lot of new and friendly professionals got contacted and helped me which was a 
+really blissful of joy for getting for level-upping programming skills. The 
+community seemed so cool and good that it would be good to do this only for 
+them, but of course it was a technical question and learning mostly.
+
+Interestingly both of the problems have one thing in common: multithreading!
+
+The first issue came when someone added this new flag to the mesa driver so 
+things buffer objects can be reused if `RADEON_FLAG_NO_INTERPROCESS_SHARING` 
+is set, but not otherwise. Of course if you have an  interprocess shared 
+resource, then it is pretty hard to reuse existing things. But my machine is 
+a single core one, so likely I am not getting anything out from multiple 
+processes there most of the time anyways so it is quite a change that was made 
+lately for multi-processor systems that need these kind of things and not 
+having enough test resources it have slipped through the codebase that the old 
+r300 code path is never settings this so always slow - but renders well.
+
+Then the r300 code paths having spent years without running with this flag, it 
+not only was slow for that 1-2 year while me and probably others stuck with an 
+older system instead of testing, but r300 got a "bitrot" too because changes 
+like the shared domain change did not fail as it only affected the fast path 
+which was never in use. This way the slowdown error have hidden the later one 
+and there was no way to test that as affected code paths were never used!
+
+For wine and CSMT: it is also a threading related change! Not that similar, 
+but still it is one because "command stream multi-threading" is about having 
+a seperate thread that accepts rendering commands to keep proper ordering as 
+it is being done on windows and make the application and the command stream 
+renderer pipeline a different thread not only helps to keep proper order, but 
+they say it helps performance. It seems for some games it hurts it a lot and 
+this latter is true for single-processor systems! I can see from the perf 
+output that the overhead of this threading was huge, compared to how the game 
+could keep up with sending the commands so it resulted in more waiting than 
+properly used cycles.
+
+Actually I saw myself a lot while programming at work that multi-threading can 
+literally just slow things down a lot when only 1 CPU can work at a time. This 
+is of course common sense, but adding the many-times minor gain by threads I 
+always wondered that maybe we overdo this thing a bit.
+
+Sadly if we throw 8 cores at a problem and gain 1.5x more speed, then we waste 
+a lot of battery and energy-grid power in useless ways. This is also the main 
+reason why I prefer browsers like pale moon and other gecko-based things as 
+their overhead coming from multithreading is less than any webkit browser as 
+far as I see them. On a single core machine, you should always choose to have 
+things that do lightweight threading and not rely on having a ton of cores 
+that can work overtime just to get some percent gains. We need to think more 
+when developing multithreaded algorithms and solutions I feel. But it is just 
+hard to do it right - I know... I know...
+
 Special thanks
 ==============
 
@@ -1375,6 +1534,10 @@ Special thanks go for the following people any anyone I accidentally have missed
 * Anyone on bbs.archlinux32.org whom I cannot name because at the time of the writing I cannot access the page.
 * My friend Zsolti for whom I wrote a lot of bullshit details despite he was also not affected at all.
 * All family and friends who is okay with me going into the deep waters for weeks and talk less :-)
+
+I cannot help, but put out the "hackerman" picture just because it took me long weeks!
+
+<img src="http://ballmerpeak.web.elte.hu/devblog/attachments/hackerman.jpg" alt="Hackerman">
 
 [0]: http://old-releases.ubuntu.com/releases/
 [1]: https://wiki.archlinux.org/index.php/downgrading_packages
@@ -1400,5 +1563,6 @@ Special thanks go for the following people any anyone I accidentally have missed
 [21]: http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/perf_16_04_old.data
 [22]: http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/uname_16_04_old.txt
 [23]: http://ballmerpeak.web.elte.hu/devblog/attachments/mesa/v3.patch
+[24]: https://github.com/wine-compholio/wine-staging/wiki/CSMT
 
-Tags: mesa, arch, 32bit, linux, debug, slowdown, contribute, open-source, graphics, stack, analysis, 3D, optimization, tutorial, system, internals
+Tags: mesa, arch, 32bit, linux, debug, slowdown, contribute, open-source, graphics, stack, analysis, 3D, optimization, tutorial, system, internals, hackerman

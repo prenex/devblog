@@ -10,11 +10,47 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
 </script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <title>Killing in the name of...</title>
-</head><body>
+</head><body onload='myOnLoad()'>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
@@ -68,6 +104,8 @@ Richárd Thier</div>
 <p>I am happy that I have my awsome wife at least for whom I am considering to stay and for nothing else... I can strongly advice all intraprenours or people in stressful situations to have a wine garden to work at and an awsome wise life-long partner for whom you can take some pain...</p>
 
 <p>Tags: <a href='tag_management.html'>management</a>, <a href='tag_dilbert.html'>dilbert</a>, <a href='tag_research.html'>research</a>, <a href='tag_tender.html'>tender</a>, <a href='tag_high-hopes.html'>high-hopes</a>, <a href='tag_sadness.html'>sadness</a>, <a href='tag_bullshit.html'>bullshit</a>, <a href='tag_morale.html'>morale</a>, <a href='tag_work-ethics.html'>work-ethics</a>, <a href='tag_de-moralized.html'>de-moralized</a>, <a href='tag_apathy.html'>apathy</a>, <a href='tag_work.html'>work</a>, <a href='tag_intraprenour.html'>intraprenour</a></p>
+
+
 
 
 

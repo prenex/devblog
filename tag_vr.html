@@ -10,11 +10,47 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
 </script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <title>Ballmerpeak devblog &mdash; Posts tagged "vr"</title>
-</head><body>
+</head><body onload='myOnLoad()'>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
@@ -109,6 +145,8 @@ Richárd Thier</div>
 <p>The funny thing is that even despite all these, we can even get media attention, despite things are so far from optimal. Just I hope those who make these obstacles all through our journey will not think their fears helped in any way or shape haha... I wish what we do can help my nation and Hungary - I do not want to go for personal success and do not want to "lead" people, but it seems I have to be dominant in many situations otherwise things just go into the wrong direction and nothing happens... I want innovation everywhere and people who think alike and are great in their skills - greater than me! ;-)</p>
 
 <p>Tags: <a href='tag_self-esteem.html'>self-esteem</a>, <a href='tag_intraprenour.html'>intraprenour</a>, <a href='tag_hard.html'>hard</a>, <a href='tag_human resource.html'>human resource</a>, <a href='tag_hr.html'>hr</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_vr.html'>vr</a>, <a href='tag_hololens.html'>hololens</a>, <a href='tag_media.html'>media</a>, <a href='tag_multi-functional.html'>multi-functional</a>, <a href='tag_people.html'>people</a>, <a href='tag_bosses.html'>bosses</a>, <a href='tag_leadership.html'>leadership</a>, <a href='tag_agile.html'>agile</a>, <a href='tag_fragile.html'>fragile</a>, <a href='tag_big.html'>big</a>, <a href='tag_mistakes.html'>mistakes</a></p>
+
+
 
 
 

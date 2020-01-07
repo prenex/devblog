@@ -13,6 +13,7 @@
 
 	pre{
 		overflow: auto;
+		font-family: monospace;
 	}
 
 	code{

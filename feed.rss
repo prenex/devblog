@@ -2,9 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Tue, 11 Jun 2019 00:25:23 +0200</lastBuildDate>
-<pubDate>Tue, 11 Jun 2019 00:25:23 +0200</pubDate>
+<lastBuildDate>Tue, 07 Jan 2020 23:10:21 +0100</lastBuildDate>
+<pubDate>Tue, 07 Jan 2020 23:10:21 +0100</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Holiday DIY hobby electronics Christmas tree
+</title><description><![CDATA[
+
+<p>When I was a kid my dad made me a little blinking "Christmas tree" out of a 
+"cone" from a pine and some little electronics and leds. When last year I saw 
+the nice blinky presents I got together for free when odering from local hobby 
+electric shop I though the next Christmas will be the perfect time for making 
+from that circuit what my dad once did for me as a present for my girlfriend.</p>
+
+<p>Then I thought why not write a tutorial about it so others can build - maybe 
+even foreign people who did not see the Hungarian tutorial for it of course?</p>
+
+<h1>The end result</h1>
+<p>Tags: <a href='tag_DIY.html'>DIY</a>, <a href='tag_Christmas.html'>Christmas</a>, <a href='tag_electronics.html'>electronics</a>, <a href='tag_hobby.html'>hobby</a>, <a href='tag_present.html'>present</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_tree.html'>tree</a>, <a href='tag_blinking.html'>blinking</a>, <a href='tag_circuit.html'>circuit</a>, <a href='tag_beginner.html'>beginner</a>, <a href='tag_hestore.html'>hestore</a>, <a href='tag_hestoreplexing.html'>hestoreplexing</a>, <a href='tag_charlieplexing.html'>charlieplexing</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/holyday-diy-hobby-electronics-christmas-tree.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./holyday-diy-hobby-electronics-christmas-tree.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Tue, 24 Dec 2019 06:27:00 +0100</pubDate></item>
+<item><title>
+Make it work 3: Nexus - The Jupiter Incident
+</title><description><![CDATA[
+
+<p>This post is about making the game in the title run on linux. Might be helpful 
+for anyone who has 3D glitches for this or any other games when played in wine.</p>
+
+<p>Now after I had changed my linux distro to an arch machine I had to reinstall 
+some of my games that I made run well earlier. These were sometimes cases that 
+are much less interesting then disassembling GT97 racing as before so I did 
+not blog about these and sometimes I had no notes on how to make them work.</p>
+
+<p>Now as I redo these things it became visible that it is worth noting this kind 
+of information too because one can easily forget what was the key and thus I 
+can see now that others might be interested in the process too.</p>
+
+<h1>State of the game as-is</h1>
+<p>Tags: <a href='tag_make-it-work.html'>make-it-work</a>, <a href='tag_retro.html'>retro</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_gaming.html'>gaming</a>, <a href='tag_wine.html'>wine</a>, <a href='tag_nexus.html'>nexus</a>, <a href='tag_the-jupiter-incident.html'>the-jupiter-incident</a>, <a href='tag_install.html'>install</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_custom.html'>custom</a>, <a href='tag_resolution.html'>resolution</a>, <a href='tag_swiftshader.html'>swiftshader</a>, <a href='tag_directx.html'>directx</a>, <a href='tag_glitch.html'>glitch</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/make-it-work-3-nexus---the-jupiter-incident.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./make-it-work-3-nexus---the-jupiter-incident.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Tue, 03 Sep 2019 00:07:45 +0200</pubDate></item>
+<item><title>
+How we speak with computers
+</title><description><![CDATA[
+
+<p>Once my high-school friend asked "how a bunch of bytes can mean something?" 
+and he wanted to have a clue on how a computer "magically works".</p>
+
+<p>Back then I already knew it, because I have started up my programing with the 
+assembly programming language, which is practically machine language and also 
+I knew about very basic electronics at least. But what if you are not knowing 
+these things? What if you know computers quite well, but you are neither a 
+programmer, neither anyone who uses a soldering iron ever?</p>
+
+<p>I will try my best to explain how a very simple computer really works. Read on.</p>
+
+<h1>Introduction</h1>
+<p>Tags: <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_computers.html'>computers</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_assembly.html'>assembly</a>, <a href='tag_how.html'>how</a>, <a href='tag_it.html'>it</a>, <a href='tag_works.html'>works</a>, <a href='tag_beginner.html'>beginner</a>, <a href='tag_introduction.html'>introduction</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/how-we-speak-with-computers.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./how-we-speak-with-computers.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Sat, 06 Jul 2019 00:36:23 +0200</pubDate></item>
+<item><title>
+Short coding tips&amp;tricks 1
+</title><description><![CDATA[
+
+<p>Some of my posts take a little long to appear because of the amount of work 
+I need to do for preparing them, while I feel there are also a lot of tips I 
+can easily share and are still meaningful to others. Because of this I think 
+it will be a good idea for me to seperate a series of quick tricks and tips 
+related to coding or other areas related to our field.</p>
+
+<p>This is the first post in this short series.</p>
+
+<h1>Tips &amp; tricks</h1>
+<p>Tags: <a href='tag_programming.html'>programming</a>, <a href='tag_coding.html'>coding</a>, <a href='tag_tips.html'>tips</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_secrets.html'>secrets</a>, <a href='tag_series.html'>series</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/short-coding-tipsamptricks-1.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./short-coding-tipsamptricks-1.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Wed, 03 Jul 2019 12:08:00 +0200</pubDate></item>
+<item><title>
+Debugging HyperZ and fixing a radeon drm linux kernel module
+</title><description><![CDATA[
+
+<p>It was only a few days ago I have finished debugging a really heavy bug making 
+as big of a <a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=R300-Performance-Fix-2019">mesa performance hit in the userland radeon driver that it became 
+a news article on Phoronix</a>. Back then while still on the heavy journey for 
+getting my performance back I saw HyperZ was also not enabled for me, but if I 
+enable it I gain 10-15% more performance - and an unplayable 3D screen.</p>
+
+<p>On the <a href="http://ballmerpeak.web.elte.hu/devblog/debugging-mesa-and-the-linux-3d-graphics-stack.html">original blog post</a> I have also written about how to troubleshoot 
+a performance issue generally, but what to do if you know about a performance 
+increasing functionality - just you see it destroys the 3D picture?</p>
+
+<p>Read on if you are interested in linux graphics internals once again ;-)</p>
+
+<h1>Introducing the problem</h1>
+<p>Tags: <a href='tag_drm.html'>drm</a>, <a href='tag_hyperz.html'>hyperz</a>, <a href='tag_r300.html'>r300</a>, <a href='tag_radeon.html'>radeon</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_kernel.html'>kernel</a>, <a href='tag_mesa.html'>mesa</a>, <a href='tag_arch.html'>arch</a>, <a href='tag_32bit.html'>32bit</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_glitches.html'>glitches</a>, <a href='tag_fix.html'>fix</a>, <a href='tag_contribute.html'>contribute</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_graphics.html'>graphics</a>, <a href='tag_stack.html'>stack</a>, <a href='tag_analysis.html'>analysis</a>, <a href='tag_3D.html'>3D</a>, <a href='tag_optimization.html'>optimization</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_system.html'>system</a>, <a href='tag_internals.html'>internals</a>, <a href='tag_hackerman.html'>hackerman</a>, <a href='tag_opengl.html'>opengl</a>, <a href='tag_zbuffer.html'>zbuffer</a>, <a href='tag_hiz.html'>hiz</a>, <a href='tag_zmask.html'>zmask</a>, <a href='tag_documentation.html'>documentation</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/debugging-hyperz-and-fixing-a-radeon-drm-linux-kernel-module.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./debugging-hyperz-and-fixing-a-radeon-drm-linux-kernel-module.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Wed, 19 Jun 2019 03:54:00 +0200</pubDate></item>
 <item><title>
 Debugging mesa and the linux 3D graphics stack
 </title><description><![CDATA[
@@ -14,6 +116,10 @@ stack? Were you ever interested in doing a deep dive? Read on if you dare, but
 do not fear - I was rookie on the topic myself before I went for my hunt on a 
 50-1000% slowdown after some updates and a distro change.</p>
 
+<p>I wanted to document the process of delving deep into open source drivers. I 
+just wanted to put things together as it might be valuable for others wanting 
+to do similar things - I was and still is a rookie for these things after all.</p>
+
 <p>The power of open source: We can fix a more than decade old hardware getting 
 a slowdown as easily as a new one! Fuck you planned obsolesence haha!</p>
 
@@ -22,7 +128,7 @@ a slowdown as easily as a new one! Fuck you planned obsolesence haha!</p>
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/debugging-mesa-and-the-linux-3d-graphics-stack.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./debugging-mesa-and-the-linux-3d-graphics-stack.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
-<pubDate>Tue, 11 Jun 2019 00:25:19 +0200</pubDate></item>
+<pubDate>Tue, 11 Jun 2019 00:25:00 +0200</pubDate></item>
 <item><title>
 Building your own mesa
 </title><description><![CDATA[
@@ -90,111 +196,4 @@ What are your secrets to feel less overwhelmed as a computer programmer?
 <guid>http://ballmerpeak.web.elte.hu/devblog/./what-are-your-secrets-to-feel-less-overwhelmed-as-a-computer-programmer4224.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Tue, 05 Mar 2019 10:17:00 +0100</pubDate></item>
-<item><title>
-The one-and-true productivity recipe
-</title><description><![CDATA[
-
-<p>There are a lot of books, blogs, courses on productivity and procrastination, 
-but most of them are complete bullshit that never helps. Take this advice from 
-me and I am quite sure if you can only follow this it will surely help!</p>
-
-<p>Th3 pr0 R3C1P3 F0R G3TT1N Th1ngs D0n3:</p>
-
-<ol>
-<li><p>Go and do work instead of reading stuff on productivity. Whenever you feel you wanna read, do work immediately!</p></li>
-<li><p>You do not need planning when you already have at least 5 things planned out. You need doing then much more!</p></li>
-<li><p>It is simple: Real direct work is best, meaningful activities are second best, wasting time with bullshit is least favorable. Develop HABITS for the former, not plans, not magical stuff but HABITS. </p></li>
-<li><p>and finally: go and work or do something meaningful right now! I am out for running now. ;-)</p></li>
-</ol>
-
-<p>These are the four golden rules rules of productivity. Everything else is
-mostly bullshit. Trust me if you need to read hudred pages on the topic you 
-are doomed and that will not help but make it worse!</p>
-
-<p>Tags: <a href='tag_productivity.html'>productivity</a>, <a href='tag_self-management.html'>self-management</a>, <a href='tag_procrastination.html'>procrastination</a>, <a href='tag_lifehack.html'>lifehack</a>, <a href='tag_simle.html'>simle</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_l33t.html'>l33t</a>, <a href='tag_haxor.html'>haxor</a></p>
-
-
-
-
-<!-- text end -->
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/the-one-and-true-productivity-recipe.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./the-one-and-true-productivity-recipe.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Wed, 27 Feb 2019 11:49:00 +0100</pubDate></item>
-<item><title>
-Termshot
-</title><description><![CDATA[
-
-<p>Have you ever wanted to create a "screenshot" of a linux terminal? 
-Have you wanted to save the current screen as text-only file?</p>
-
-<p>Enter termshot! A small app written by me for this purpose. :-)</p>
-
-<p><a href="http://github.com/prenex/termshot">See: http://github.com/prenex/termshot</a></p>
-
-<h1>Ways to "termshot" the terminal</h1>
-<p>Tags: <a href='tag_termshot.html'>termshot</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_ascii.html'>ascii</a>, <a href='tag_vty.html'>vty</a>, <a href='tag_screenshot.html'>screenshot</a>, <a href='tag_text.html'>text</a>, <a href='tag_txt.html'>txt</a>, <a href='tag_c.html'>c</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_links2.html'>links2</a>, <a href='tag_git.html'>git</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hackz.html'>hackz</a>, <a href='tag_sysinternals.html'>sysinternals</a>, <a href='tag_friend.html'>friend</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/termshot.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./termshot.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Wed, 06 Feb 2019 21:58:00 +0100</pubDate></item>
-<item><title>
-Awsome linux tools I: Screen capture and stuff
-</title><description><![CDATA[
-
-<p>When the idea of screen capture comes to our mind many usually think about 
-the youtube-streaming stars and heavy-weight professional applications 
-running on some then-hyped apple device or high-end PC computers.</p>
-
-<p>If you are recording CGI or gaming videos maybe these are necessary anyways, 
-but there are more hacker-friendly, lightweight ways - and on linux. :-)</p>
-
-<h1>Terminal recordings</h1>
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_tools.html'>tools</a>, <a href='tag_scripts.html'>scripts</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_snipping.html'>snipping</a>, <a href='tag_tool.html'>tool</a>, <a href='tag_screen record.html'>screen record</a>, <a href='tag_mpv.html'>mpv</a>, <a href='tag_mp4.html'>mp4</a>, <a href='tag_gif.html'>gif</a>, <a href='tag_screenshot.html'>screenshot</a>, <a href='tag_video.html'>video</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_following.html'>following</a>, <a href='tag_cult.html'>cult</a>, <a href='tag_hacker.html'>hacker</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/awsome-linux-tools-i-screen-capture-and-stuff.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./awsome-linux-tools-i-screen-capture-and-stuff.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Mon, 21 Jan 2019 00:00:00 +0100</pubDate></item>
-<item><title>
-Make it work 2: GT 97 Racing - "playing" the game
-</title><description><![CDATA[
-
-<p>After creating the NO-CD version of the game it was time to play some is not 
-it? It started out really hard and after perfecting the game while making it 
-run without any lag... I have found that it is unbeatable on the first level 
-even with a perfect drive!</p>
-
-<p>It seems the internet is also complaining on this: People write on various 
-places that there are versions which are unbeatable and versiouns which are 
-beatable. Instead of finding a right versioun I thought it is best to go and 
-'play' a bit differently - 'play' with some debuggers and reverse 
-engineering tools.</p>
-
-<p>After all this became a much longer and harder journey than removing the 
-no-cd code. The results are presented in this post, but if you are only 
-interested in downloading the final binaries, scroll down to the posts end!</p>
-
-<p>Also if you just want to see how I removed the CD-checks, look for the 
-earlier post on this very same blog.</p>
-
-<h1>Making the game run smooth</h1>
-<p>Tags: <a href='tag_retro.html'>retro</a>, <a href='tag_gaming.html'>gaming</a>, <a href='tag_dosbox.html'>dosbox</a>, <a href='tag_crack.html'>crack</a>, <a href='tag_gtracing.html'>gtracing</a>, <a href='tag_hacking.html'>hacking</a>, <a href='tag_assembly.html'>assembly</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_cdemu.html'>cdemu</a>, <a href='tag_make-it-work.html'>make-it-work</a>, <a href='tag_gt.html'>gt</a>, <a href='tag_97.html'>97</a>, <a href='tag_racing.html'>racing</a>, <a href='tag_trainer.html'>trainer</a>, <a href='tag_fix.html'>fix</a>, <a href='tag_patch.html'>patch</a>, <a href='tag_bugfix.html'>bugfix</a>, <a href='tag_checkpoint.html'>checkpoint</a>, <a href='tag_time.html'>time</a>, <a href='tag_issues.html'>issues</a>, <a href='tag_too.html'>too</a>, <a href='tag_little.html'>little</a>, <a href='tag_bonus.html'>bonus</a>, <a href='tag_no.html'>no</a>, <a href='tag_cd.html'>cd</a>, <a href='tag_no-cd.html'>no-cd</a>, <a href='tag_problem.html'>problem</a>, <a href='tag_cannot.html'>cannot</a>, <a href='tag_beat.html'>beat</a>, <a href='tag_pwn.html'>pwn</a>, <a href='tag_h4x00r.html'>h4x00r</a>, <a href='tag_hackerman.html'>hackerman</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/make-it-work-2-gt-97-racing---playing-the-game.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./make-it-work-2-gt-97-racing---playing-the-game.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Sat, 19 Jan 2019 16:22:00 +0100</pubDate></item>
-<item><title>
-Setting up my own ascii-casting on my blog
-</title><description><![CDATA[
-
-<p>Uploading live-code like recordings is handy for a blog in many ways. My machine is not the fastest to handle easy MP4 content creation software and I like lightweight solutions anyways.</p>
-
-<p>Asciinema is a nice app for recording the terminal. It closely resembles termrec and earlier alternatives but is much more stable when it comes to handling editors and other things. In this post I show how have I set up a javascript player for asciinema recordings to work with my minimalist blog using bb.sh (bashblog)</p>
-
-<h1>A terminal recording about setting up the terminal recording</h1>
-<p>Tags: <a href='tag_meta.html'>meta</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_bashblog.html'>bashblog</a>, <a href='tag_asciicast.html'>asciicast</a>, <a href='tag_termrec.html'>termrec</a>, <a href='tag_blog.html'>blog</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_lightweight.html'>lightweight</a>, <a href='tag_fun.html'>fun</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_software-development.html'>software-development</a>, <a href='tag_linux.html'>linux</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/setting-up-my-own-ascii-casting-on-my-blog.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./setting-up-my-own-ascii-casting-on-my-blog.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Fri, 18 Jan 2019 17:08:00 +0100</pubDate></item>
 </channel></rss>

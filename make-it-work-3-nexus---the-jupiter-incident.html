@@ -1,0 +1,583 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
+</script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<title>Make it work 3: Nexus - The Jupiter Incident</title>
+</head><body onload='myOnLoad()'>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="make-it-work-3-nexus---the-jupiter-incident.html">
+Make it work 3: Nexus - The Jupiter Incident
+</a></h3>
+<div class="subtitle">September 03, 2019 &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>This post is about making the game in the title run on linux. Might be helpful 
+for anyone who has 3D glitches for this or any other games when played in wine.</p>
+
+<p>Now after I had changed my linux distro to an arch machine I had to reinstall 
+some of my games that I made run well earlier. These were sometimes cases that 
+are much less interesting then disassembling GT97 racing as before so I did 
+not blog about these and sometimes I had no notes on how to make them work.</p>
+
+<p>Now as I redo these things it became visible that it is worth noting this kind 
+of information too because one can easily forget what was the key and thus I 
+can see now that others might be interested in the process too.</p>
+
+<h1>State of the game as-is</h1>
+
+<p>The first question that comes to your mind might be that why I am writing this 
+here when <a href="https://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=3179">WineHQ</a> has marked this game as "Platinum" - meaning there are 
+practically no issues at all?</p>
+
+<p>The problem is that there can be issues even if a game is marked platinum, for 
+example I guess there might be some driver issue or just a rare issue that is 
+only applying to my own case and not affecting anyone else at all and you of 
+course still want to do something if you are like me and like to tinker around.</p>
+
+<p>In my case the game actually installs and runs fast so performance is really 
+good despite my game has less than recommended specs, but sadly also there are 
+bad graphical glitches that make it unplayable. I tried both with the original 
+wined3d and the stock microsoft d3d dlls and in both cases I get an issue in 
+which <strong>the whole screen is blinking</strong> in white and sometimes red color.</p>
+
+<p>After fixing all things I get a playable, smooth-speed software rendered Nexus:</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/shot0.png" alt="Screenshot 0"></p>
+
+<p>This blinking is not always there, but it depends on the camera angle and I 
+kind of suspects that the small blinking lights on space stations or ships - 
+the similar ones to what todays planes have in the night - cause this issue 
+as for some reason the game makes the whole galaxy background blink instead of 
+this single small dots. Easily it might be a rare driver issue or a rare wine 
+issue or a combination of both but it does not seem to affect others.</p>
+
+<p>It would be the best to fix this in the driver but I find it to be a hard job 
+except if developers could tell me what they use for this small dots. It would 
+be also a good idea to try turning these dots off, but maybe it is a deeper 
+kind of underlying problem.</p>
+
+<h1>Installation</h1>
+
+<p>But if I am writing a tutorial, let as start with installation. I said that 
+this game installs and starts up fast, but I lied a bit on the topic of the 
+installation as the full-screen installer makes it pretty hard to change the 
+disks and mount an other one using cdemu. This is a common problem and despite 
+I am literally having this game as a boxed double-CD and a single DVD (haha I 
+just like it so much I bought two versions - once coming together with gaming 
+magazine dvd) I have practically no working optical drive in my laptop. This 
+means I have to use a pirated copy and mounting with cdemu. This does not 
+work well though.</p>
+
+<p>The problem is that when the installer (that also bugs showing progress and is 
+always showing 100% on the progess bard anyways) asks for the second disk, I 
+just cannot unmount the current one as the installer holds it and even if I 
+forcefully do so, it will not find the next mounted disk.</p>
+
+<p>The way to circumwent this is easy though: <strong>just copy both CDs into an empty 
+simple directory on your hard drive</strong> and start the <code>wine Setup.exe</code> there!</p>
+
+<p><strong>You better choose full install here as you will see later!</strong></p>
+
+<p>This way the game installed for me without any problems. Just telling this for 
+those who might have a similar problem and only come to this blog because that!</p>
+
+<h1>Using swiftshader and other software renderers</h1>
+
+<p>To see if an other video driver would help, one can try to just use an other 
+driver and an otherwise same system. I am not having a machine to do so, but 
+sometimes I just try various software-emulated 3D providers like software mesa.</p>
+
+<p>With this game I went further and just tried <strong>swiftshader</strong> - which is a nice 
+software implementation for directx8 and directx9.</p>
+
+<p>This is an open source product and you can even compile it for yourself using 
+the <a href="https://github.com/google/swiftshader">github page</a> and you can build software opengl for linux there or the 
+various directx 8-9 implementation DLLs and even software opengl DLLs for win.</p>
+
+<p>The problem is that I do not have a win machine and visual studio at hand so 
+I can not build the DLLs for myself so I had to rely on pre-built downloads.</p>
+
+<p>Most of these downloads are for D3D9 DLLs only however as that is the main API 
+this swiftshader gets used to emulate so far.</p>
+
+<p>Using swiftshader over mesa and other emulation seems to be much faster to me.
+When you run a game over wine, all you have to do is to use the for-windows 
+DLLs of the software renderer, like d3d8.dll and d3d9.dll by putting them into 
+the directory of the game and setting up wine to prefer native DLLs instead of 
+built-in ones when natives do exists. You can do this in winecfg on the DLL 
+overrides panel and set both d3d9 and d3d8 in the list as (native, built-in) 
+which order tells wine that you first want the native DLLs (which it searches 
+first in the game directory usually) and only if there is none there, neither 
+an installed DLL in system-wide directories then use the wine built-in ones. 
+Also here you can set to use DLLs this way only for specific game executables 
+which is good for example if you have games that want this or that version.</p>
+
+<p>So all you need to do is to download the own DLL of the software renderer you 
+want and move it nearby the executable now - and hope the game really uses 
+that specific API actually as some use opengl, some use only ddraw.dll etc.</p>
+
+<p>Swiftshader will then generate the swiftshader.ini file upon first startup.</p>
+
+<p>You can download versions that work for me here:</p>
+
+<ul>
+<li><a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/d3d8.dll">d3d8.dll</a></li>
+<li><a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/d3d9.dll">d3d9.dll</a></li>
+</ul>
+
+<p>After putting these in the directory near the nexus executables and testing 
+the game you might find that the dx9 version of the game comes as having only 
+a blue-coloured screen and no ships when in battle mode. So I prefer to run 
+this game in its dx8 mode from that on, which works perfectly but is slow.</p>
+
+<p>Surely the game minimal requirements are this:</p>
+
+<ul>
+<li>CPU SPEED: 1 GHz processor (recommended: 1.8 Ghz)</li>
+<li>RAM: 128 MB</li>
+<li>OS: Windows XP, Vista, 7, 8, 10 (32 or 64 bit)</li>
+<li>VIDEO CARD: GeForce2 MX or comparable graphics adapter</li>
+<li>SOUND CARD: Yes</li>
+<li>FREE DISK SPACE: 1.8 GB</li>
+</ul>
+
+<p>My machine is a single-core 1.6 Ghz Celeron M which is already way below the 
+recommended level so it is not a miracle that the game runs slow when not the 
+GPU, but my CPU renders the whole screen. We can optimize swiftshader though!</p>
+
+<h1>Optimizing swiftshader</h1>
+
+<p>As I told you, SwiftShader creates an ini file when first started so there is 
+some customization available. This basically lets you choose between speed and 
+quality in most cases so I went on and changed everything to run the fastest 
+while having the worst looks as that is good for me still.</p>
+
+<p>The file with my changes is here: <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/SwiftShader.ini">SwiftShader.ini</a></p>
+
+<p>Basically I changed everything below the <code>[quality]</code> tag, set the texture mem 
+to a size that my machine can still provide from main memory if needed then 
+set thread count to zero for single threading and enabled SSE3 stuff.</p>
+
+<p>I would be happy if anyone could ever tell me what the stuff below the 
+<code>[optimization]</code> does for real. I see I can turn some passes on/off, but I 
+have no idea what the passes mean so I did not go into guesswork. Maybe I 
+could peek into the source code but I was lazy to do so.</p>
+
+<p>After all this optimization, the game still runs slower than it should for me.</p>
+
+<h1>Optimizing the game</h1>
+
+<p>A good idea now is to look what you can do to optimize the game itself. This 
+is a generally good idea in other cases too, but here I will present specifics 
+for the Nexus game itself.</p>
+
+<p>If you run a game with software 3D of course the first thing to do is to try 
+minimilizing all the 3D effects through the official game config screens, but 
+I am talking about the case when this is not helping.</p>
+
+<h2>Using "datool" to decompress dat files</h2>
+
+<p>There is a small tool to decopress Nexus, called "daTool". The version I am 
+using is downloadable <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/datool.exe">here</a>.</p>
+
+<p>Usage (in game directory):</p>
+
+<pre><code>        wine datool.exe x nexus_00.dat
+</code></pre>
+
+<p>This gets out the directory structure from the dat file. The other dat files 
+are basically just movies and cutscenes from the game so you cannot unpack 
+those with the same tool. For this to work properly you better install all the 
+game data on disk (this took me around 2.4 Gb) so I advise to choose the "full 
+installation" while in the setup.</p>
+
+<p>After this operation you need to rename the original nexus_00.dat to something 
+else otherwise the game will not start: will find both the unpacked and packed 
+data in that case and fail for duplicates.</p>
+
+<p>Decompressing these things are useful not only for creating mods and changing 
+various stuff, but you have a chance to fine-tune rendering related options!</p>
+
+<p>One relevant file is the <strong>universe/engine/rendering.ini</strong> for example. First 
+I tried to remove effects randomly from here and see if it fixes my original 
+problem but was not successful with this approach and I got some crashes too. 
+It is worth knowing though that you can change particle systems directly here 
+both for changing system requirements to be lower and for changing colors of 
+the beautiful long particle streams coming from chemical engines to your likes.</p>
+
+<p>Changing things here did not help much so I just reverted my changes and went 
+to see other optimization possibilities for this game.</p>
+
+<h2>How much screen resolution and vertex numbers count in software rendering</h2>
+
+<p>Maybe you already think that using a smaller resolution can count a lot for a 
+better performance, but I like to tell you why it can count even more in case 
+you are doing software rendering. Before moving on why I change resolution to 
+a forced and a bit weird small value, first think about why it counts so much!</p>
+
+<p>If you think about software rendering for a moment you should see a really big 
+bottleneck possibility! Games (and practically all 3D software) are either CPU
+or GPU bound and usually when GPU bound you can tell if it is becuse of the 
+fill-rate, the vertex numbers, draw/material counts and complexities or else.</p>
+
+<p>A bit basic knowledge of 3D hardware rendering is needed here:</p>
+
+<pre><code>    ╔═══════════════════════════════════╦══════════════╗
+    ║ CPU-managed: Vertex/Index buffers  ║     Textures ║
+    ╚════════════════════════╦══════════╩═════════╦════╝
+                             ║                    ║
+    ╔════════════════════════╩══════════╗         ║
+    ║          Vertex shading           ║         ║
+    ╠═══════════════════════════════════╣         ║
+    ║           Rasterization           ║         ║
+    ╠═══════════════════════════════════╣    ╔════╩════╗
+    ║       Fragment/Pixel shading      ╠════╣ TEX MEM ║
+    ╚═══════════════════════════════════╝    ╚═════════╝
+           ...
+    ╔═══════════════════════════════════╗
+    ║         Finished frame            ║
+    ╚═══════════════════════════════════╝
+</code></pre>
+
+<p>So basically on practically all dx8/dx9+ capable hardware you feed in some of 
+the buffers with triangle data in the vertex and index buffers that you can 
+load onto the GPU memory alongside possible textures. For every vertex data 
+(vertex is basically and usually just 3D point - most likely endpoints of a 
+triangle or a quad or the midpoint of a particle) a small GPU-loaded program 
+will run on the video card parallel to all possible vertices as much as there 
+are enough parallel processing units for that to change the vertex posisions 
+and other attibutes like the color at that point. After this happens and the 
+same vertex program also multiplies the vertex with the model-view-projection 
+matrices one gets a flat polygon practically in screen space. <strong>Basically you 
+can write a small programs that runs for all (or a set of) vertices possibly 
+parallel and this is how from a bunch of 3D points you end up with a bunch of 
+2D projected points using simple matrix maths.</strong> You can also do other things 
+like if you make a particle system you might calculate particle positions here 
+and the CPU only changes a "time" parameter instead of calculating everything 
+on its own and only sends that along the "draw call" towards the video card.</p>
+
+<p><strong>As you can see, when there is no GPU and you use a software renderer</strong>, you 
+will have this code running on your single or at most several core <strong>CPU, it 
+makes all the work for all the number of vertices.</strong> This is why vertex 
+counts can count in software rendering. The good thing is that this code that
+is written in the vertex shader are usually pretty simple for simple and older 
+games - even good looking ones like Nexus.</p>
+
+<p>After this programmable step this polygon is then further "rasterized" to form 
+raster lines on screen (or in memory) that go through it and to tell basic 
+things like if it is in sight or out of sight. This is usually less programmed.</p>
+
+<p>After this step comes one more heavy weighting: going through these final and 
+visible raster lines that contain non-empty data a small program will run for 
+each pixels to determine the color of that pixel. The program that runs here 
+is called the "pixel shader" or "fragment shader" and can be quite complicated 
+even in case of older, but good looking games like Nexus.</p>
+
+<p>Fragment shader is maybe a better name, because not only this might run for 
+every pixel on the screen, but it might run if you render offscreen - like in 
+case you render a TV screen showing a security cameras viewpoint - and not 
+only that! Imagine that a thing called overdrive happens when we draw objects 
+on top of each other when a car is front of a building and first you draw the 
+whole building then a car on top of it in parts! Sometimes you can get around 
+this by z-buffer tricks like early-Z rejection or HyperZ, but if there are 
+semi-transparent objects like colored glass windows there is no choice!</p>
+
+<p><strong>As you can see when there is no GPU</strong> with massively parallel chips only to 
+calculate these pixel shader programs for 8-16 pixels at once, your <strong>CPU will 
+need to run these complex codes at least once for every pixel!</strong></p>
+
+<p>This is worse than vertex shading usually:</p>
+
+<ul>
+<li>Imagine we have an 1024x768 resolution</li>
+<li>And the pixel shader can be done in 56 CPU operations</li>
+<li>We have an overdraw of 1.2x (quite low, but this is space game)</li>
+<li>Then we need to do 56x(1024x768)x1.2 = 56x(804864)x1.2 = 54086860</li>
+<li>This is 54 million operations!</li>
+<li>Now think about that this calculates one frame only!</li>
+<li>I guess you want around 30 frames per second!</li>
+</ul>
+
+<p>It is easy to calculate that this is already a burden for the CPU and your CPU 
+actually want to do other things as there is gameplay, physics, AI and other 
+kind of things that it still needs to do and the original developers actually 
+recommend a faster CPU than mine even when a GPU is on and working so this 
+just does not work well as you can see.</p>
+
+<p>A resolution change can make the middle multiplier quite smaller:</p>
+
+<ul>
+<li>804864 = 1024x768</li>
+<li>480000 = 800x600</li>
+<li>407040 = 848x480</li>
+<li>307200 = 640x480</li>
+<li>64000 = 320x200</li>
+</ul>
+
+<p><strong>As you can see, changing the resolution from 1024x768 to 800x600 nearly 
+halves all the operations needed!</strong></p>
+
+<p>Also some games might let you change the source code for its shaders and that 
+might gain you multiplies of speed if you can manage it to make them simpler 
+in case you do software rendering.</p>
+
+<h2>Listing possible resolutions</h2>
+
+<p>On linux you can list easily and well supported resolutions using <strong>xrandr</strong>.</p>
+
+<p>The result on my machine is this:</p>
+
+<pre><code>    Screen 0: minimum 320 x 200, current 1024 x 768, maximum 4096 x 4096
+    VGA-0 disconnected primary (normal left inverted right x axis y axis)
+    LVDS connected 1024x768+0+0 (normal left inverted right x axis y axis) 304mm x 228mm
+       1024x768      60.00*+
+       800x600       59.96  
+       848x480       59.94  
+       720x480       59.94  
+       640x480       59.94
+</code></pre>
+
+<p>If you want to see hardware pixel numbers use xdpyinfo:</p>
+
+<pre><code>    [prenex@prenex-laptop ~]$ xdpyinfo | grep 'dimensions:'
+      dimensions:    1024x768 pixels (270x203 millimeters)
+    [prenex@prenex-laptop ~]$
+</code></pre>
+
+<h2>Setting custom resolutions in Nexus</h2>
+
+<p>Nexus (at least the original non-steam release I have) stores configuration 
+values in the windows registry. Not only basic things, but even things like 
+the currently set resolution. The smallest resolution supported is just the 
+1024x768 in the built-in config screen but we can try writing in any kind of 
+random values here to force different screen sizes. There is also a value 
+that changes between 16:9 and 4:3 aspect ratios and many other things.</p>
+
+<p>The config values are here:</p>
+
+<pre><code>    HKEY_OCAL_MACHINE/Software/Mithis/Nexus - The Jupiter Incident
+</code></pre>
+
+<p>and you can change <code>Display_Height</code> and <code>Display_Width</code> as decimal numbers.</p>
+
+<p><strong>I choose 848x480</strong> here because that runs without any lagging and the UI is 
+still pretty much usable - except the repair button in the pre-battle screen, 
+but you can always start a game with normal res if you really need that repair.
+Choosing smaller resolutions like 640x480 starts the game too, but the UI is 
+not really becoming smaller so menus and in-game buttons end up on top of each 
+other this way instead of just becoming unreadable. I could still play in the 
+640x480 though and would be able to maybe win the original game in easy level, 
+just I do not really advise it. The resolution I choose is horizontally much 
+bigger than vertically but only a slight imperfection can be seen from this 
+as the aspect ratio still tries to be 4:3. Performance starts to degrade at 
+800x600 resolution only and with this there is still no lag and the bigger 
+horizontal resolution fixes nearly all issues with UI. Even more than the 
+800x600 resolution as most things are bad because things fall on each in 
+the horizontal direction mostly. Aspect ratio is only affected by having a bit 
+imperfect pixel sizes but you need to pay attention to see the effect.</p>
+
+<p>It would be good to know about a hotkey for it though of course...</p>
+
+<h2>Adding the New Conflicts campaign</h2>
+
+<p>If you are like me and like the early Nexus gameplay a lot with the ships that 
+create artificial gravity by having turning parts and "realistic" spaceships 
+you should install the new conflicts mod immediately. This only works after 
+you unpack the game dat files using the datool as it is not really a mod, but 
+this thing works by changing the whole universe directory for something else.</p>
+
+<p>The file is not that big and can be downloaded <a href="http://www.darkspace.de/nexus/download.html">here</a> or from <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/universe_conflicts.zip">my page</a></p>
+
+<h1>Game startup scripts</h1>
+
+<p>There are other ways in which you can speedup wine games and few people tell 
+you that it might also depend on a simple startup script. I tend to make a 
+<strong>start.sh</strong> script for both dosbox and wine games when in linux and do all 
+the necessary customization in there.</p>
+
+<p>Possible customizations include:</p>
+
+<ul>
+<li><code>PULSE_LATENCY_MSEC=60</code> - written before "wine" can make less stutter with various values (only pulseaudio)</li>
+<li><code>WINEDEBUG=-all</code> - this makes some games a lot faster if there are many errors and warnings from bad api usage!</li>
+<li><code>export RADEON_HYPERZ=1</code> - this makes hyperz and fastz-clear and such enabled for me (use what enable stuff for you! Use <code>man radeon</code>!)</li>
+<li>Presetting screen resolution with xrandr (like <code>xrandr "-s" "800x600"</code> for ex.)</li>
+<li>Setting up wine to start with virtual desktop for windowed modes: <code>wine explorer /desktop=title,800x600 "game.exe"</code></li>
+<li>Setting 'nice' values for better process scheduling</li>
+<li>Running custom pre-game and cleanup scripts (like music player for emulating CD-audio where not work or too slow)</li>
+<li>etc, etc...</li>
+</ul>
+
+<p>I also find it better to not use pulseaudio at all and just rely on alsa only. 
+I find it faster this way to be honest but some systems highly apply pulse lot.</p>
+
+<p>Also an other possibility that one might think about is setting 16 bit color 
+depth in Xorg.conf as it can help a bit with fill rates for many games.</p>
+
+<p>My scripts: <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/start.sh">start.sh</a>, <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/conflicts_start.sh">conflicts<em>start.sh</a>, <a href="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/conflicts_end.sh">conflicts</em>end.sh</a></p>
+
+<p>In this start script you see an example how to renice a wine application and 
+give it a bit higher chance to get scheduled on the CPU than other processes!</p>
+
+<h1>Final words - other possibilities</h1>
+
+<p>After all the above the game runs pretty enjoyable and there is no slowdown at 
+all! This is a pretty good achievement considering I use a complete software 
+rendering approach apply wine as a windows-linux translation layer.</p>
+
+<p>Even more surprising is the result knowing my specs:</p>
+
+<ul>
+<li>1.6 Ghz single core intel Celeron M</li>
+<li>1.3 Gb available system RAM</li>
+<li>256 Mb video ram (from the 1.5Gb total system RAM)</li>
+<li>DX9 compatible Xpress 200M video card</li>
+</ul>
+
+<p><strong>This is a machine that was a reasonably good midrange aptop in 2007!</strong></p>
+
+<p>Basically the whole game is completely playable and to me enjoyable too!</p>
+
+<h2>More screenshots (software rendering)</h2>
+
+<p>Menu:</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/shot1.png" alt="Screenshot 1"></p>
+
+<p>Galaxy (sun is retro pixelated haha):</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/shot2.png" alt="Screenshot 2"></p>
+
+<p>Battle (Engines are a bit "funny" retro looking now haha):</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/nexus/shot3.png" alt="Screenshot 3"></p>
+
+<h2>Other possibilities and good links</h2>
+
+<p>In the end I think it is good to talk about other possibilities in case anyone 
+needs help with their similar old-gaming experiences on linux or windows.</p>
+
+<p>I just list these in no particular order:</p>
+
+<ul>
+<li>Galium nine: This is basically D3D9 directly implemented in gallium drivers on linux instead of opengl translation. My card is too old...</li>
+<li>DDhack: Useful old directdraw wrapper that make old DX1-7 apps calls translate to opengl. <a href="https://code.google.com/archive/p/ddhack/downloads">See here.</a> or <a href="http://sol.gfxile.net/zip/">here</a></li>
+<li>DXGL: Usefule old ddraw.dll wrapper once again. New development but in alpha now. <a href="https://dxgl.org/">See here.</a></li>
+<li>DGvoodoo2: These are originally "glide" (voodoo) wrappers, but the second one can emulate directx 1-7 calls too! <a href="http://dege.freeweb.hu/">Hungarian guy!</a></li>
+<li>Nice page with custom ddraw DLLS: A guy makes custom to-gl translations for games he like that you <a href="http://sol.gfxile.net/zip/">download here</a></li>
+<li>Fixing the driver... This would lead to heavy lifting like <a href="http://ballmerpeak.web.elte.hu/devblog/debugging-hyperz-and-fixing-a-radeon-drm-linux-kernel-module.html">when I fixed hyperz</a> but even harder...</li>
+</ul>
+
+<p>Also I want to share you a good blog of the guy who makes DDhack: <a href="http://sol.gfxile.net">here his nice blog is!</a></p>
+
+<p>Feel free to share, comment or complain and stuff like that!</p>
+
+<p>Tags: <a href='tag_make-it-work.html'>make-it-work</a>, <a href='tag_retro.html'>retro</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_gaming.html'>gaming</a>, <a href='tag_wine.html'>wine</a>, <a href='tag_nexus.html'>nexus</a>, <a href='tag_the-jupiter-incident.html'>the-jupiter-incident</a>, <a href='tag_install.html'>install</a>, <a href='tag_hack.html'>hack</a>, <a href='tag_custom.html'>custom</a>, <a href='tag_resolution.html'>resolution</a>, <a href='tag_swiftshader.html'>swiftshader</a>, <a href='tag_directx.html'>directx</a>, <a href='tag_glitch.html'>glitch</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <img id="disqus-opener" src="discus-logo.jpg">
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            var embedfun_disqus = (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            });
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        var countfun_disqus = (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
+    </script>
+</body></html>

@@ -10,11 +10,47 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
 </script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <title>Ballmerpeak devblog &mdash; Posts tagged "oriented"</title>
-</head><body>
+</head><body onload='myOnLoad()'>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
@@ -38,6 +74,8 @@ Richárd Thier</div>
 <p>Most of the scary stuff are automatically handled with such a mindset: overdesign, underdesign, agility, team-spirit, susteinability, MWP, measure vs. estimate, business value increments, iterations, proper - but not unnecessary - documentation, etc. etc.</p>
 
 <p>Tags: <a href='tag_leadership.html'>leadership</a>, <a href='tag_methods.html'>methods</a>, <a href='tag_management.html'>management</a>, <a href='tag_minimal.html'>minimal</a>, <a href='tag_feature.html'>feature</a>, <a href='tag_maximal.html'>maximal</a>, <a href='tag_essence.html'>essence</a>, <a href='tag_oriented.html'>oriented</a>, <a href='tag_development.html'>development</a>, <a href='tag_software.html'>software</a>, <a href='tag_agile.html'>agile</a>, <a href='tag_unorthodox.html'>unorthodox</a></p>
+
+
 
 
 

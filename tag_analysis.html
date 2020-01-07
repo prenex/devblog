@@ -10,11 +10,47 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
 </script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <title>Ballmerpeak devblog &mdash; Posts tagged "analysis"</title>
-</head><body>
+</head><body onload='myOnLoad()'>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
@@ -22,10 +58,31 @@
 <div id="description">Software development, related stuff and others</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="debugging-hyperz-and-fixing-a-radeon-drm-linux-kernel-module.html">
+Debugging HyperZ and fixing a radeon drm linux kernel module
+</a></h3>
+<div class="subtitle">June 19, 2019  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>It was only a few days ago I have finished debugging a really heavy bug making 
+as big of a <a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=R300-Performance-Fix-2019">mesa performance hit in the userland radeon driver that it became 
+a news article on Phoronix</a>. Back then while still on the heavy journey for 
+getting my performance back I saw HyperZ was also not enabled for me, but if I 
+enable it I gain 10-15% more performance - and an unplayable 3D screen.</p>
+
+<p>On the <a href="http://ballmerpeak.web.elte.hu/devblog/debugging-mesa-and-the-linux-3d-graphics-stack.html">original blog post</a> I have also written about how to troubleshoot 
+a performance issue generally, but what to do if you know about a performance 
+increasing functionality - just you see it destroys the 3D picture?</p>
+
+<p>Read on if you are interested in linux graphics internals once again ;-)</p>
+
+<p class="readmore"><a href="debugging-hyperz-and-fixing-a-radeon-drm-linux-kernel-module.html">Read more...</a></p>
+<p>Tags: <a href='tag_drm.html'>drm</a>, <a href='tag_hyperz.html'>hyperz</a>, <a href='tag_r300.html'>r300</a>, <a href='tag_radeon.html'>radeon</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_kernel.html'>kernel</a>, <a href='tag_mesa.html'>mesa</a>, <a href='tag_arch.html'>arch</a>, <a href='tag_32bit.html'>32bit</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_glitches.html'>glitches</a>, <a href='tag_fix.html'>fix</a>, <a href='tag_contribute.html'>contribute</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_graphics.html'>graphics</a>, <a href='tag_stack.html'>stack</a>, <a href='tag_analysis.html'>analysis</a>, <a href='tag_3D.html'>3D</a>, <a href='tag_optimization.html'>optimization</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_system.html'>system</a>, <a href='tag_internals.html'>internals</a>, <a href='tag_hackerman.html'>hackerman</a>, <a href='tag_opengl.html'>opengl</a>, <a href='tag_zbuffer.html'>zbuffer</a>, <a href='tag_hiz.html'>hiz</a>, <a href='tag_zmask.html'>zmask</a>, <a href='tag_documentation.html'>documentation</a></p>
 <h3><a class="ablack" href="debugging-mesa-and-the-linux-3d-graphics-stack.html">
 Debugging mesa and the linux 3D graphics stack
 </a></h3>
-<div class="subtitle">June 11, 2019 &mdash; 
+<div class="subtitle">June 11, 2019  &mdash; 
 Richárd Thier</div>
 <!-- text begin -->
 
@@ -34,30 +91,15 @@ stack? Were you ever interested in doing a deep dive? Read on if you dare, but
 do not fear - I was rookie on the topic myself before I went for my hunt on a 
 50-1000% slowdown after some updates and a distro change.</p>
 
+<p>I wanted to document the process of delving deep into open source drivers. I 
+just wanted to put things together as it might be valuable for others wanting 
+to do similar things - I was and still is a rookie for these things after all.</p>
+
 <p>The power of open source: We can fix a more than decade old hardware getting 
 a slowdown as easily as a new one! Fuck you planned obsolesence haha!</p>
 
 <p class="readmore"><a href="debugging-mesa-and-the-linux-3d-graphics-stack.html">Read more...</a></p>
 <p>Tags: <a href='tag_mesa.html'>mesa</a>, <a href='tag_arch.html'>arch</a>, <a href='tag_32bit.html'>32bit</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_slowdown.html'>slowdown</a>, <a href='tag_contribute.html'>contribute</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_graphics.html'>graphics</a>, <a href='tag_stack.html'>stack</a>, <a href='tag_analysis.html'>analysis</a>, <a href='tag_3D.html'>3D</a>, <a href='tag_optimization.html'>optimization</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_system.html'>system</a>, <a href='tag_internals.html'>internals</a></p>
-<h3><a class="ablack" href=".html">
-Debugging mesa and the linux 3D graphics stack
-</a></h3>
-<div class="subtitle">June 10, 2019 &mdash; 
-Richárd Thier</div>
-<!-- text begin -->
-
-<p>Lately I have changed my linux distribution from a not-much updated Ubuntu 
-16.04 to a completely new Arch32 linux. Everything went as smooth as it can 
-be with a distro that needs more hand customization, but 3D performance have 
-become really slow for some reason.</p>
-
-<p>This post summarizes my hunt for the problem - from analysing config files all 
-through the end of adding my own quickfix in mesa source code! Yes you read it 
-well. This post is a good reading for anyone who wants to start contributing 
-to open source as this was my introduction to the deeper topics as well.</p>
-
-<p class="readmore"><a href=".html">Read more...</a></p>
-<p>Tags: <a href='tag_mesa.html'>mesa</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_slowdown.html'>slowdown</a>, <a href='tag_contribute.html'>contribute</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_graphics.html'>graphics</a>, <a href='tag_stack.html'>stack</a>, <a href='tag_analysis.html'>analysis</a>, <a href='tag_tutorial.html'>tutorial</a></p>
 <h3><a class="ablack" href="threads-why-you-should-hate-and-love-them-1.html">
 Threads: Why you should hate and love them 1
 </a></h3>

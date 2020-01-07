@@ -10,11 +10,47 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
 </script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <title>Ballmerpeak devblog &mdash; Posts tagged "tricks"</title>
-</head><body>
+</head><body onload='myOnLoad()'>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
@@ -22,6 +58,23 @@
 <div id="description">Software development, related stuff and others</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="short-coding-tipsamptricks-1.html">
+Short coding tips&amp;tricks 1
+</a></h3>
+<div class="subtitle">July 03, 2019  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>Some of my posts take a little long to appear because of the amount of work 
+I need to do for preparing them, while I feel there are also a lot of tips I 
+can easily share and are still meaningful to others. Because of this I think 
+it will be a good idea for me to seperate a series of quick tricks and tips 
+related to coding or other areas related to our field.</p>
+
+<p>This is the first post in this short series.</p>
+
+<p class="readmore"><a href="short-coding-tipsamptricks-1.html">Read more...</a></p>
+<p>Tags: <a href='tag_programming.html'>programming</a>, <a href='tag_coding.html'>coding</a>, <a href='tag_tips.html'>tips</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_secrets.html'>secrets</a>, <a href='tag_series.html'>series</a></p>
 <h3><a class="ablack" href="awsome-linux-tools-i-screen-capture-and-stuff.html">
 Awsome linux tools I: Screen capture and stuff
 </a></h3>
@@ -36,7 +89,7 @@ running on some then-hyped apple device or high-end PC computers.</p>
 <p>If you are recording CGI or gaming videos maybe these are necessary anyways, 
 but there are more hacker-friendly, lightweight ways - and on linux. :-)</p>
 
-<p class="readmore"><a href="./awsome-linux-tools-i-screen-capture-and-stuff.html">Read more...</a></p>
+<p class="readmore"><a href="awsome-linux-tools-i-screen-capture-and-stuff.html">Read more...</a></p>
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_tools.html'>tools</a>, <a href='tag_scripts.html'>scripts</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_snipping.html'>snipping</a>, <a href='tag_tool.html'>tool</a>, <a href='tag_screen record.html'>screen record</a>, <a href='tag_mpv.html'>mpv</a>, <a href='tag_mp4.html'>mp4</a>, <a href='tag_gif.html'>gif</a>, <a href='tag_screenshot.html'>screenshot</a>, <a href='tag_video.html'>video</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_asciinema.html'>asciinema</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_following.html'>following</a>, <a href='tag_cult.html'>cult</a>, <a href='tag_hacker.html'>hacker</a></p>
 </div>
 <div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>

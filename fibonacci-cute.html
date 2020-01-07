@@ -10,11 +10,47 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
 </script>
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <title>Fibonacci cute</title>
-</head><body>
+</head><body onload='myOnLoad()'>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
@@ -100,6 +136,8 @@ int main() {
 <p>I did not know about this variant, and according to the <a href="https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression">wikipedia article</a> most series that are recursive have this static formula which is great to know. I always liked to find or find out alternative algoritms and even though practically this is not really a breakthrough or anything in our code base - certainly it is a cute and kind solution.</p>
 
 <p>Tags: <a href='tag_fibonacci.html'>fibonacci</a>, <a href='tag_math.html'>math</a>, <a href='tag_alternative.html'>alternative</a>, <a href='tag_algorithms.html'>algorithms</a>, <a href='tag_java.html'>java</a>, <a href='tag_c++.html'>c++</a></p>
+
+
 
 
 

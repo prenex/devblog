@@ -449,7 +449,7 @@ create_html_page() {
     echo "<title>$title</title>" >> "$filename"
     google_analytics >> "$filename"
     twitter_card "$content" "$title" >> "$filename"
-    echo "</head><body>" >> "$filename"
+    echo "</head><body onload='myOnLoad()'>" >> "$filename"
     # stuff to add before the actual body content
     [[ -n "$body_begin_file" ]] && cat "$body_begin_file" >> "$filename"
     # body divs

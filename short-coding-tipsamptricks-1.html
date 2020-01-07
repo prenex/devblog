@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
+</script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<title>Short coding tips&amp;tricks 1</title>
+</head><body onload='myOnLoad()'>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="short-coding-tipsamptricks-1.html">
+Short coding tips&amp;tricks 1
+</a></h3>
+<div class="subtitle">July 03, 2019  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>Some of my posts take a little long to appear because of the amount of work 
+I need to do for preparing them, while I feel there are also a lot of tips I 
+can easily share and are still meaningful to others. Because of this I think 
+it will be a good idea for me to seperate a series of quick tricks and tips 
+related to coding or other areas related to our field.</p>
+
+<p>This is the first post in this short series.</p>
+
+<h1>Tips &amp; tricks</h1>
+
+<p>I can tell you some very simple but powerful tricks:</p>
+
+<ol>
+<li><p>Always <strong>code in small increments</strong> and try out things as soon as a part of it can be tried out. Some people would shout TDD for my comment here, but you do not really need to follow such stuff religiously for this idea to work. Just keep it in mind to always make something that you can try out as soon as possible instead of building something really big and fragile</p></li>
+<li><p><strong>Always use versioning</strong> even for the small things - preferably git for which you do not need to set up a server.</p></li>
+<li><p><strong>Commit as small changes as you can.</strong> In the best case this means 4–5x per day at least!</p></li>
+<li><p>When you are not changing something, but writing new code, also commit like the above. This poses a question: What you do in case the new function can be tried only after a lot of lines written? My advice is to still write parts of it and commit and loop this action until finished - but to <strong>at least keep part of the code “unhooked” but committed in</strong>. Maybe you write a function that you never call. Maybe you write a module that you never add to the product until you can really try it, but this way you still get a meaningful history and the ability to revert small changes.</p></li>
+<li><p>If you make code reviews, prefer <strong>reviewing commits instead of finished code</strong>. I will elaborate this later in a seperate post maybe.</p></li>
+<li><p><strong>If something is painful, try doing it more often.</strong> Is it painful to merge your code? Maybe your commits are too big and it became  burden because you did not do it more often! Is it painful to deploy your application? Maybe you should do it more often or automate it! Is it painful to profile your application for speed, check for UX, do integration testing? You should always consider if it helps if you would do this just more often - but in smaller quantitites of things to do!</p></li>
+<li><p>If the code is buggy and you know the error must be in this or that region, <strong>try to open a completely different editor for the file for debugging the typo</strong>. If you are using an IDE normally, open the file in vim or such things in the terminal. If you are using the terminal normally (like I do), then open the file in gedit, geany, the double-commander built-in viewer or something similar! The key is to look at the same thing from a different environment with different colors and fonts and different feeling. This helps to relax your brain in case you have a typo, but you always read what you want instead of what you see (because of your brain memory). Maybe it works best if you change from a dark theme to a bright editor theme too while doing this temporal transition.</p></li>
+<li><p><strong>Try pair debugging</strong>: I have been in situations when pair debugging was the only way to comprehend the code. It was literally that bad written that you would burn out easily if you debug it alone.</p></li>
+<li><p>Try to <strong>go after the business case or use case</strong>. Even if you are a developer, go after it, because in most of the cases the customer does not tell what he needs - he only tells you what he thinks will help in what he needs. Many times you can present him a more complete, better software if you find out what really is his problem or what will help his business to operate. Of course you discuss this after the revelation, but do not just accept what he says without looking around what will work. Many times a much more easier solution can be given this way! <strong>You can not only solve a problem, but you can look if the problem can be itself changed while still serving a purpose!</strong></p></li>
+<li><p><strong>The strongest tip for now:</strong> always issue a <code>git diff</code> or similar command before you commit. This not only helps you to write a relevant commit message, but it acts as a code review that you do on your very own code. Many times I stumble upon a hidden error like this!</p></li>
+</ol>
+
+<p>Tags: <a href='tag_programming.html'>programming</a>, <a href='tag_coding.html'>coding</a>, <a href='tag_tips.html'>tips</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_secrets.html'>secrets</a>, <a href='tag_series.html'>series</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <img id="disqus-opener" src="discus-logo.jpg">
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            var embedfun_disqus = (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            });
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        var countfun_disqus = (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
+    </script>
+</body></html>
