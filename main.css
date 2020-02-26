@@ -1,6 +1,6 @@
 body{font-family:Georgia,"Times New Roman",Times,serif;margin:0;padding:0;background-color:#F3F3F3;}
-        #divbodyholder{padding:2%;background-color:#DDD;width:90%;margin:24px auto;}
-        #divbody{width:89%;border:solid 1px #ccc;background-color:#fff;padding:0% 5% 1% 5.2%;top:0;}
+        #divbodyholder{padding:2%;background-color:#DDD;width:92%;margin:2% auto;}
+        #divbody{border:solid 1px #ccc;background-color:#fff;padding:0% 5% 1% 5.2%;top:0;}
         .headerholder{background-color:#f9f9f9;border-top:solid 1px #ccc;border-left:solid 1px #ccc;border-right:solid 1px #ccc;}
         .header{width:95%;margin:0px auto;padding-top:24px;padding-bottom:8px;}
         .content{margin-bottom:45px;}
@@ -15,3 +15,4 @@ body{font-family:Georgia,"Times New Roman",Times,serif;margin:0;padding:0;backgr
         blockquote img{margin:12px 0px;}
         blockquote iframe{margin:12px 0px;}
 	#disqus-opener{cursor: pointer;}
+}
