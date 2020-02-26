@@ -1,0 +1,266 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137238428-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137238428-1');
+
+  // Needed for mobile <pre> tag sizes!
+  function getDefaultFontSize(){
+   var who=document.createElement('div');
+  
+   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
+  
+   who.appendChild(document.createTextNode('M'));
+   document.body.appendChild(who);
+   var fs= [who.offsetWidth, who.offsetHeight];
+   document.body.removeChild(who);
+   return fs;
+  }
+
+  function fixPreSize() {
+    // Create our stylesheet to fix small letters for pre tags
+    var style = document.createElement('style');
+    style.innerHTML =
+     'pre {' + // TODO: check what to do with [1]
+      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
+      'font-size:200%' + 
+     '}';
+    
+    // Get the first script tag
+    var ref = document.querySelector('script');
+    
+    // Insert our new styles before the first script tag
+    ref.parentNode.insertBefore(style, ref);
+  }
+
+  function myOnLoad() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // If we are on a mobile phone
+      fixPreSize();
+    }
+  }
+</script>
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<title>2020: Re-sharing posts of your company on facebook and linkedin on personal timeline</title>
+</head><body onload='myOnLoad()'>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://ballmerpeak.web.elte.hu/devblog">Ballmerpeak devblog</a></h1>
+<div id="description">Software development, related stuff and others</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="2020-re-sharing-posts-of-your-company-on-facebook-and-linkedin-on-personal-timeline.html">
+2020: Re-sharing posts of your company on facebook and linkedin on personal timeline
+</a></h3>
+<div class="subtitle">January 30, 2020  &mdash; 
+Richárd Thier</div>
+<!-- text begin -->
+
+<p>If you want to know how to re-share our own posts as a person on social media 
+instead of paying high amount of money advertising your business pages, read 
+on. It is not hard once you know it, but social media suppliers did hide it!</p>
+
+<h1>Problem statement</h1>
+
+<p>If you just want the solution, scroll down for it, but for those who might not 
+even understand what the problem is, I thought I better write it.</p>
+
+<p>Now that I am CEO and founder of my own company MagosIT Kft I of course felt 
+it is best to create social media sites for it. This is a simple move, but 
+then I have realized that whenever I share a post I should share as my own 
+company instead of myself. The problem is that I have more followers on my 
+channels than my company profile.</p>
+
+<p>Because of this I thought the best is to take my own posts and re-share them. 
+What is weird though is that once you create a business page in linkedin or in 
+facebook they completely change your user experience in how far you are shared.</p>
+
+<p>This is understandable as now that you are a company, they expect you to pay 
+money for online advertisement instead of helping you to pop-up everywhere! 
+For example before, when you are "yet another worker" on linkedin, they do 
+their very best to connect you with all kinds of businesses and people because 
+tht is what is expected and gives the platform a good reputation, and a feel 
+that it is best to connect with business there. Also you would likely not pay 
+for advertisement as a worker except if you actively search work so there is 
+no reason to think there can be big money in your pockets.</p>
+
+<p>What happens when you are on the other side and became a business company?</p>
+
+<p>It indicates that:</p>
+
+<ul>
+<li>You likely have money as salaries costs more than small ad fees</li>
+<li>You likely would pay headhunters or have HR department</li>
+<li>You likely have no choice but to pay as people are on social media</li>
+</ul>
+
+<p>This is business and social media owners know it. Of course you can "hack" the 
+system multiple ways like some worker of yours can keep on posting as a human 
+instead of as a company and you can still get referred to your web page.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/fb_in.jpg" alt="Facebook and LinkedIn logo"></p>
+
+<p>The problem is that your professional company pages will still get to be sad 
+and quite unreached. This is not so big of a problem but why do not just do 
+a re-share from there as yourself?</p>
+
+<p>It seems like a good idea: You already have your well built personal profile 
+and you can re-share what your company page have posted and <strong>maybe</strong> some of 
+the people even start liking your company page too so you pop up in search.</p>
+
+<p>Problem is: For the first sight I had no idea how to do this. It was hidden...</p>
+
+<h1>Online advertisement: Re-share your own posts</h1>
+
+<p>So how you re-share your company posts?</p>
+
+<ol>
+<li>First you write a post. Best is if it leads to your company page, youtube page, whatever.</li>
+<li>Always have a pleasant image on your post, usually social media sites pick the first image from a shared website btw.</li>
+<li>Re-post as yourself (see details below for FB and LinkedIn)</li>
+<li>Do not forget what channels you should share on (for example re-share in groups or as a "messenger story"</li>
+</ol>
+
+<h2>Re-sharing on Facebook</h2>
+
+<p>Facebook is the easier one in this aspect. All you need is to go to your 
+content and share it <strong>as yourself</strong>. The only hard part is seeing this small 
+dropdown I marked on the image which lets you choose who does the sharing and 
+other actions. It is right near the "share" button, but is hard to see.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/fbshare.png" alt="Where to click on facebook to share your own company post"></p>
+
+<p>So in case of facebook, you create your post as the company then change this 
+dropdown to your on username and share your post. That simple and it is on 
+your timeline or in the groups you want to share your message in.</p>
+
+<p>You should also be active on messenger as I see some of the younger people 
+only use phones for facebook and your audience will be bigger this way!</p>
+
+<p>Of course before all that, you surely need the business page on facebook. That 
+is easy to create and there are many tutorials for it so I will not delve into 
+that here. Practically you can just use the top-right corner of facebook and 
+create a "page". That is all. You also better use full facebook for this as 
+despite I usually can only stand <code>m.facebook.com</code> which is much faster, you will 
+be likely feeling limited by using that for these kind of things.</p>
+
+<h2>Re-sharing on LinkedIn</h2>
+
+<p>Linkedin is the harder among the two. First of course you need a company page 
+here too, for which there are countless tutorials once again and is easy to 
+set it up. Practically you just use the dropdown saying "Work" in the top 
+right corner once again.</p>
+
+<p>Then after you wrote your post(s), you want to share it. Some say you should 
+just look at the "all posts" as yourself instead of your company account and 
+scroll until you find your post. This is boring, time consuming and bad habit 
+for just re-sharing your content and likely will not even work as the site 
+just grows even more with even more posts need to be shared.</p>
+
+<p>The right solution is to go to your company page and look up your post there. 
+You will find it immediately as it will be on top or at second place so this 
+is not time consuming.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/inshare.png" alt="Where to click on linkedin to share your own company post"></p>
+
+<p>Now is the magic happening! You need to click on the three dots ("...") button 
+and choose "copy link to post". This copy a static link to your company post 
+into your clipboar so you can go to your own - personal timeline and page 
+and easily just <strong>paste this link</strong> into anywhere. You can post now both to 
+your timeline and to any groups you are in using this technique.</p>
+
+<p>As you can see the reposts you do this way tell where you are sharing it from!
+People can immediately start following your company page if interested. Also 
+you can write some text around it if you want. The key is that the system see 
+from the link that it is from linkedin and it shows it with proper widgets.</p>
+
+<p><img src="http://ballmerpeak.web.elte.hu/devblog/attachments/inresult.png" alt="Where to click on linkedin to share your own company post"></p>
+
+<h1>An other good way</h1>
+
+<p>An other good - maybe even better - way is to ask one of you fans or friends 
+to just share what you shared. This either works or not and they might be not 
+available or in front of the internet when you need your post to be shared as 
+you might have found by measuring analytics what time it is best to share!</p>
+
+<h1>Final thoughts</h1>
+
+<p>Of course you cannot expect all marketing for free, but many of the companies 
+- like my MagosIT Kft - start small and with pretty limited online marketing 
+or other marketing budget. With guerilla ways you can sometimes reach more 
+people and possible customers than with some small-amount advertisement.</p>
+
+<p>Also of course now that you understand how to share and promote your company 
+sites and pages on your personal social media, you can also apply all other 
+tricks and tips for better online presence - like cross-posting your social 
+media posts between your different social media channels to unify followship 
+or cross-post your websites, blogs, youtube and all other channels.</p>
+
+<p>I will cross-link <a href="http://www.magosit.hu">www.magosit.hu</a> when I finish my web design for example..</p>
+
+<p><strong>Oh and do not forget to ask your existing friends to follow your company pages!</strong></p>
+
+<p>Tags: <a href='tag_re.html'>re</a>, <a href='tag_share.html'>share</a>, <a href='tag_company.html'>company</a>, <a href='tag_post.html'>post</a>, <a href='tag_facebook.html'>facebook</a>, <a href='tag_linkedin.html'>linkedin</a>, <a href='tag_social.html'>social</a>, <a href='tag_media.html'>media</a>, <a href='tag_advertisement.html'>advertisement</a>, <a href='tag_online.html'>online</a>, <a href='tag_marketing.html'>marketing</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_social-media.html'>social-media</a>, <a href='tag_company.html'>company</a>, <a href='tag_owner.html'>owner</a>, <a href='tag_tips.html'>tips</a></p>
+
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="disqus_thread"></div>
+            <img id="disqus-opener" src="discus-logo.jpg">
+            <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+               var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+            /* * * DONT EDIT BELOW THIS LINE * * */
+            var embedfun_disqus = (function() {
+            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+            dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            });
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+<script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ballmerpeak-devblog'; // required: replace example with your forum shortname
+
+        /* * * DONT EDIT BELOW THIS LINE * * */
+        var countfun_disqus = (function () {
+        var s = document.createElement("script"); s.async = true;
+        s.type = "text/javascript";
+        s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]).appendChild(s);
+        })
+        // This is a custom hackz of mine!!!
+        // We only let disqus work if the user really wants it!!!
+        // onload is needed as otherwise opener will be null below,
+        // we can wait until window load, but need to preserve any earlier!
+        var prev_handler = window.onload;
+        window.onload = function () {
+          if (prev_handler) {
+            prev_handler();
+          }
+          var opener = document.getElementById("disqus-opener");
+          opener.onclick = function() {
+              opener.onclick = null;
+              opener.parentNode.removeChild(opener);
+              embedfun_disqus();
+              countfun_disqus();
+          };
+        };
+    </script>
+</body></html>

@@ -2,9 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Tue, 07 Jan 2020 23:10:21 +0100</lastBuildDate>
-<pubDate>Tue, 07 Jan 2020 23:10:21 +0100</pubDate>
+<lastBuildDate>Wed, 26 Feb 2020 13:34:29 +0100</lastBuildDate>
+<pubDate>Wed, 26 Feb 2020 13:34:29 +0100</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Why I like statically typed languages
+</title><description><![CDATA[
+
+<p>People usually fall into one of the static vs. dynamic languages fanboy group. 
+I always preferred that static languages where types can be determined at the
+compile time, but I use languages from both worlds. Now I met the kind of error 
+that shines light on why I prefer static languages though. Read on!</p>
+
+<h1>Usual reasons to use static vs. dynamic type systems</h1>
+<p>Tags: <a href='tag_static.html'>static</a>, <a href='tag_dynamic.html'>dynamic</a>, <a href='tag_type.html'>type</a>, <a href='tag_language.html'>language</a>, <a href='tag_comparison.html'>comparison</a>, <a href='tag_which-is-better.html'>which-is-better</a>, <a href='tag_rant.html'>rant</a>, <a href='tag_reality.html'>reality</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/why-i-like-statically-typed-languages.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./why-i-like-statically-typed-languages.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Mon, 24 Feb 2020 15:34:00 +0100</pubDate></item>
+<item><title>
+2020: Re-sharing posts of your company on facebook and linkedin on personal timeline
+</title><description><![CDATA[
+
+<p>If you want to know how to re-share our own posts as a person on social media 
+instead of paying high amount of money advertising your business pages, read 
+on. It is not hard once you know it, but social media suppliers did hide it!</p>
+
+<h1>Problem statement</h1>
+<p>Tags: <a href='tag_re.html'>re</a>, <a href='tag_share.html'>share</a>, <a href='tag_company.html'>company</a>, <a href='tag_post.html'>post</a>, <a href='tag_facebook.html'>facebook</a>, <a href='tag_linkedin.html'>linkedin</a>, <a href='tag_social.html'>social</a>, <a href='tag_media.html'>media</a>, <a href='tag_advertisement.html'>advertisement</a>, <a href='tag_online.html'>online</a>, <a href='tag_marketing.html'>marketing</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_social-media.html'>social-media</a>, <a href='tag_company.html'>company</a>, <a href='tag_owner.html'>owner</a>, <a href='tag_tips.html'>tips</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/2020-re-sharing-posts-of-your-company-on-facebook-and-linkedin-on-personal-timeline.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./2020-re-sharing-posts-of-your-company-on-facebook-and-linkedin-on-personal-timeline.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Thu, 30 Jan 2020 14:18:00 +0100</pubDate></item>
 <item><title>
 Holiday DIY hobby electronics Christmas tree
 </title><description><![CDATA[
@@ -45,7 +74,7 @@ can see now that others might be interested in the process too.</p>
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/make-it-work-3-nexus---the-jupiter-incident.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./make-it-work-3-nexus---the-jupiter-incident.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
-<pubDate>Tue, 03 Sep 2019 00:07:45 +0200</pubDate></item>
+<pubDate>Tue, 03 Sep 2019 00:07:00 +0200</pubDate></item>
 <item><title>
 How we speak with computers
 </title><description><![CDATA[
@@ -66,7 +95,7 @@ programmer, neither anyone who uses a soldering iron ever?</p>
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/how-we-speak-with-computers.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./how-we-speak-with-computers.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
-<pubDate>Sat, 06 Jul 2019 00:36:23 +0200</pubDate></item>
+<pubDate>Sat, 06 Jul 2019 00:36:00 +0200</pubDate></item>
 <item><title>
 Short coding tips&amp;tricks 1
 </title><description><![CDATA[
@@ -167,33 +196,4 @@ with badly optimized pictures. Through this blog post I am documenting the
 <guid>http://ballmerpeak.web.elte.hu/devblog/./website-and-blog-speedup-tricks.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Mon, 01 Apr 2019 23:10:00 +0200</pubDate></item>
-<item><title>
-Ideas, idea-sources, solution-ideas and problem-ideas
-</title><description><![CDATA[
-
-<p>Many people say they "have a great idea". If you are a programmer it is 
-likely that you have met people who neither have money, neither tech or 
-domain skills, but some "killer idea" they think worths a billion.</p>
-
-<p>I have figured we should define and seperate ideas from each other much
-better than now to understand the problem. Read on to find out how!</p>
-
-<h1>Various Ideas based on the approach</h1>
-<p>Tags: <a href='tag_idea.html'>idea</a>, <a href='tag_startup.html'>startup</a>, <a href='tag_creativity.html'>creativity</a>, <a href='tag_definition.html'>definition</a>, <a href='tag_business.html'>business</a>, <a href='tag_notech.html'>notech</a>, <a href='tag_software.html'>software</a>, <a href='tag_ar.html'>ar</a>, <a href='tag_hololens.html'>hololens</a>, <a href='tag_mr.html'>mr</a>, <a href='tag_idea-source.html'>idea-source</a>, <a href='tag_excercise.html'>excercise</a>, <a href='tag_innovation.html'>innovation</a>, <a href='tag_management.html'>management</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/ideas-idea-sources-solution-ideas-and-problem-ideas.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./ideas-idea-sources-solution-ideas-and-problem-ideas.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Fri, 29 Mar 2019 15:12:00 +0100</pubDate></item>
-<item><title>
-What are your secrets to feel less overwhelmed as a computer programmer?
-</title><description><![CDATA[
-
-<p>I have been asked the above question on Quora and a lot of people seem to like my answer so I repeat it here.</p>
-
-<h1>I can tell you a really simple pack of “secrets”</h1>
-<p>Tags: <a href='tag_less.html'>less</a>, <a href='tag_overwhelmed.html'>overwhelmed</a>, <a href='tag_secrets.html'>secrets</a>, <a href='tag_productivity.html'>productivity</a>, <a href='tag_tips.html'>tips</a>, <a href='tag_quora.html'>quora</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/what-are-your-secrets-to-feel-less-overwhelmed-as-a-computer-programmer4224.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./what-are-your-secrets-to-feel-less-overwhelmed-as-a-computer-programmer4224.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Tue, 05 Mar 2019 10:17:00 +0100</pubDate></item>
 </channel></rss>
