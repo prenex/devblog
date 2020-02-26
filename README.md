@@ -1,3 +1,49 @@
+My blog
+=======
+
+This page contains my technical blog (also MagosIT Kft company blog)
+
+Uses bashblog.sh, but I made minor changes to it (see git log).
+One of the better changes is possibility to use internal CSS 
+instead of referring to the CSS file. This is not only faster 
+if you have lightweight small CSS, but might make your page 
+rank as mobile-friendly in google bot on servers that answer 
+slower than the timeout values in googlebot...
+
+Other changes to the main file:
+
+		$ git log bb.sh
+
+		commit 1ef907460278c38e2b13dd99106024a185b01cce
+		Author: Thier Richard Istvan <u9vata@gmail.com>
+		Date:   Wed Feb 26 16:48:16 2020 +0100
+
+		    bb.sh: Added css_is_internal=true|false with default false value. Faster on slow servers and lightweight CSS!
+
+		commit 7d7ae14a6bc800cdb7d82a03dd17d668a1003b33
+		Author: Thier Richard Istvan <u9vata@gmail.com>
+		Date:   Tue Jan 7 23:10:56 2020 +0100
+
+		    Update
+
+		commit fc0a9cdab7de48f0499a9493e09d454762c50b8a
+		Author: Thier Richard Istvan <u9vata@gmail.com>
+		Date:   Mon Apr 1 20:16:53 2019 +0200
+
+		    Updated bb.sh so that disqus is not started until people click on it!
+
+		commit 9d763f01d4b4486106e6ecb1c8f933adafa73ff9
+		Author: Thier Richard Istvan <u9vata@gmail.com>
+		Date:   Fri Jan 18 16:26:49 2019 +0100
+
+		    Added header for asciinema player CSS (also added its javascript and css files)
+
+		commit 7860a30d238f143ebf2b986b7f6e36d6d1c90309
+		Author: Thier Richard Istvan <u9vata@gmail.com>
+		Date:   Mon Jul 27 19:21:07 2015 +0200
+
+		    Added hr between posts on the index page.
+
 bashblog
 ========
 
