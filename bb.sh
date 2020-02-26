@@ -94,6 +94,15 @@ global_variables() {
     # CSS files to include on every page, f.ex. css_include=('main.css' 'blog.css')
     # leave empty to use generated
     css_include=()
+    # prenex: Setting this value to true makes bashblog copy CSS file content into HTML 
+    # This usually leads to faster page render for small CSS files, googlebot or example 
+    # used to complain in caesar.ELTE servers that "fonts are small and clickables close"
+    # for mobile users while in reality it timeout-ed while loading CSS thus not loaded 
+    # the CSS properly. As my own blog had very lightweight CSS (15-17 rules) I just decided 
+    # to include it directly in the html source of every page.
+    #
+    # Remark.: Earlier I deferred heavy CSS files on my page to load asynch! That helps speed!
+    css_is_internal=false
     # HTML files to exclude from index, f.ex. post_exclude=('imprint.html 'aboutme.html')
     html_exclude=()
 
@@ -896,9 +905,17 @@ create_includes() {
 
     if [[ -f "$header_file" ]]; then
         cp "$header_file" .header.html
-        for css_file in ${css_include[*]}; do
-            echo '<link rel="stylesheet" href="'$css_file'" type="text/css" />' >> ".header.html"
-        done
+        if [ "$css_is_internal" = true ]; then
+            for css_file in ${css_include[*]}; do
+                echo "<style>" >> ".header.html"
+                cat "$css_file" >> ".header.html"
+                echo "</style>" >> ".header.html"
+            done
+        else
+            for css_file in ${css_include[*]}; do
+                echo '<link rel="stylesheet" href="'$css_file'" type="text/css" />' >> ".header.html"
+            done
+        fi
     else
         echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' > ".header.html"
         echo '<html xmlns="http://www.w3.org/1999/xhtml"><head>' >> ".header.html"

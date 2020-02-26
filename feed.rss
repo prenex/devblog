@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Wed, 26 Feb 2020 13:34:29 +0100</lastBuildDate>
-<pubDate>Wed, 26 Feb 2020 13:34:29 +0100</pubDate>
+<lastBuildDate>Wed, 26 Feb 2020 16:24:13 +0100</lastBuildDate>
+<pubDate>Wed, 26 Feb 2020 16:24:13 +0100</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Why I like statically typed languages

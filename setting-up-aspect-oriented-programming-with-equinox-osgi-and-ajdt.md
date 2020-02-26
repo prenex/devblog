@@ -308,7 +308,7 @@ Now we can go to bullet pont 4. as we need to add some extra meta-information to
 
 2. Then you need to tell the AJDT/equinox weaving plugins which aspects you want a package export. For this. You should add an ";aspects=AnnotatedMethodLoggerAspect" postfix to the package export of "aspects". It will look like this:
 
-	`hu.prenex.osgi.example.aop.aspects;aspects=AnnotatedMethodLoggerAspect`
+	`hu.prenex.osgi.example.aop.aspects; aspects=AnnotatedMethodLoggerAspect`
 
 	* Also, you can make a package a list of exported aspects if you do it like this: ';aspects="MyAspect1,MyAspect2"'
 	* Please mind that here the terminology is that that packages are exporting the aspects they contain - so this looks like just another extra layer of exports on top of usual OSGi package exporting/importing and bundle require ;-)
