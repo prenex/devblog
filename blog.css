@@ -1,34 +1,65 @@
 #title{font-size: x-large;}
-        a.ablack{color:black !important;}
-        li{margin-bottom:8px;}
-        ul,ol{margin-left:24px;margin-right:24px;}
-        #all_posts{margin-top:24px;text-align:center;}
-        .subtitle{font-size:small;margin:12px 0px;}
-        .content p{margin-left:24px;margin-right:24px;text-align: justify;}
-        h1{margin-bottom:12px !important;}
-        #description{font-size:large;margin-bottom:12px;}
-        h3{margin-top:42px;margin-bottom:8px;}
-        h4{margin-left:24px;margin-right:24px;}
-        #twitter{line-height:20px;vertical-align:top;text-align:right;font-style:italic;color:#333;margin-top:24px;font-size:small;}
+a.ablack{color:black !important;}
+li{margin-bottom:8px;}
+ul,ol{margin-left:24px;margin-right:24px;}
+#all_posts{margin-top:24px;text-align:center;}
+.subtitle{font-size:small;margin:12px 0px;}
+.content p{margin-left:24px;margin-right:24px;text-align: justify;}
+h1{margin-bottom:12px !important;}
+#description{font-size:large;margin-bottom:12px;}
+h3{margin-top:42px;margin-bottom:8px;}
+h4{margin-left:24px;margin-right:24px;}
+#twitter{line-height:20px;vertical-align:top;text-align:right;font-style:italic;color:#333;margin-top:24px;font-size:small;}
 
-	pre{
-		overflow: auto;
-		font-family: monospace;
-		font-size: 1em;
-	}
+pre{
+	overflow: auto;
+	font-family: monospace;
+	font-size: 1em;
+}
 
-	code{
-		color:#006400;
-	}
+code{
+	color:#006400;
+}
 
-	img {
-		/* Centering
-		display: block;
-		margin-left: auto;
-		margin-right: auto */
+img {
+	/* Centering
+	display: block;
+	margin-left: auto;
+	margin-right: auto */
 
-		/* Ensure width */
-		max-width: 100%;
-		/*max-height: 100%;*/
-		height: auto;
-	}
+	/* Ensure width */
+	max-width: 100%;
+	/*max-height: 100%;*/
+	height: auto;
+}
+
+/* For our simple exit-intent popup */
+
+#popup {
+    display: none;
+}
+
+.popup__wrapper {
+    background: rgba(0, 0, 0, .75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.popup__container {
+    background: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin: 100px auto;
+    max-width: 100%;
+    padding: 20px;
+    width: 500px;
+}
+
+.popup__title {
+    font-size: 26px;
+    margin-bottom: 15px;
+}

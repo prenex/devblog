@@ -12,6 +12,7 @@
 
   gtag('config', 'UA-137238428-1');
 
+/*
   // Needed for mobile <pre> tag sizes! - not anymore after specifying viewport properly!
   function getDefaultFontSize(){
    var who=document.createElement('div');
@@ -40,13 +41,39 @@
     // Insert our new styles before the first script tag
     ref.parentNode.insertBefore(style, ref);
   }
-
+*/
   function myOnLoad() {
     //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
       // If we are on a mobile phone
       //fixPreSize();
     //}
+    console.log("KIULA");
+    document.getElementById('popup').onclick=function(){
+            // Hide the popup if user click away to grey area
+            document.getElementById("popup").style.display = "none";
+    }
   }
+
+  /* EXIT INTENT POPUP */
+
+  function onMouseOut(event) {
+      // If the mouse is near the top of the window, show the popup
+      // Also, do NOT trigger when hovering or clicking on selects AND INPUTS
+      if (
+          event.clientY < 50 &&
+          event.relatedTarget == null &&
+          event.target.nodeName.toLowerCase() !== "select" &&
+          event.target.nodeName.toLowerCase() !== "input"
+      ) {
+          // Remove this event listener
+          document.removeEventListener("mouseout", onMouseOut);
+  
+          // Show the popup
+          document.getElementById("popup").style.display = "block";
+      }
+  }
+  document.addEventListener("mouseout", onMouseOut);
+
 </script>
 <style>
 body{font-family:Georgia,"Times New Roman",Times,serif;margin:0;padding:0;background-color:#F3F3F3;}
@@ -70,39 +97,70 @@ body{font-family:Georgia,"Times New Roman",Times,serif;margin:0;padding:0;backgr
 </style>
 <style>
 #title{font-size: x-large;}
-        a.ablack{color:black !important;}
-        li{margin-bottom:8px;}
-        ul,ol{margin-left:24px;margin-right:24px;}
-        #all_posts{margin-top:24px;text-align:center;}
-        .subtitle{font-size:small;margin:12px 0px;}
-        .content p{margin-left:24px;margin-right:24px;text-align: justify;}
-        h1{margin-bottom:12px !important;}
-        #description{font-size:large;margin-bottom:12px;}
-        h3{margin-top:42px;margin-bottom:8px;}
-        h4{margin-left:24px;margin-right:24px;}
-        #twitter{line-height:20px;vertical-align:top;text-align:right;font-style:italic;color:#333;margin-top:24px;font-size:small;}
+a.ablack{color:black !important;}
+li{margin-bottom:8px;}
+ul,ol{margin-left:24px;margin-right:24px;}
+#all_posts{margin-top:24px;text-align:center;}
+.subtitle{font-size:small;margin:12px 0px;}
+.content p{margin-left:24px;margin-right:24px;text-align: justify;}
+h1{margin-bottom:12px !important;}
+#description{font-size:large;margin-bottom:12px;}
+h3{margin-top:42px;margin-bottom:8px;}
+h4{margin-left:24px;margin-right:24px;}
+#twitter{line-height:20px;vertical-align:top;text-align:right;font-style:italic;color:#333;margin-top:24px;font-size:small;}
 
-	pre{
-		overflow: auto;
-		font-family: monospace;
-		font-size: 1em;
-	}
+pre{
+	overflow: auto;
+	font-family: monospace;
+	font-size: 1em;
+}
 
-	code{
-		color:#006400;
-	}
+code{
+	color:#006400;
+}
 
-	img {
-		/* Centering
-		display: block;
-		margin-left: auto;
-		margin-right: auto */
+img {
+	/* Centering
+	display: block;
+	margin-left: auto;
+	margin-right: auto */
 
-		/* Ensure width */
-		max-width: 100%;
-		/*max-height: 100%;*/
-		height: auto;
-	}
+	/* Ensure width */
+	max-width: 100%;
+	/*max-height: 100%;*/
+	height: auto;
+}
+
+/* For our simple exit-intent popup */
+
+#popup {
+    display: none;
+}
+
+.popup__wrapper {
+    background: rgba(0, 0, 0, .75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.popup__container {
+    background: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin: 100px auto;
+    max-width: 100%;
+    padding: 20px;
+    width: 500px;
+}
+
+.popup__title {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
 </style>
 <title>Ballmerpeak devblog &mdash; Posts tagged "wheel"</title>
 </head><body onload='myOnLoad()'>
@@ -125,8 +183,12 @@ Richárd Thier</div>
 <p class="readmore"><a href="./reinventing-the-wheel.html">Read more...</a></p>
 <p>Tags: <a href='tag_software-development.html'>software-development</a>, <a href='tag_reinvent.html'>reinvent</a>, <a href='tag_wheel.html'>wheel</a>, <a href='tag_philosophy.html'>philosophy</a></p>
 </div>
-<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
-Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+<div id="popup" class="popup__wrapper">
+    <div class="popup__container">
+        <h1 class="popup__title">Thank you for visiting!</h1>
+        <p>Consider subscribing to the RSS feed of the blog!</p>
+    </div>
+</div>
 </div></div>
 <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

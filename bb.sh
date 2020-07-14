@@ -505,6 +505,7 @@ create_html_page() {
     cat .footer.html >> "$filename"
     # close divs
     echo '</div></div>' >> "$filename" # divbody and divbodyholder 
+    # add disqus JS
     disqus_footer >> "$filename"
     echo '</body></html>' >> "$filename"
 }
