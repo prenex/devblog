@@ -2,22 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Tue, 14 Jul 2020 22:19:55 +0200</lastBuildDate>
-<pubDate>Tue, 14 Jul 2020 22:19:55 +0200</pubDate>
+<lastBuildDate>Tue, 14 Jul 2020 22:34:32 +0200</lastBuildDate>
+<pubDate>Tue, 14 Jul 2020 22:34:32 +0200</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
-<item><title>
-
-</title><description><![CDATA[
-
-
-
-
-
-<!-- text end -->
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/popup.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./popup.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Tue, 14 Jul 2020 22:02:00 +0200</pubDate></item>
 <item><title>
 Pro vim development environment 1: basics and motivation
 </title><description><![CDATA[
@@ -188,4 +175,26 @@ increasing functionality - just you see it destroys the 3D picture?</p>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./debugging-hyperz-and-fixing-a-radeon-drm-linux-kernel-module.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Wed, 19 Jun 2019 03:54:00 +0200</pubDate></item>
+<item><title>
+Debugging mesa and the linux 3D graphics stack
+</title><description><![CDATA[
+
+<p>Have you ever wanted to troubleshoot or even contribute to the linux graphics 
+stack? Were you ever interested in doing a deep dive? Read on if you dare, but 
+do not fear - I was rookie on the topic myself before I went for my hunt on a 
+50-1000% slowdown after some updates and a distro change.</p>
+
+<p>I wanted to document the process of delving deep into open source drivers. I 
+just wanted to put things together as it might be valuable for others wanting 
+to do similar things - I was and still is a rookie for these things after all.</p>
+
+<p>The power of open source: We can fix a more than decade old hardware getting 
+a slowdown as easily as a new one! Fuck you planned obsolesence haha!</p>
+
+<h1>Introduction</h1>
+<p>Tags: <a href='tag_mesa.html'>mesa</a>, <a href='tag_arch.html'>arch</a>, <a href='tag_32bit.html'>32bit</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_debug.html'>debug</a>, <a href='tag_slowdown.html'>slowdown</a>, <a href='tag_contribute.html'>contribute</a>, <a href='tag_open-source.html'>open-source</a>, <a href='tag_graphics.html'>graphics</a>, <a href='tag_stack.html'>stack</a>, <a href='tag_analysis.html'>analysis</a>, <a href='tag_3D.html'>3D</a>, <a href='tag_optimization.html'>optimization</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_system.html'>system</a>, <a href='tag_internals.html'>internals</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/debugging-mesa-and-the-linux-3d-graphics-stack.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./debugging-mesa-and-the-linux-3d-graphics-stack.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Tue, 11 Jun 2019 00:25:00 +0200</pubDate></item>
 </channel></rss>

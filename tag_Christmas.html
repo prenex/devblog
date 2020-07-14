@@ -12,65 +12,29 @@
 
   gtag('config', 'UA-137238428-1');
 
-/*
-  // Needed for mobile <pre> tag sizes! - not anymore after specifying viewport properly!
-  function getDefaultFontSize(){
-   var who=document.createElement('div');
-  
-   who.style.cssText='white-space: pre-wrap !important; display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em';
-  
-   who.appendChild(document.createTextNode('M'));
-   document.body.appendChild(who);
-   var fs= [who.offsetWidth, who.offsetHeight];
-   document.body.removeChild(who);
-   return fs;
-  }
-
-  function fixPreSize() {
-    // Create our stylesheet to fix small letters for pre tags
-    var style = document.createElement('style');
-    style.innerHTML =
-     'pre {' + // TODO: check what to do with [1]
-      //'font-size:' + getDefaultFontSize()[0] + 'px' + 
-      'font-size:200%' + 
-     '}';
-    
-    // Get the first script tag
-    var ref = document.querySelector('script');
-    
-    // Insert our new styles before the first script tag
-    ref.parentNode.insertBefore(style, ref);
-  }
-*/
   function myOnLoad() {
-    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      // If we are on a mobile phone
-      //fixPreSize();
-    //}
-    console.log("KIULA");
     document.getElementById('popup').onclick=function(){
-            // Hide the popup if user click away to grey area
-            document.getElementById("popup").style.display = "none";
+      // Hide the popup if user click away to grey area
+      document.getElementById("popup").style.display = "none";
     }
   }
 
   /* EXIT INTENT POPUP */
-
   function onMouseOut(event) {
-      // If the mouse is near the top of the window, show the popup
-      // Also, do NOT trigger when hovering or clicking on selects AND INPUTS
-      if (
-          event.clientY < 50 &&
-          event.relatedTarget == null &&
-          event.target.nodeName.toLowerCase() !== "select" &&
-          event.target.nodeName.toLowerCase() !== "input"
-      ) {
-          // Remove this event listener
-          document.removeEventListener("mouseout", onMouseOut);
+    // If the mouse is near the top of the window, show the popup
+    // Also, do NOT trigger when hovering or clicking on selects AND INPUTS
+    if (
+      event.clientY < 50 &&
+      event.relatedTarget == null &&
+      event.target.nodeName.toLowerCase() !== "select" &&
+      event.target.nodeName.toLowerCase() !== "input"
+    ) {
+      // Remove this event listener
+      document.removeEventListener("mouseout", onMouseOut);
   
-          // Show the popup
-          document.getElementById("popup").style.display = "block";
-      }
+      // Show the popup
+      document.getElementById("popup").style.display = "block";
+    }
   }
   document.addEventListener("mouseout", onMouseOut);
 
@@ -196,6 +160,8 @@ even foreign people who did not see the Hungarian tutorial for it of course?</p>
         <p>Consider subscribing to the RSS feed of the blog!</p>
     </div>
 </div>
+<div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
 </div></div>
 <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
