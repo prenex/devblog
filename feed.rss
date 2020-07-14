@@ -2,9 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Ballmerpeak devblog</title><link>http://ballmerpeak.web.elte.hu/devblog</link>
 <description>Software development, related stuff and others</description><language>en</language>
-<lastBuildDate>Fri, 28 Feb 2020 21:45:51 +0100</lastBuildDate>
-<pubDate>Fri, 28 Feb 2020 21:45:51 +0100</pubDate>
+<lastBuildDate>Tue, 14 Jul 2020 20:52:17 +0200</lastBuildDate>
+<pubDate>Tue, 14 Jul 2020 20:52:17 +0200</pubDate>
 <atom:link href="http://ballmerpeak.web.elte.hu/devblog/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Pro vim development environment 1: basics and motivation
+</title><description><![CDATA[
+
+<p>Pro "haxxors" and coders can live without a full-blown IDE and usually prefer 
+a good editor, a good terminal, a good operating system, scripts and habits.</p>
+
+<p>One such good editor is vim and I thought why not blog down some tips&amp;tricks?</p>
+
+<p>Aside of writing down some neat tricks I wrote and wrote and wrote and my text 
+became a spaghetti whose half is for vim-novices and other half is for mid 
+level and "at least casual" vim users so I thought I seperate these two into 
+their own blog posts or maybe later who knows add more and more parts to this 
+little "vim dev env series".</p>
+
+<h1>Why you should use vim as a devenv</h1>
+<p>Tags: <a href='tag_vim.html'>vim</a>, <a href='tag_devenv.html'>devenv</a>, <a href='tag_development.html'>development</a>, <a href='tag_environment.html'>environment</a>, <a href='tag_tips.html'>tips</a>, <a href='tag_tricks.html'>tricks</a>, <a href='tag_pro.html'>pro</a>, <a href='tag_hacker.html'>hacker</a>, <a href='tag_hackz.html'>hackz</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_linux.html'>linux</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_series.html'>series</a></p>
+]]></description><link>http://ballmerpeak.web.elte.hu/devblog/pro-vim-development-environment-1-basics-and-motivation.html</link>
+<guid>http://ballmerpeak.web.elte.hu/devblog/./pro-vim-development-environment-1-basics-and-motivation.html</guid>
+<dc:creator>Richárd Thier</dc:creator>
+<pubDate>Fri, 24 Apr 2020 17:27:00 +0200</pubDate></item>
 <item><title>
 Blog not mobile friendly? Neither apache mod_dir is!
 </title><description><![CDATA[
@@ -22,7 +43,7 @@ friendly and you better take that seriously for SEO penalties and such.</p>
 ]]></description><link>http://ballmerpeak.web.elte.hu/devblog/blog-not-mobile-friendly-neither-apache-moddir-is.html</link>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./blog-not-mobile-friendly-neither-apache-moddir-is.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
-<pubDate>Fri, 28 Feb 2020 21:44:23 +0100</pubDate></item>
+<pubDate>Fri, 28 Feb 2020 21:44:00 +0100</pubDate></item>
 <item><title>
 Why I like statically typed languages
 </title><description><![CDATA[
@@ -176,24 +197,4 @@ a slowdown as easily as a new one! Fuck you planned obsolesence haha!</p>
 <guid>http://ballmerpeak.web.elte.hu/devblog/./debugging-mesa-and-the-linux-3d-graphics-stack.html</guid>
 <dc:creator>Richárd Thier</dc:creator>
 <pubDate>Tue, 11 Jun 2019 00:25:00 +0200</pubDate></item>
-<item><title>
-Building your own mesa
-</title><description><![CDATA[
-
-<p>These days I was doing a debugging session on a slowdown somewhere in the 
-linux graphics pipeline of mine after I have changed to arch linux. It have 
-turned out to be a bug in mesa, but in order to corner the problem I had to 
-compile mesa myself both in latest and earlier versions.</p>
-
-<p>I have found that it is really easy to do so - nearly as "simple" as 
-compiling and using your own kernel and it is well documented, but I had to 
-use different information from different sites so I thought it is good to 
-collect the relevant links in one place.</p>
-
-<h1>Getting sources</h1>
-<p>Tags: <a href='tag_mesa.html'>mesa</a>, <a href='tag_build.html'>build</a>, <a href='tag_compile.html'>compile</a>, <a href='tag_tutorial.html'>tutorial</a>, <a href='tag_linux.html'>linux</a></p>
-]]></description><link>http://ballmerpeak.web.elte.hu/devblog/building-your-own-mesa.html</link>
-<guid>http://ballmerpeak.web.elte.hu/devblog/./building-your-own-mesa.html</guid>
-<dc:creator>Richárd Thier</dc:creator>
-<pubDate>Tue, 04 Jun 2019 14:34:00 +0200</pubDate></item>
 </channel></rss>
