@@ -12,14 +12,6 @@
 
   gtag('config', 'UA-137238428-1');
 
-  function myOnLoad() {
-    document.getElementById('popup').onclick=function(){
-      // Hide the popup if user click away to grey area
-      document.getElementById("popup").style.display = "none";
-    }
-  }
-
-  /* EXIT INTENT POPUP */
   function onMouseOut(event) {
     // If the mouse is near the top of the window, show the popup
     // Also, do NOT trigger when hovering or clicking on selects AND INPUTS
@@ -36,6 +28,19 @@
       document.getElementById("popup").style.display = "block";
     }
   }
-  document.addEventListener("mouseout", onMouseOut);
+
+  function myOnLoad() {
+    document.getElementById('popup').onclick=function(){
+      // Hide the popup if user click away to grey area
+      document.getElementById("popup").style.display = "none";
+    }
+
+  }
+
+  // We only add the exit intent popups event listener if the
+  // user is at least x seconds on the page already.
+  setTimeout(function() {
+    document.addEventListener("mouseout", onMouseOut);
+  }, 22 * 1000);
 
 </script>

@@ -12,14 +12,6 @@
 
   gtag('config', 'UA-137238428-1');
 
-  function myOnLoad() {
-    document.getElementById('popup').onclick=function(){
-      // Hide the popup if user click away to grey area
-      document.getElementById("popup").style.display = "none";
-    }
-  }
-
-  /* EXIT INTENT POPUP */
   function onMouseOut(event) {
     // If the mouse is near the top of the window, show the popup
     // Also, do NOT trigger when hovering or clicking on selects AND INPUTS
@@ -36,7 +28,20 @@
       document.getElementById("popup").style.display = "block";
     }
   }
-  document.addEventListener("mouseout", onMouseOut);
+
+  function myOnLoad() {
+    document.getElementById('popup').onclick=function(){
+      // Hide the popup if user click away to grey area
+      document.getElementById("popup").style.display = "none";
+    }
+
+  }
+
+  // We only add the exit intent popups event listener if the
+  // user is at least x seconds on the page already.
+  setTimeout(function() {
+    document.addEventListener("mouseout", onMouseOut);
+  }, 22 * 1000);
 
 </script>
 <style>
@@ -315,6 +320,14 @@ however as that is also on my plan. It is already lighter a bit :-)</p>
 
 
 
+
+
+
+
+
+
+
+
 <!-- text end -->
 <!-- entry end -->
 </div>
@@ -334,10 +347,10 @@ however as that is also on my plan. It is already lighter a bit :-)</p>
             <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 <div id="popup" class="popup__wrapper">
-    <div class="popup__container">
-        <h1 class="popup__title">Thank you for visiting!</h1>
-        <p>Consider subscribing to the RSS feed of the blog!</p>
-    </div>
+  <div class="popup__container">
+    <h1 class="popup__title">Thank you for visiting!</h1>
+    <div id="all_posts"><a href="all_posts.html">View older posts</a> or <a href="feed.rss">Subscribe to RSS</a></div>
+  </div>
 </div>
 <div id="footer">CC by-nc-nd <a href="https://disqus.com/by/prenex/">Richárd Thier</a> &mdash; <a href="mailto:u9vata&#64;gmail&#46;com">u9vata&#64;gmail&#46;com</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
